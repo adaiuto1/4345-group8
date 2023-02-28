@@ -3,6 +3,13 @@
 
 # --- !Ups
 
+create table application (
+  id                            bigint auto_increment not null,
+  recipient_email               varchar(255),
+  message                       varchar(255),
+  constraint pk_application primary key (id)
+);
+
 create table profile (
   id                            bigint auto_increment not null,
   email                         varchar(255),
@@ -41,6 +48,8 @@ create table user (
 
 
 # --- !Downs
+
+drop table if exists application;
 
 drop table if exists profile;
 

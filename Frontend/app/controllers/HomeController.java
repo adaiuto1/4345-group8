@@ -110,6 +110,5 @@ public class HomeController extends Controller {
                 }, ec.current());
     }
 
-
 }
 

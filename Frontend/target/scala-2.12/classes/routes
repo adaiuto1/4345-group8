@@ -13,6 +13,8 @@ GET        /register               controllers.HomeController.signupHandler()
 
 GET        /registerProfile        controllers.HomeController.profileHandler()
 
+GET        /apply/:id              controllers.ApplicationController.create(id: Integer)
+
 # Map static resources from the /public folder to the /assets URL path
 GET        /assets/*file           controllers.Assets.at(path="/public", file)
 
