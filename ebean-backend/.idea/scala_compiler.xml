@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ScalaCompilerConfiguration">
+    <profile name="sbt 1" modules="ebean-backend-1-8_7437,ebean-backend_195,ebean-backend_2472,lab-2-ebean,lab-2-ebean-copy,root-4345-group8,swe-group8" />
+    <profile name="sbt 2" modules="4345-group8.ebean-backend,Lab-2-Ebean - Copy.ebean-backend,Lab-2-Ebean.ebean-backend,SWE-group8.ebean-backend,apistorebackend,ebean-backend,ebean-backend-1.8">
+      <option name="deprecationWarnings" value="true" />
+      <option name="uncheckedWarnings" value="true" />
+      <parameters>
+        <parameter value="-encoding" />
+        <parameter value="utf8" />
+      </parameters>
+    </profile>
+  </component>
+</project>

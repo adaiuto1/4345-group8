@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="4345-group8.ebean-backend" options="-encoding utf8 -g" />
+      <module name="Lab-2-Ebean - Copy.ebean-backend" options="-encoding utf8 -g" />
+      <module name="Lab-2-Ebean.ebean-backend" options="-encoding utf8 -g" />
+      <module name="SWE-group8.ebean-backend" options="-encoding utf8 -g" />
+      <module name="ebean-backend" options="-encoding utf8 -g" />
+      <module name="ebean-backend-1.8" options="-encoding utf8 -g" />
+    </option>
+  </component>
+</project>
