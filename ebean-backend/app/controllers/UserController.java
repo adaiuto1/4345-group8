@@ -7,6 +7,10 @@ import models.User;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
+import java.util.*;
+import javax.mail.*;
+import javax.mail.internet.*;
+import javax.activation.*;
 
 
 /**
@@ -76,8 +80,9 @@ public class UserController extends Controller {
         return ok(result);
     }
 
+    // Reset password if forgotten
     public Result resetPassword() {
-        System.out.println("Resetting password");
+        System.out.println("In reset password");
         JsonNode req = request().body().asJson();
         String question1 = req.get("question1").asText();
         String question2 = req.get("question2").asText();
@@ -87,7 +92,34 @@ public class UserController extends Controller {
             Profile profile = Profile.findByEmail(email);
             User user = User.findByID(profile.id); // ( match where username and password both match )
 
+            // Verify that the questions have been correctly answered
             if(user!=null && question1.equals(user.question1) && question2.equals(user.question2)){
+                return ok("true");
+                // Send email with temporary password
+            }else{
+                return ok("false");
+            }
+        }
+        catch (Exception e) {
+            return ok("false");
+        }
+    }
+
+    // Gives user the opportunity to change their password by providing their current password
+    public Result changePassword() {
+        System.out.println("In change password");
+        JsonNode req = request().body().asJson();
+        Long id = req.get("id").asLong();
+        String oldPassword = req.get("oldPassword").asText();
+        String newPassword = req.get("newPassword").asText();
+
+        try {
+            User user = User.findByID(id); // ( match where id matches )
+
+            // Verify that the questions have been correctly answered
+            if(user!=null && oldPassword.equals(user.password)){
+                // Change old password to provided password
+                user.password = newPassword;
                 return ok("true");
             }else{
                 return ok("false");

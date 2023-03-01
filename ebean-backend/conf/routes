@@ -17,7 +17,8 @@ GET     /info                       controllers.HomeController.info()
 #Add Profile
 POST    /registerProfile            controllers.ProfileController.registerNew()
 
-# Reset Password
+# Request Password Reset
 POST    /resetPassword              controllers.UserController.resetPassword()
 
-
+# Change Password
+POST    /changePassword             controllers.UserController.changePassword()
