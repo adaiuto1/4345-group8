@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/ebean-backend/conf/routes
-// @DATE:Tue Feb 28 14:41:14 CST 2023
+// @DATE:Wed Mar 01 16:11:54 CST 2023
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -15,7 +15,7 @@ import _root_.play.libs.F
 package controllers.javascript {
   import ReverseRouteContext.empty
 
-  // @LINE:18
+  // @LINE:20
   class ReverseProfileController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -23,12 +23,32 @@ package controllers.javascript {
     }
 
   
-    // @LINE:18
+    // @LINE:20
     def registerNew: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ProfileController.registerNew",
       """
         function() {
           return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "registerProfile"})
+        }
+      """
+    )
+  
+  }
+
+  // @LINE:17
+  class ReversePasswordController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:17
+    def resetPassword: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.PasswordController.resetPassword",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "resetPassword"})
         }
       """
     )

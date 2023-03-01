@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/conf/routes
-// @DATE:Tue Feb 28 15:35:14 CST 2023
+// @DATE:Wed Mar 01 16:07:38 CST 2023
 
 package router
 
@@ -18,7 +18,7 @@ class Routes(
   HomeController_2: controllers.HomeController,
   // @LINE:16
   ApplicationController_0: controllers.ApplicationController,
-  // @LINE:19
+  // @LINE:23
   Assets_1: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -29,7 +29,7 @@ class Routes(
     HomeController_2: controllers.HomeController,
     // @LINE:16
     ApplicationController_0: controllers.ApplicationController,
-    // @LINE:19
+    // @LINE:23
     Assets_1: controllers.Assets
   ) = this(errorHandler, HomeController_2, ApplicationController_0, Assets_1, "/")
 
@@ -50,6 +50,8 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """register""", """controllers.HomeController.signupHandler()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """registerProfile""", """controllers.HomeController.profileHandler()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """apply/""" + "$" + """id<[^/]+>""", """controllers.ApplicationController.create(id:Integer)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """changePassword""", """controllers.HomeController.changePassword()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """submitNewPassword""", """controllers.HomeController.passwordHandler()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.at(path:String = "/public", file:String)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -166,11 +168,47 @@ class Routes(
     )
   )
 
-  // @LINE:19
-  private[this] lazy val controllers_Assets_at6_route = Route("GET",
+  // @LINE:18
+  private[this] lazy val controllers_HomeController_changePassword6_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("changePassword")))
+  )
+  private[this] lazy val controllers_HomeController_changePassword6_invoker = createInvoker(
+    HomeController_2.changePassword(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "changePassword",
+      Nil,
+      "GET",
+      this.prefix + """changePassword""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:20
+  private[this] lazy val controllers_HomeController_passwordHandler7_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("submitNewPassword")))
+  )
+  private[this] lazy val controllers_HomeController_passwordHandler7_invoker = createInvoker(
+    HomeController_2.passwordHandler(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "passwordHandler",
+      Nil,
+      "GET",
+      this.prefix + """submitNewPassword""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:23
+  private[this] lazy val controllers_Assets_at8_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_at6_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_at8_invoker = createInvoker(
     Assets_1.at(fakeValue[String], fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -223,10 +261,22 @@ class Routes(
         controllers_ApplicationController_create5_invoker.call(ApplicationController_0.create(id))
       }
   
-    // @LINE:19
-    case controllers_Assets_at6_route(params@_) =>
+    // @LINE:18
+    case controllers_HomeController_changePassword6_route(params@_) =>
+      call { 
+        controllers_HomeController_changePassword6_invoker.call(HomeController_2.changePassword())
+      }
+  
+    // @LINE:20
+    case controllers_HomeController_passwordHandler7_route(params@_) =>
+      call { 
+        controllers_HomeController_passwordHandler7_invoker.call(HomeController_2.passwordHandler())
+      }
+  
+    // @LINE:23
+    case controllers_Assets_at8_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
-        controllers_Assets_at6_invoker.call(Assets_1.at(path, file))
+        controllers_Assets_at8_invoker.call(Assets_1.at(path, file))
       }
   }
 }

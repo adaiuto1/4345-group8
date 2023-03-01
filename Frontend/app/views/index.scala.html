@@ -1,4 +1,4 @@
-@(message: String)
+@(message: String, username: String)
 @import java.math.BigInteger;
 <!DOCTYPE html>
 <html>
@@ -12,6 +12,8 @@
             <p class="focused" style="font-size: 20px;
                 color: #3F51B5">@message</p>
         </header>
-        <a href="http://localhost:9001/changePassword">change password</a>
+        <p>@message</p>
+        <p>@username</p>
+        <a href="@routes.HomeController.changePassword()">CHANGE PASSWORD</a>
     </body>
 </html>

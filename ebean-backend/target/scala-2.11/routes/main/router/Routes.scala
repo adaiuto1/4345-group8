@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/ebean-backend/conf/routes
-// @DATE:Tue Feb 28 14:41:14 CST 2023
+// @DATE:Wed Mar 01 16:11:54 CST 2023
 
 package router
 
@@ -17,29 +17,33 @@ import _root_.play.libs.F
 class Routes(
   override val errorHandler: play.api.http.HttpErrorHandler, 
   // @LINE:6
-  HomeController_0: controllers.HomeController,
+  HomeController_1: controllers.HomeController,
   // @LINE:9
-  UserController_1: controllers.UserController,
-  // @LINE:18
-  ProfileController_2: controllers.ProfileController,
+  UserController_2: controllers.UserController,
+  // @LINE:17
+  PasswordController_0: controllers.PasswordController,
+  // @LINE:20
+  ProfileController_3: controllers.ProfileController,
   val prefix: String
 ) extends GeneratedRouter {
 
    @javax.inject.Inject()
    def this(errorHandler: play.api.http.HttpErrorHandler,
     // @LINE:6
-    HomeController_0: controllers.HomeController,
+    HomeController_1: controllers.HomeController,
     // @LINE:9
-    UserController_1: controllers.UserController,
-    // @LINE:18
-    ProfileController_2: controllers.ProfileController
-  ) = this(errorHandler, HomeController_0, UserController_1, ProfileController_2, "/")
+    UserController_2: controllers.UserController,
+    // @LINE:17
+    PasswordController_0: controllers.PasswordController,
+    // @LINE:20
+    ProfileController_3: controllers.ProfileController
+  ) = this(errorHandler, HomeController_1, UserController_2, PasswordController_0, ProfileController_3, "/")
 
   import ReverseRouteContext.empty
 
   def withPrefix(prefix: String): Routes = {
     router.RoutesPrefix.setPrefix(prefix)
-    new Routes(errorHandler, HomeController_0, UserController_1, ProfileController_2, prefix)
+    new Routes(errorHandler, HomeController_1, UserController_2, PasswordController_0, ProfileController_3, prefix)
   }
 
   private[this] val defaultPrefix: String = {
@@ -51,6 +55,7 @@ class Routes(
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """login""", """controllers.UserController.authenticate()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """signup""", """controllers.UserController.registerNew()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """info""", """controllers.HomeController.info()"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """resetPassword""", """controllers.PasswordController.resetPassword()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """registerProfile""", """controllers.ProfileController.registerNew()"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -64,7 +69,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix)))
   )
   private[this] lazy val controllers_HomeController_index0_invoker = createInvoker(
-    HomeController_0.index,
+    HomeController_1.index,
     HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.HomeController",
@@ -81,7 +86,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("login")))
   )
   private[this] lazy val controllers_UserController_authenticate1_invoker = createInvoker(
-    UserController_1.authenticate(),
+    UserController_2.authenticate(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.UserController",
@@ -98,7 +103,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("signup")))
   )
   private[this] lazy val controllers_UserController_registerNew2_invoker = createInvoker(
-    UserController_1.registerNew(),
+    UserController_2.registerNew(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.UserController",
@@ -115,7 +120,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("info")))
   )
   private[this] lazy val controllers_HomeController_info3_invoker = createInvoker(
-    HomeController_0.info(),
+    HomeController_1.info(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.HomeController",
@@ -127,12 +132,29 @@ class Routes(
     )
   )
 
-  // @LINE:18
-  private[this] lazy val controllers_ProfileController_registerNew4_route = Route("POST",
+  // @LINE:17
+  private[this] lazy val controllers_PasswordController_resetPassword4_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("resetPassword")))
+  )
+  private[this] lazy val controllers_PasswordController_resetPassword4_invoker = createInvoker(
+    PasswordController_0.resetPassword(),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.PasswordController",
+      "resetPassword",
+      Nil,
+      "POST",
+      """""",
+      this.prefix + """resetPassword"""
+    )
+  )
+
+  // @LINE:20
+  private[this] lazy val controllers_ProfileController_registerNew5_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("registerProfile")))
   )
-  private[this] lazy val controllers_ProfileController_registerNew4_invoker = createInvoker(
-    ProfileController_2.registerNew(),
+  private[this] lazy val controllers_ProfileController_registerNew5_invoker = createInvoker(
+    ProfileController_3.registerNew(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.ProfileController",
@@ -150,31 +172,37 @@ class Routes(
     // @LINE:6
     case controllers_HomeController_index0_route(params) =>
       call { 
-        controllers_HomeController_index0_invoker.call(HomeController_0.index)
+        controllers_HomeController_index0_invoker.call(HomeController_1.index)
       }
   
     // @LINE:9
     case controllers_UserController_authenticate1_route(params) =>
       call { 
-        controllers_UserController_authenticate1_invoker.call(UserController_1.authenticate())
+        controllers_UserController_authenticate1_invoker.call(UserController_2.authenticate())
       }
   
     // @LINE:13
     case controllers_UserController_registerNew2_route(params) =>
       call { 
-        controllers_UserController_registerNew2_invoker.call(UserController_1.registerNew())
+        controllers_UserController_registerNew2_invoker.call(UserController_2.registerNew())
       }
   
     // @LINE:15
     case controllers_HomeController_info3_route(params) =>
       call { 
-        controllers_HomeController_info3_invoker.call(HomeController_0.info())
+        controllers_HomeController_info3_invoker.call(HomeController_1.info())
       }
   
-    // @LINE:18
-    case controllers_ProfileController_registerNew4_route(params) =>
+    // @LINE:17
+    case controllers_PasswordController_resetPassword4_route(params) =>
       call { 
-        controllers_ProfileController_registerNew4_invoker.call(ProfileController_2.registerNew())
+        controllers_PasswordController_resetPassword4_invoker.call(PasswordController_0.resetPassword())
+      }
+  
+    // @LINE:20
+    case controllers_ProfileController_registerNew5_route(params) =>
+      call { 
+        controllers_ProfileController_registerNew5_invoker.call(ProfileController_3.registerNew())
       }
   }
 }

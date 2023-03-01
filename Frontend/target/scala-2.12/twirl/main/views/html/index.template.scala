@@ -22,10 +22,10 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 
-object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[String,play.twirl.api.HtmlFormat.Appendable] {
+object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[String,String,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(message: String):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(message: String, username: String):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 /*2.2*/import java.math.BigInteger;
@@ -43,7 +43,9 @@ Seq[Any](format.raw/*3.1*/("""<!DOCTYPE html>
             <p class="focused" style="font-size: 20px;
                 color: #3F51B5">"""),_display_(/*13.34*/message),format.raw/*13.41*/("""</p>
         </header>
-        <a href="http://localhost:9001/changePassword">change password</a>
+        <p>"""),_display_(/*15.13*/message),format.raw/*15.20*/("""</p>
+        <p>"""),_display_(/*16.13*/username),format.raw/*16.21*/("""</p>
+        <a href=""""),_display_(/*17.19*/routes/*17.25*/.HomeController.changePassword()),format.raw/*17.57*/("""">CHANGE PASSWORD</a>
     </body>
 </html>
 """))
@@ -51,9 +53,9 @@ Seq[Any](format.raw/*3.1*/("""<!DOCTYPE html>
     }
   }
 
-  def render(message:String): play.twirl.api.HtmlFormat.Appendable = apply(message)
+  def render(message:String,username:String): play.twirl.api.HtmlFormat.Appendable = apply(message,username)
 
-  def f:((String) => play.twirl.api.HtmlFormat.Appendable) = (message) => apply(message)
+  def f:((String,String) => play.twirl.api.HtmlFormat.Appendable) = (message,username) => apply(message,username)
 
   def ref: this.type = this
 
@@ -62,11 +64,11 @@ Seq[Any](format.raw/*3.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: 2023-02-27T12:41:45.506
-                  SOURCE: C:/Users/brian/Desktop/Lab-2-Ebean/Frontend/app/views/index.scala.html
-                  HASH: d04e6d7fecdd02925ab76a7493bd69350a09d81c
-                  MATRIX: 948->1|1038->20|1095->49|1431->358|1459->365
-                  LINES: 28->1|31->2|34->3|44->13|44->13
+                  DATE: 2023-03-01T17:27:31.163
+                  SOURCE: C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/app/views/index.scala.html
+                  HASH: bf4bb514ef79187724ad930543c9e8a062ba2629
+                  MATRIX: 955->1|1063->38|1120->67|1456->376|1484->383|1546->418|1574->425|1618->442|1647->450|1697->473|1712->479|1765->511
+                  LINES: 28->1|31->2|34->3|44->13|44->13|46->15|46->15|47->16|47->16|48->17|48->17|48->17
                   -- GENERATED --
               */
           

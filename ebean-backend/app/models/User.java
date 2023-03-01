@@ -24,7 +24,6 @@ public class User extends Model {
 
     public static Find<Long, User> find = new Find<Long, User>(){};
 
-
     @Constraints.Required
     public String email;
 
@@ -46,5 +45,10 @@ public class User extends Model {
                 .eq("username", name)
                 .findUnique();
     }
-
+    public static User findByEmail(String email){
+        return User.find
+                .where()
+                .eq("email", email)
+                .findUnique();
+    }
 }

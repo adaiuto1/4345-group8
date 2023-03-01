@@ -49,6 +49,22 @@ public class User {
         this.email = email;
     }
 
+    public String getQuestion1() {
+        return this.question1;
+    }
+
+    public String getQuestion2() {
+        return question2;
+    }
+
+    public String getAnswer1() {
+        return answer1;
+    }
+
+    public String getAnswer2() {
+        return answer2;
+    }
+
     public CompletionStage<WSResponse> checkAuthorized() {
 
         WSClient ws = play.test.WSTestClient.newClient(9005);
@@ -89,5 +105,5 @@ public class User {
                 });
     }
 
-    
+
 }

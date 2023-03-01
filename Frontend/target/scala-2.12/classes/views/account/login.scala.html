@@ -19,8 +19,9 @@
 
         <header class="topbar">
             <h1 class="focused" style="font-size: 37px;
-                color: #57a957">
-                <strong>Play Setup Demo</strong>
+                color: #57a957;
+                text-align: center">
+                <strong>TA Portal</strong>
             </h1>
         </header>
 
@@ -28,33 +29,30 @@
         <div class="row">
             <div class="card col s4 offset-s4 ">
                 <div class="card-panel">
-                    <form action="@routes.HomeController.signupHandler()" method="GET">
+                    <form action="@routes.HomeController.loginHandler()" method="GET">
 
                         <div class="row">
                             <div class="input-field col s12">
-
                                 <input id="username" name="username" type="text" class="validate">
                                 <label for="username">Username</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-
                                 <input id="password" name="password" type="password" class="validate">
                                 <label for="password">Password</label>
                             </div>
                         </div>
-                        @if(authorizeMessage!= null){
+                        @if(authorizeMessage != null) {
                             <div class="alert alert-primary" role="alert">
                             @authorizeMessage
                             </div>
                             <br>
                         }
-
                         <div class="row">
                             <button id="api-search-button" class="btn col s4 offset-s4" type="submit">Submit</button>
                         </div>
-
+                        <a href="@routes.HomeController.signup()">REGISTER</a>
                     </form>
                 </div>
             </div>

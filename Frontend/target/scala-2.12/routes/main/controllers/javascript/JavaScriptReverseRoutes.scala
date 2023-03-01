@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/conf/routes
-// @DATE:Tue Feb 28 15:35:14 CST 2023
+// @DATE:Wed Mar 01 16:07:38 CST 2023
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -49,12 +49,32 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:20
+    def passwordHandler: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.passwordHandler",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "submitNewPassword"})
+        }
+      """
+    )
+  
     // @LINE:10
     def signup: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.signup",
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "signup"})
+        }
+      """
+    )
+  
+    // @LINE:18
+    def changePassword: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.changePassword",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "changePassword"})
         }
       """
     )
@@ -91,7 +111,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:19
+  // @LINE:23
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -99,7 +119,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:19
+    // @LINE:23
     def at: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.at",
       """
