@@ -20,8 +20,8 @@
         <entry key="root">
           <value>
             <ProjectSettingsEntry>
-              <option name="sourceDir" value="C:\Users\brian\Desktop\Lab-2-Ebean - Copy\ebean-backend\app" />
-              <option name="confDir" value="C:\Users\brian\Documents\SMU\sem6\4345\portal\4345-group8\ebean-backend\app" />
+              <option name="sourceDir" value="C:\Users\brian\Documents\SMU\sem6\4345\portal\4345-group8\ebean-backend\app" />
+              <option name="confDir" value="$PROJECT_DIR$/app" />
               <option name="templateImports">
                 <list>
                   <option value="models._" />
@@ -46,7 +46,7 @@
                   <option value="play.libs.F" />
                 </list>
               </option>
-              <option name="uri" value="/C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/ebean-backend" />
+              <option name="uri" value="$PROJECT_DIR$/../../../../Spring%202023/CS%204345/4345-group8/ebean-backend" />
             </ProjectSettingsEntry>
           </value>
         </entry>

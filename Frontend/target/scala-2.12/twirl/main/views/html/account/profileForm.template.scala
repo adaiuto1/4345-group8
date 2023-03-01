@@ -30,8 +30,7 @@ object profileForm extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.ap
       {
 
 
-Seq[Any](format.raw/*1.43*/("""
-"""),format.raw/*2.1*/("""<!DOCTYPE html>
+Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -162,11 +161,11 @@ Seq[Any](format.raw/*1.43*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2023-02-28T15:29:48.665
-                  SOURCE: C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/app/views/account/profileForm.scala.html
-                  HASH: 73c6a463b666f3c27391c965eb3671cba66ac891
-                  MATRIX: 969->1|1105->42|1133->44|2744->1630|2759->1636|2812->1668|3121->1949|3148->1954|7608->6386|7646->6414|7687->6416|7746->6446|7851->6523|7889->6539|7948->6569|8047->6636|8104->6664
-                  LINES: 28->1|33->1|34->2|60->28|60->28|60->28|64->32|64->32|134->102|134->102|134->102|135->103|136->104|136->104|137->105|139->107|141->109
+                  DATE: 2023-03-01T16:37:16.160
+                  SOURCE: /Users/paig/Desktop/SMU/Spring 2023/CS 4345/4345-group8/Frontend/app/views/account/profileForm.scala.html
+                  HASH: 8d2d494ad0f91fb105268f6abac83ad588c1db26
+                  MATRIX: 969->1|1104->43|2689->1603|2704->1609|2757->1641|3062->1918|3089->1923|7479->6285|7517->6313|7558->6315|7616->6344|7720->6420|7758->6436|7816->6465|7913->6530|7968->6556
+                  LINES: 28->1|33->2|59->28|59->28|59->28|63->32|63->32|133->102|133->102|133->102|134->103|135->104|135->104|136->105|138->107|140->109
                   -- GENERATED --
               */
           

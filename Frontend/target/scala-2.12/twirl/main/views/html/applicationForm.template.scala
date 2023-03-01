@@ -55,9 +55,9 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: 2023-02-28T15:36:32.775
-                  SOURCE: C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/app/views/applicationForm.scala.html
-                  HASH: 7f7ddc8199094e4dd93ca7f2deef60ef20e0f83a
+                  DATE: 2023-03-01T16:37:16.059
+                  SOURCE: /Users/paig/Desktop/SMU/Spring 2023/CS 4345/4345-group8/Frontend/app/views/applicationForm.scala.html
+                  HASH: c5231b45d43b14a5e78d768fcaa68769265075db
                   MATRIX: 1040->0
                   LINES: 33->1
                   -- GENERATED --

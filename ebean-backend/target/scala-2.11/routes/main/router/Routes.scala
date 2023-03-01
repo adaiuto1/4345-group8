@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/ebean-backend/conf/routes
-// @DATE:Tue Feb 28 14:41:14 CST 2023
+// @SOURCE:/Users/paig/Desktop/SMU/Spring 2023/CS 4345/4345-group8/ebean-backend/conf/routes
+// @DATE:Wed Mar 01 16:35:17 CST 2023
 
 package router
 
@@ -52,6 +52,8 @@ class Routes(
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """signup""", """controllers.UserController.registerNew()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """info""", """controllers.HomeController.info()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """registerProfile""", """controllers.ProfileController.registerNew()"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """resetPassword""", """controllers.UserController.resetPassword()"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """changePassword""", """controllers.UserController.changePassword()"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -144,6 +146,40 @@ class Routes(
     )
   )
 
+  // @LINE:21
+  private[this] lazy val controllers_UserController_resetPassword5_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("resetPassword")))
+  )
+  private[this] lazy val controllers_UserController_resetPassword5_invoker = createInvoker(
+    UserController_1.resetPassword(),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.UserController",
+      "resetPassword",
+      Nil,
+      "POST",
+      """ Request Password Reset""",
+      this.prefix + """resetPassword"""
+    )
+  )
+
+  // @LINE:24
+  private[this] lazy val controllers_UserController_changePassword6_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("changePassword")))
+  )
+  private[this] lazy val controllers_UserController_changePassword6_invoker = createInvoker(
+    UserController_1.changePassword(),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.UserController",
+      "changePassword",
+      Nil,
+      "POST",
+      """ Change Password""",
+      this.prefix + """changePassword"""
+    )
+  )
+
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
@@ -175,6 +211,18 @@ class Routes(
     case controllers_ProfileController_registerNew4_route(params) =>
       call { 
         controllers_ProfileController_registerNew4_invoker.call(ProfileController_2.registerNew())
+      }
+  
+    // @LINE:21
+    case controllers_UserController_resetPassword5_route(params) =>
+      call { 
+        controllers_UserController_resetPassword5_invoker.call(UserController_1.resetPassword())
+      }
+  
+    // @LINE:24
+    case controllers_UserController_changePassword6_route(params) =>
+      call { 
+        controllers_UserController_changePassword6_invoker.call(UserController_1.changePassword())
       }
   }
 }

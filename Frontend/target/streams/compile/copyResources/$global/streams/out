@@ -1,4 +1,4 @@
 [debug] Copy resource mappings: 
-[debug] 	(C:\Users\brian\Documents\SMU\sem6\4345\portal\4345-group8\Frontend\conf\application.conf,C:\Users\brian\Documents\SMU\sem6\4345\portal\4345-group8\Frontend\target\scala-2.12\classes\application.conf)
-[debug] 	(C:\Users\brian\Documents\SMU\sem6\4345\portal\4345-group8\Frontend\conf\logback.xml,C:\Users\brian\Documents\SMU\sem6\4345\portal\4345-group8\Frontend\target\scala-2.12\classes\logback.xml)
-[debug] 	(C:\Users\brian\Documents\SMU\sem6\4345\portal\4345-group8\Frontend\conf\routes,C:\Users\brian\Documents\SMU\sem6\4345\portal\4345-group8\Frontend\target\scala-2.12\classes\routes)
+[debug] 	(/Users/paig/Desktop/SMU/Spring 2023/CS 4345/4345-group8/Frontend/conf/logback.xml,/Users/paig/Desktop/SMU/Spring 2023/CS 4345/4345-group8/Frontend/target/scala-2.12/classes/logback.xml)
+[debug] 	(/Users/paig/Desktop/SMU/Spring 2023/CS 4345/4345-group8/Frontend/conf/application.conf,/Users/paig/Desktop/SMU/Spring 2023/CS 4345/4345-group8/Frontend/target/scala-2.12/classes/application.conf)
+[debug] 	(/Users/paig/Desktop/SMU/Spring 2023/CS 4345/4345-group8/Frontend/conf/routes,/Users/paig/Desktop/SMU/Spring 2023/CS 4345/4345-group8/Frontend/target/scala-2.12/classes/routes)

@@ -1,7 +1,7 @@
 [debug] Copy resource mappings: 
-[debug] 	(C:\Users\brian\Documents\SMU\sem6\4345\portal\4345-group8\ebean-backend\conf\application.conf,C:\Users\brian\Documents\SMU\sem6\4345\portal\4345-group8\ebean-backend\target\scala-2.11\classes\application.conf)
-[debug] 	(C:\Users\brian\Documents\SMU\sem6\4345\portal\4345-group8\ebean-backend\conf\evolutions,C:\Users\brian\Documents\SMU\sem6\4345\portal\4345-group8\ebean-backend\target\scala-2.11\classes\evolutions)
-[debug] 	(C:\Users\brian\Documents\SMU\sem6\4345\portal\4345-group8\ebean-backend\conf\logback.xml,C:\Users\brian\Documents\SMU\sem6\4345\portal\4345-group8\ebean-backend\target\scala-2.11\classes\logback.xml)
-[debug] 	(C:\Users\brian\Documents\SMU\sem6\4345\portal\4345-group8\ebean-backend\conf\routes,C:\Users\brian\Documents\SMU\sem6\4345\portal\4345-group8\ebean-backend\target\scala-2.11\classes\routes)
-[debug] 	(C:\Users\brian\Documents\SMU\sem6\4345\portal\4345-group8\ebean-backend\conf\evolutions\default,C:\Users\brian\Documents\SMU\sem6\4345\portal\4345-group8\ebean-backend\target\scala-2.11\classes\evolutions\default)
-[debug] 	(C:\Users\brian\Documents\SMU\sem6\4345\portal\4345-group8\ebean-backend\conf\evolutions\default\1.sql,C:\Users\brian\Documents\SMU\sem6\4345\portal\4345-group8\ebean-backend\target\scala-2.11\classes\evolutions\default\1.sql)
+[debug] 	(/Users/paig/Desktop/SMU/Spring 2023/CS 4345/4345-group8/ebean-backend/conf/logback.xml,/Users/paig/Desktop/SMU/Spring 2023/CS 4345/4345-group8/ebean-backend/target/scala-2.11/classes/logback.xml)
+[debug] 	(/Users/paig/Desktop/SMU/Spring 2023/CS 4345/4345-group8/ebean-backend/conf/application.conf,/Users/paig/Desktop/SMU/Spring 2023/CS 4345/4345-group8/ebean-backend/target/scala-2.11/classes/application.conf)
+[debug] 	(/Users/paig/Desktop/SMU/Spring 2023/CS 4345/4345-group8/ebean-backend/conf/evolutions,/Users/paig/Desktop/SMU/Spring 2023/CS 4345/4345-group8/ebean-backend/target/scala-2.11/classes/evolutions)
+[debug] 	(/Users/paig/Desktop/SMU/Spring 2023/CS 4345/4345-group8/ebean-backend/conf/routes,/Users/paig/Desktop/SMU/Spring 2023/CS 4345/4345-group8/ebean-backend/target/scala-2.11/classes/routes)
+[debug] 	(/Users/paig/Desktop/SMU/Spring 2023/CS 4345/4345-group8/ebean-backend/conf/evolutions/default,/Users/paig/Desktop/SMU/Spring 2023/CS 4345/4345-group8/ebean-backend/target/scala-2.11/classes/evolutions/default)
+[debug] 	(/Users/paig/Desktop/SMU/Spring 2023/CS 4345/4345-group8/ebean-backend/conf/evolutions/default/1.sql,/Users/paig/Desktop/SMU/Spring 2023/CS 4345/4345-group8/ebean-backend/target/scala-2.11/classes/evolutions/default/1.sql)

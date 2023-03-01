@@ -30,8 +30,7 @@ object passwordChange extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl
       {
 
 
-Seq[Any](format.raw/*1.28*/("""
-"""),format.raw/*2.1*/("""<!DOCTYPE html>
+Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -79,11 +78,11 @@ Seq[Any](format.raw/*1.28*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2023-02-28T15:29:48.650
-                  SOURCE: C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/app/views/account/passwordChange.scala.html
-                  HASH: bf52ddadaebd95e0e2514c3d50fc927afc746751
-                  MATRIX: 965->1|1086->27|1114->29
-                  LINES: 28->1|33->1|34->2
+                  DATE: 2023-03-01T16:37:16.194
+                  SOURCE: /Users/paig/Desktop/SMU/Spring 2023/CS 4345/4345-group8/Frontend/app/views/account/passwordChange.scala.html
+                  HASH: 215799a4e08c7fccf9315d60783a16c9ebe4c239
+                  MATRIX: 965->1|1085->28
+                  LINES: 28->1|33->2
                   -- GENERATED --
               */
           

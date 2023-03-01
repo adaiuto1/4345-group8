@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/conf/routes
-// @DATE:Tue Feb 28 15:35:14 CST 2023
+// @SOURCE:/Users/paig/Desktop/SMU/Spring 2023/CS 4345/4345-group8/Frontend/conf/routes
+// @DATE:Wed Mar 01 16:37:15 CST 2023
 
 
 package router {

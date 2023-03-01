@@ -1,5 +1,5 @@
 
-name := """ebean-backend"""
+name := """4345-group8.ebean-backend"""
 
 version := "1.0-SNAPSHOT"
 
