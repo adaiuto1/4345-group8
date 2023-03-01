@@ -2,6 +2,7 @@ package controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import models.Profile;
 import models.User;
 import play.libs.Json;
 import play.mvc.Controller;
@@ -75,5 +76,26 @@ public class UserController extends Controller {
         return ok(result);
     }
 
+    public Result resetPassword() {
+        System.out.println("Resetting password");
+        JsonNode req = request().body().asJson();
+        String question1 = req.get("question1").asText();
+        String question2 = req.get("question2").asText();
+        String email = req.get("email").asText();
+
+        try {
+            Profile profile = Profile.findByEmail(email);
+            User user = User.findByID(profile.id); // ( match where username and password both match )
+
+            if(user!=null && question1.equals(user.question1) && question2.equals(user.question2)){
+                return ok("true");
+            }else{
+                return ok("false");
+            }
+        }
+        catch (Exception e) {
+            return ok("false");
+        }
+    }
 
 }
