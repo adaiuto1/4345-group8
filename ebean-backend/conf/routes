@@ -19,3 +19,5 @@ POST    /resetPassword              controllers.PasswordController.resetPassword
 #Add Profile
 POST    /registerProfile            controllers.ProfileController.registerNew()
 
+#send application
+POST    /sendApplication             controllers.ApplicationController.sendApplication()

@@ -1,19 +1,20 @@
 @(message: String, username: String)
-@import java.math.BigInteger;
+    @import java.math.BigInteger;
 <!DOCTYPE html>
-<html>
-    <body>
+    <html>
+        <body>
 
-        <header class="topbar">
-            <h1 class="focused" style="font-size: 37px;
-                color: #57a957">
-                <strong>Login Message</strong>
-            </h1>
-            <p class="focused" style="font-size: 20px;
-                color: #3F51B5">@message</p>
-        </header>
-        <p>@message</p>
-        <p>@username</p>
-        <a href="@routes.HomeController.changePassword()">CHANGE PASSWORD</a>
-    </body>
-</html>
+            <header class="topbar">
+                <h1 class="focused" style="font-size: 37px;
+                    color: #57a957">
+                    <strong>Login Message</strong>
+                </h1>
+                <p class="focused" style="font-size: 20px;
+                    color: #3F51B5">@message</p>
+            </header>
+            <p>@message</p>
+            <p>@username</p>
+            <a href="@routes.HomeController.changePassword()">CHANGE PASSWORD</a>
+            <a href="@routes.ApplicationController.openApplication()">Open Application</a>
+        </body>
+    </html>

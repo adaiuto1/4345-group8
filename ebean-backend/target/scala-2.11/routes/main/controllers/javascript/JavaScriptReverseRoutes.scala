@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/ebean-backend/conf/routes
-// @DATE:Wed Mar 01 16:11:54 CST 2023
+// @DATE:Wed Mar 01 22:14:02 CST 2023
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -14,26 +14,6 @@ import _root_.play.libs.F
 // @LINE:6
 package controllers.javascript {
   import ReverseRouteContext.empty
-
-  // @LINE:20
-  class ReverseProfileController(_prefix: => String) {
-
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:20
-    def registerNew: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.ProfileController.registerNew",
-      """
-        function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "registerProfile"})
-        }
-      """
-    )
-  
-  }
 
   // @LINE:17
   class ReversePasswordController(_prefix: => String) {
@@ -55,30 +35,40 @@ package controllers.javascript {
   
   }
 
-  // @LINE:6
-  class ReverseHomeController(_prefix: => String) {
+  // @LINE:20
+  class ReverseProfileController(_prefix: => String) {
 
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:6
-    def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.index",
+    // @LINE:20
+    def registerNew: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ProfileController.registerNew",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + """"})
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "registerProfile"})
         }
       """
     )
   
-    // @LINE:15
-    def info: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.info",
+  }
+
+  // @LINE:23
+  class ReverseApplicationController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:23
+    def sendApplication: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ApplicationController.sendApplication",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "info"})
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "sendApplication"})
         }
       """
     )
@@ -109,6 +99,36 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "signup"})
+        }
+      """
+    )
+  
+  }
+
+  // @LINE:6
+  class ReverseHomeController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:6
+    def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.index",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + """"})
+        }
+      """
+    )
+  
+    // @LINE:15
+    def info: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.info",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "info"})
         }
       """
     )

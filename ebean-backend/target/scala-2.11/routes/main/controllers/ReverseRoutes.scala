@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/ebean-backend/conf/routes
-// @DATE:Wed Mar 01 16:11:54 CST 2023
+// @DATE:Wed Mar 01 22:14:02 CST 2023
 
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
 import play.core.routing.{ HandlerDef, ReverseRouteContext, queryString, dynamicString }
@@ -12,21 +12,6 @@ import _root_.play.libs.F
 
 // @LINE:6
 package controllers {
-
-  // @LINE:20
-  class ReverseProfileController(_prefix: => String) {
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:20
-    def registerNew(): Call = {
-      import ReverseRouteContext.empty
-      Call("POST", _prefix + { _defaultPrefix } + "registerProfile")
-    }
-  
-  }
 
   // @LINE:17
   class ReversePasswordController(_prefix: => String) {
@@ -43,23 +28,32 @@ package controllers {
   
   }
 
-  // @LINE:6
-  class ReverseHomeController(_prefix: => String) {
+  // @LINE:20
+  class ReverseProfileController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:6
-    def index(): Call = {
+    // @LINE:20
+    def registerNew(): Call = {
       import ReverseRouteContext.empty
-      Call("GET", _prefix)
+      Call("POST", _prefix + { _defaultPrefix } + "registerProfile")
     }
   
-    // @LINE:15
-    def info(): Call = {
+  }
+
+  // @LINE:23
+  class ReverseApplicationController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:23
+    def sendApplication(): Call = {
       import ReverseRouteContext.empty
-      Call("GET", _prefix + { _defaultPrefix } + "info")
+      Call("POST", _prefix + { _defaultPrefix } + "sendApplication")
     }
   
   }
@@ -81,6 +75,27 @@ package controllers {
     def registerNew(): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "signup")
+    }
+  
+  }
+
+  // @LINE:6
+  class ReverseHomeController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:6
+    def index(): Call = {
+      import ReverseRouteContext.empty
+      Call("GET", _prefix)
+    }
+  
+    // @LINE:15
+    def info(): Call = {
+      import ReverseRouteContext.empty
+      Call("GET", _prefix + { _defaultPrefix } + "info")
     }
   
   }

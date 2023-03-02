@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/conf/routes
-// @DATE:Wed Mar 01 16:07:38 CST 2023
+// @DATE:Wed Mar 01 22:01:11 CST 2023
 
 package router
 
@@ -18,7 +18,7 @@ class Routes(
   HomeController_2: controllers.HomeController,
   // @LINE:16
   ApplicationController_0: controllers.ApplicationController,
-  // @LINE:23
+  // @LINE:25
   Assets_1: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -29,7 +29,7 @@ class Routes(
     HomeController_2: controllers.HomeController,
     // @LINE:16
     ApplicationController_0: controllers.ApplicationController,
-    // @LINE:23
+    // @LINE:25
     Assets_1: controllers.Assets
   ) = this(errorHandler, HomeController_2, ApplicationController_0, Assets_1, "/")
 
@@ -49,9 +49,10 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """signup""", """controllers.HomeController.signup()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """register""", """controllers.HomeController.signupHandler()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """registerProfile""", """controllers.HomeController.profileHandler()"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """apply/""" + "$" + """id<[^/]+>""", """controllers.ApplicationController.create(id:Integer)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """apply""", """controllers.ApplicationController.openApplication()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """changePassword""", """controllers.HomeController.changePassword()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """submitNewPassword""", """controllers.HomeController.passwordHandler()"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """sendApplication""", """controllers.ApplicationController.ApplicationHandler()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.at(path:String = "/public", file:String)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -151,18 +152,18 @@ class Routes(
   )
 
   // @LINE:16
-  private[this] lazy val controllers_ApplicationController_create5_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("apply/"), DynamicPart("id", """[^/]+""",true)))
+  private[this] lazy val controllers_ApplicationController_openApplication5_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("apply")))
   )
-  private[this] lazy val controllers_ApplicationController_create5_invoker = createInvoker(
-    ApplicationController_0.create(fakeValue[Integer]),
+  private[this] lazy val controllers_ApplicationController_openApplication5_invoker = createInvoker(
+    ApplicationController_0.openApplication(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.ApplicationController",
-      "create",
-      Seq(classOf[Integer]),
+      "openApplication",
+      Nil,
       "GET",
-      this.prefix + """apply/""" + "$" + """id<[^/]+>""",
+      this.prefix + """apply""",
       """""",
       Seq()
     )
@@ -204,11 +205,29 @@ class Routes(
     )
   )
 
-  // @LINE:23
-  private[this] lazy val controllers_Assets_at8_route = Route("GET",
+  // @LINE:22
+  private[this] lazy val controllers_ApplicationController_ApplicationHandler8_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("sendApplication")))
+  )
+  private[this] lazy val controllers_ApplicationController_ApplicationHandler8_invoker = createInvoker(
+    ApplicationController_0.ApplicationHandler(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.ApplicationController",
+      "ApplicationHandler",
+      Nil,
+      "POST",
+      this.prefix + """sendApplication""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:25
+  private[this] lazy val controllers_Assets_at9_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_at8_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_at9_invoker = createInvoker(
     Assets_1.at(fakeValue[String], fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -256,9 +275,9 @@ class Routes(
       }
   
     // @LINE:16
-    case controllers_ApplicationController_create5_route(params@_) =>
-      call(params.fromPath[Integer]("id", None)) { (id) =>
-        controllers_ApplicationController_create5_invoker.call(ApplicationController_0.create(id))
+    case controllers_ApplicationController_openApplication5_route(params@_) =>
+      call { 
+        controllers_ApplicationController_openApplication5_invoker.call(ApplicationController_0.openApplication())
       }
   
     // @LINE:18
@@ -273,10 +292,16 @@ class Routes(
         controllers_HomeController_passwordHandler7_invoker.call(HomeController_2.passwordHandler())
       }
   
-    // @LINE:23
-    case controllers_Assets_at8_route(params@_) =>
+    // @LINE:22
+    case controllers_ApplicationController_ApplicationHandler8_route(params@_) =>
+      call { 
+        controllers_ApplicationController_ApplicationHandler8_invoker.call(ApplicationController_0.ApplicationHandler())
+      }
+  
+    // @LINE:25
+    case controllers_Assets_at9_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
-        controllers_Assets_at8_invoker.call(Assets_1.at(path, file))
+        controllers_Assets_at9_invoker.call(Assets_1.at(path, file))
       }
   }
 }

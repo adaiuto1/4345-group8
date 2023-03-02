@@ -5,8 +5,10 @@
 
 create table application (
   id                            bigint auto_increment not null,
-  recipient_email               varchar(255),
+  recipient_username            varchar(255),
+  applicant_username            varchar(255),
   message                       varchar(255),
+  class_name                    varchar(255),
   constraint pk_application primary key (id)
 );
 

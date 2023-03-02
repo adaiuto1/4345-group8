@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/ebean-backend/conf/routes
-// @DATE:Wed Mar 01 16:11:54 CST 2023
+// @DATE:Wed Mar 01 22:14:02 CST 2023
 
 package router
 
@@ -17,33 +17,37 @@ import _root_.play.libs.F
 class Routes(
   override val errorHandler: play.api.http.HttpErrorHandler, 
   // @LINE:6
-  HomeController_1: controllers.HomeController,
+  HomeController_0: controllers.HomeController,
   // @LINE:9
-  UserController_2: controllers.UserController,
+  UserController_1: controllers.UserController,
   // @LINE:17
-  PasswordController_0: controllers.PasswordController,
+  PasswordController_4: controllers.PasswordController,
   // @LINE:20
-  ProfileController_3: controllers.ProfileController,
+  ProfileController_2: controllers.ProfileController,
+  // @LINE:23
+  ApplicationController_3: controllers.ApplicationController,
   val prefix: String
 ) extends GeneratedRouter {
 
    @javax.inject.Inject()
    def this(errorHandler: play.api.http.HttpErrorHandler,
     // @LINE:6
-    HomeController_1: controllers.HomeController,
+    HomeController_0: controllers.HomeController,
     // @LINE:9
-    UserController_2: controllers.UserController,
+    UserController_1: controllers.UserController,
     // @LINE:17
-    PasswordController_0: controllers.PasswordController,
+    PasswordController_4: controllers.PasswordController,
     // @LINE:20
-    ProfileController_3: controllers.ProfileController
-  ) = this(errorHandler, HomeController_1, UserController_2, PasswordController_0, ProfileController_3, "/")
+    ProfileController_2: controllers.ProfileController,
+    // @LINE:23
+    ApplicationController_3: controllers.ApplicationController
+  ) = this(errorHandler, HomeController_0, UserController_1, PasswordController_4, ProfileController_2, ApplicationController_3, "/")
 
   import ReverseRouteContext.empty
 
   def withPrefix(prefix: String): Routes = {
     router.RoutesPrefix.setPrefix(prefix)
-    new Routes(errorHandler, HomeController_1, UserController_2, PasswordController_0, ProfileController_3, prefix)
+    new Routes(errorHandler, HomeController_0, UserController_1, PasswordController_4, ProfileController_2, ApplicationController_3, prefix)
   }
 
   private[this] val defaultPrefix: String = {
@@ -57,6 +61,7 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """info""", """controllers.HomeController.info()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """resetPassword""", """controllers.PasswordController.resetPassword()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """registerProfile""", """controllers.ProfileController.registerNew()"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """sendApplication""", """controllers.ApplicationController.sendApplication()"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -69,7 +74,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix)))
   )
   private[this] lazy val controllers_HomeController_index0_invoker = createInvoker(
-    HomeController_1.index,
+    HomeController_0.index,
     HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.HomeController",
@@ -86,7 +91,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("login")))
   )
   private[this] lazy val controllers_UserController_authenticate1_invoker = createInvoker(
-    UserController_2.authenticate(),
+    UserController_1.authenticate(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.UserController",
@@ -103,7 +108,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("signup")))
   )
   private[this] lazy val controllers_UserController_registerNew2_invoker = createInvoker(
-    UserController_2.registerNew(),
+    UserController_1.registerNew(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.UserController",
@@ -120,7 +125,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("info")))
   )
   private[this] lazy val controllers_HomeController_info3_invoker = createInvoker(
-    HomeController_1.info(),
+    HomeController_0.info(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.HomeController",
@@ -137,7 +142,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("resetPassword")))
   )
   private[this] lazy val controllers_PasswordController_resetPassword4_invoker = createInvoker(
-    PasswordController_0.resetPassword(),
+    PasswordController_4.resetPassword(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.PasswordController",
@@ -154,7 +159,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("registerProfile")))
   )
   private[this] lazy val controllers_ProfileController_registerNew5_invoker = createInvoker(
-    ProfileController_3.registerNew(),
+    ProfileController_2.registerNew(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.ProfileController",
@@ -166,43 +171,66 @@ class Routes(
     )
   )
 
+  // @LINE:23
+  private[this] lazy val controllers_ApplicationController_sendApplication6_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("sendApplication")))
+  )
+  private[this] lazy val controllers_ApplicationController_sendApplication6_invoker = createInvoker(
+    ApplicationController_3.sendApplication(),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.ApplicationController",
+      "sendApplication",
+      Nil,
+      "POST",
+      """send application""",
+      this.prefix + """sendApplication"""
+    )
+  )
+
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
     // @LINE:6
     case controllers_HomeController_index0_route(params) =>
       call { 
-        controllers_HomeController_index0_invoker.call(HomeController_1.index)
+        controllers_HomeController_index0_invoker.call(HomeController_0.index)
       }
   
     // @LINE:9
     case controllers_UserController_authenticate1_route(params) =>
       call { 
-        controllers_UserController_authenticate1_invoker.call(UserController_2.authenticate())
+        controllers_UserController_authenticate1_invoker.call(UserController_1.authenticate())
       }
   
     // @LINE:13
     case controllers_UserController_registerNew2_route(params) =>
       call { 
-        controllers_UserController_registerNew2_invoker.call(UserController_2.registerNew())
+        controllers_UserController_registerNew2_invoker.call(UserController_1.registerNew())
       }
   
     // @LINE:15
     case controllers_HomeController_info3_route(params) =>
       call { 
-        controllers_HomeController_info3_invoker.call(HomeController_1.info())
+        controllers_HomeController_info3_invoker.call(HomeController_0.info())
       }
   
     // @LINE:17
     case controllers_PasswordController_resetPassword4_route(params) =>
       call { 
-        controllers_PasswordController_resetPassword4_invoker.call(PasswordController_0.resetPassword())
+        controllers_PasswordController_resetPassword4_invoker.call(PasswordController_4.resetPassword())
       }
   
     // @LINE:20
     case controllers_ProfileController_registerNew5_route(params) =>
       call { 
-        controllers_ProfileController_registerNew5_invoker.call(ProfileController_3.registerNew())
+        controllers_ProfileController_registerNew5_invoker.call(ProfileController_2.registerNew())
+      }
+  
+    // @LINE:23
+    case controllers_ApplicationController_sendApplication6_route(params) =>
+      call { 
+        controllers_ApplicationController_sendApplication6_invoker.call(ApplicationController_3.sendApplication())
       }
   }
 }

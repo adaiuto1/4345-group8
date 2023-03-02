@@ -13,7 +13,6 @@ public class PasswordController extends Controller{
 
     public Result resetPassword(){
         JsonNode req = request().body().asJson();
-        System.out.println(req);
         String email = req.get("email").asText();
         String newPassword = req.get("newPassword").asText();
         String confirmNewPassword = req.get("confirmNewPassword").asText();
