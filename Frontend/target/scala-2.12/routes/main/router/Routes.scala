@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/conf/routes
-// @DATE:Wed Mar 01 22:01:11 CST 2023
+// @DATE:Thu Mar 02 16:43:56 CST 2023
 
 package router
 
@@ -18,7 +18,7 @@ class Routes(
   HomeController_2: controllers.HomeController,
   // @LINE:16
   ApplicationController_0: controllers.ApplicationController,
-  // @LINE:25
+  // @LINE:27
   Assets_1: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -29,7 +29,7 @@ class Routes(
     HomeController_2: controllers.HomeController,
     // @LINE:16
     ApplicationController_0: controllers.ApplicationController,
-    // @LINE:25
+    // @LINE:27
     Assets_1: controllers.Assets
   ) = this(errorHandler, HomeController_2, ApplicationController_0, Assets_1, "/")
 
@@ -223,7 +223,7 @@ class Routes(
     )
   )
 
-  // @LINE:25
+  // @LINE:27
   private[this] lazy val controllers_Assets_at9_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
@@ -298,7 +298,7 @@ class Routes(
         controllers_ApplicationController_ApplicationHandler8_invoker.call(ApplicationController_0.ApplicationHandler())
       }
   
-    // @LINE:25
+    // @LINE:27
     case controllers_Assets_at9_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
         controllers_Assets_at9_invoker.call(Assets_1.at(path, file))

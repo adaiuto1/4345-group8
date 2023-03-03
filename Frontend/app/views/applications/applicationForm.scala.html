@@ -1,4 +1,4 @@
-@(message: String)
+@(firstname: String)
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -22,8 +22,8 @@
                     <form action="@routes.ApplicationController.ApplicationHandler()" method="POST">
                         <div class="row s12 offset-s2" name="row-1">
                             <div class="input-field col ">
-                                <input id="username" name="username" type="text">
-                                <label for="username">Username</label>
+                                <input id="firstname" name="firstname" type="text" value="@firstname" readonly>
+                                <label for="firstname">First Name</label>
                             </div>
                         </div>
                     </form>

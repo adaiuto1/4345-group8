@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/ebean-backend/conf/routes
-// @DATE:Wed Mar 01 22:14:02 CST 2023
+// @DATE:Thu Mar 02 11:52:30 CST 2023
 
 package controllers;
 

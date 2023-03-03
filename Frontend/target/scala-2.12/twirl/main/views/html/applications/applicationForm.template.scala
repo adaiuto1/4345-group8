@@ -25,12 +25,12 @@ import play.core.j.PlayFormsMagicForJava._
 object applicationForm extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[String,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(message: String):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(firstname: String):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](format.raw/*1.19*/("""
+Seq[Any](format.raw/*1.21*/("""
 """),format.raw/*2.1*/("""<!DOCTYPE html>
 <html lang="en">
     <head>
@@ -54,8 +54,8 @@ Seq[Any](format.raw/*1.19*/("""
                     <form action=""""),_display_(/*22.36*/routes/*22.42*/.ApplicationController.ApplicationHandler()),format.raw/*22.85*/("""" method="POST">
                         <div class="row s12 offset-s2" name="row-1">
                             <div class="input-field col ">
-                                <input id="username" name="username" type="text">
-                                <label for="username">Username</label>
+                                <input id="firstname" name="firstname" type="text" value=""""),_display_(/*25.92*/firstname),format.raw/*25.101*/("""" readonly>
+                                <label for="firstname">First Name</label>
                             </div>
                         </div>
                     </form>
@@ -68,9 +68,9 @@ Seq[Any](format.raw/*1.19*/("""
     }
   }
 
-  def render(message:String): play.twirl.api.HtmlFormat.Appendable = apply(message)
+  def render(firstname:String): play.twirl.api.HtmlFormat.Appendable = apply(firstname)
 
-  def f:((String) => play.twirl.api.HtmlFormat.Appendable) = (message) => apply(message)
+  def f:((String) => play.twirl.api.HtmlFormat.Appendable) = (firstname) => apply(firstname)
 
   def ref: this.type = this
 
@@ -79,11 +79,11 @@ Seq[Any](format.raw/*1.19*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2023-03-01T22:23:33.846
+                  DATE: 2023-03-02T18:11:04.435
                   SOURCE: C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/app/views/applications/applicationForm.scala.html
-                  HASH: 6418d021286e4bfbc0b0115a296c516e020134ea
-                  MATRIX: 971->1|1083->18|1111->20|2521->1405|2536->1411|2600->1454
-                  LINES: 28->1|33->1|34->2|54->22|54->22|54->22
+                  HASH: 79c2bd42976db4e93e7bf9f863c0dfa3f5eaea5b
+                  MATRIX: 971->1|1085->20|1113->22|2523->1407|2538->1413|2602->1456|2868->1695|2899->1704
+                  LINES: 28->1|33->1|34->2|54->22|54->22|54->22|57->25|57->25
                   -- GENERATED --
               */
           

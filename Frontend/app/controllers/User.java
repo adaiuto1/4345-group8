@@ -105,5 +105,17 @@ public class User {
                 });
     }
 
+    public CompletionStage<WSResponse> getUserByUsername(String username) {
+        WSClient ws = play.test.WSTestClient.newClient(9005);
+        WSRequest request = ws.url("http://localhost:9005/getUserByUsername/" + username);
+        ObjectNode userRequest = Json.newObject();
+        userRequest.put("username", username);
+        return request.addHeader("Content-Type", "application/json")
+                .get()
+                .thenApply((WSResponse r) -> {
+                    return r;
+                });
+    }
+
 
 }

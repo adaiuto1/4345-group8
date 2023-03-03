@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/ebean-backend/conf/routes
-// @DATE:Wed Mar 01 22:14:02 CST 2023
+// @DATE:Thu Mar 02 11:52:30 CST 2023
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -43,6 +43,16 @@ package controllers.javascript {
     }
 
   
+    // @LINE:27
+    def getProfileByEmail: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ProfileController.getProfileByEmail",
+      """
+        function(p0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "getProfileByEmail/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("p", encodeURIComponent(p0))})
+        }
+      """
+    )
+  
     // @LINE:20
     def registerNew: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ProfileController.registerNew",
@@ -82,6 +92,16 @@ package controllers.javascript {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
+  
+    // @LINE:25
+    def getUserByUsername: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.UserController.getUserByUsername",
+      """
+        function(u0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "getUserByUsername/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("u", encodeURIComponent(u0))})
+        }
+      """
+    )
   
     // @LINE:9
     def authenticate: JavaScriptReverseRoute = JavaScriptReverseRoute(

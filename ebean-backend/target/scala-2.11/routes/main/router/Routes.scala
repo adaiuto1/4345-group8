@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/ebean-backend/conf/routes
-// @DATE:Wed Mar 01 22:14:02 CST 2023
+// @DATE:Thu Mar 02 11:52:30 CST 2023
 
 package router
 
@@ -62,6 +62,8 @@ class Routes(
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """resetPassword""", """controllers.PasswordController.resetPassword()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """registerProfile""", """controllers.ProfileController.registerNew()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """sendApplication""", """controllers.ApplicationController.sendApplication()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getUserByUsername/""" + "$" + """u<[^/]+>""", """controllers.UserController.getUserByUsername(u:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getProfileByEmail/""" + "$" + """p<[^/]+>""", """controllers.ProfileController.getProfileByEmail(p:String)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -188,6 +190,40 @@ class Routes(
     )
   )
 
+  // @LINE:25
+  private[this] lazy val controllers_UserController_getUserByUsername7_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("getUserByUsername/"), DynamicPart("u", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_UserController_getUserByUsername7_invoker = createInvoker(
+    UserController_1.getUserByUsername(fakeValue[String]),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.UserController",
+      "getUserByUsername",
+      Seq(classOf[String]),
+      "GET",
+      """""",
+      this.prefix + """getUserByUsername/""" + "$" + """u<[^/]+>"""
+    )
+  )
+
+  // @LINE:27
+  private[this] lazy val controllers_ProfileController_getProfileByEmail8_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("getProfileByEmail/"), DynamicPart("p", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_ProfileController_getProfileByEmail8_invoker = createInvoker(
+    ProfileController_2.getProfileByEmail(fakeValue[String]),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.ProfileController",
+      "getProfileByEmail",
+      Seq(classOf[String]),
+      "GET",
+      """""",
+      this.prefix + """getProfileByEmail/""" + "$" + """p<[^/]+>"""
+    )
+  )
+
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
@@ -231,6 +267,18 @@ class Routes(
     case controllers_ApplicationController_sendApplication6_route(params) =>
       call { 
         controllers_ApplicationController_sendApplication6_invoker.call(ApplicationController_3.sendApplication())
+      }
+  
+    // @LINE:25
+    case controllers_UserController_getUserByUsername7_route(params) =>
+      call(params.fromPath[String]("u", None)) { (u) =>
+        controllers_UserController_getUserByUsername7_invoker.call(UserController_1.getUserByUsername(u))
+      }
+  
+    // @LINE:27
+    case controllers_ProfileController_getProfileByEmail8_route(params) =>
+      call(params.fromPath[String]("p", None)) { (p) =>
+        controllers_ProfileController_getProfileByEmail8_invoker.call(ProfileController_2.getProfileByEmail(p))
       }
   }
 }

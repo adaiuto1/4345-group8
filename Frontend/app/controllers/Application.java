@@ -10,7 +10,8 @@ import java.util.concurrent.CompletionStage;
 
 public class Application {
 
-    public String applicantUsername;
+    public String applicantFirstName;
+    public String applicantLastName;
     public String recipientUsername;
     public String className;
     public String message;
@@ -18,7 +19,8 @@ public class Application {
     public CompletionStage<WSResponse> sendApplication() {
         WSClient ws = play.test.WSTestClient.newClient(9005);
         ObjectNode newApplication = Json.newObject();
-        newApplication.put("applicantUsername", applicantUsername);
+        newApplication.put("applicantFirstName", applicantFirstName);
+        newApplication.put("applicantLastName", applicantLastName);
         newApplication.put("recipientUsername", recipientUsername);
         newApplication.put("className", this.className);
         newApplication.put("message", this.message);
