@@ -64,8 +64,12 @@ public class HomeController extends Controller {
                     System.out.println(r.asJson());
                     if (r.getStatus() == 200) {
                         String sessionEmail = r.asJson().get("email").asText();
+                        String sessionStatus = r.asJson().get("status").asText();
+                        String sessionFirstName = r.asJson().get("firstname").asText();
                         session("email", sessionEmail);
-                        return ok(views.html.index.render("welcome " + session("email"), session("email")));
+                        session("status", sessionStatus);
+                        session("firstname", sessionFirstName);
+                        return ok(views.html.index.render(session("firstname"), session("status")));
                     } else {
                         System.out.println("response null");
                         String authorizeMessage = "Incorrect Username or Password ";
@@ -132,6 +136,6 @@ public class HomeController extends Controller {
                 }, ec.current());
     }
 
-
+    
 }
 

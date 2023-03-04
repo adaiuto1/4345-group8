@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/conf/routes
-// @DATE:Thu Mar 02 16:43:56 CST 2023
+// @DATE:Sat Mar 04 15:51:50 CST 2023
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -121,7 +121,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:27
+  // @LINE:26
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -129,7 +129,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:27
+    // @LINE:26
     def at: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.at",
       """

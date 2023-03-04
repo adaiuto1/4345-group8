@@ -25,39 +25,44 @@ import play.core.j.PlayFormsMagicForJava._
 object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[String,String,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(message: String, username: String):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(firstname: String, status: String):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
-/*2.2*/import java.math.BigInteger;
+/*2.6*/import java.math.BigInteger;
 
 
-Seq[Any](format.raw/*3.1*/("""<!DOCTYPE html>
-<html>
-    <body>
+Seq[Any](format.raw/*2.1*/("""    """),format.raw/*3.1*/("""<!DOCTYPE html>
+    <html>
+        <head>
+            <title>"""),_display_(/*6.21*/status),format.raw/*6.27*/(""" """),format.raw/*6.28*/("""TA Portal</title>
+        </head>
+        <body>
 
-        <header class="topbar">
-            <h1 class="focused" style="font-size: 37px;
-                color: #57a957">
-                <strong>Login Message</strong>
-            </h1>
-            <p class="focused" style="font-size: 20px;
-                color: #3F51B5">"""),_display_(/*13.34*/message),format.raw/*13.41*/("""</p>
-        </header>
-        <p>"""),_display_(/*15.13*/message),format.raw/*15.20*/("""</p>
-        <p>"""),_display_(/*16.13*/username),format.raw/*16.21*/("""</p>
-        <a href=""""),_display_(/*17.19*/routes/*17.25*/.HomeController.changePassword()),format.raw/*17.57*/("""">CHANGE PASSWORD</a>
-        <a href=""""),_display_(/*18.19*/routes/*18.25*/.ApplicationController.openApplication()),format.raw/*18.65*/("""">Open Application</a>
-        
-    </body>
-</html>
+            <header class="topbar">
+                <h1 class="focused" style="font-size: 37px;
+                    color: #57a957">
+                    <strong>TA Portal</strong>
+                </h1>
+                <p class="focused" style="font-size: 20px;
+                    color: #3F51B5">Welcome, """),_display_(/*16.47*/firstname),format.raw/*16.56*/("""</p>
+            </header>
+            <p>"""),_display_(/*18.17*/status),format.raw/*18.23*/("""</p>
+            <a href=""""),_display_(/*19.23*/routes/*19.29*/.HomeController.changePassword()),format.raw/*19.61*/("""">CHANGE PASSWORD</a>
+            <div>
+            """),_display_(/*21.14*/if(status.equals("Student"))/*21.42*/ {_display_(Seq[Any](format.raw/*21.44*/("""
+                """),format.raw/*22.17*/("""<a href=""""),_display_(/*22.27*/routes/*22.33*/.ApplicationController.openApplication()),format.raw/*22.73*/("""">Open Application</a>
+            """)))}),format.raw/*23.14*/("""
+            """),format.raw/*24.13*/("""</div>
+        </body>
+    </html>
 """))
       }
     }
   }
 
-  def render(message:String,username:String): play.twirl.api.HtmlFormat.Appendable = apply(message,username)
+  def render(firstname:String,status:String): play.twirl.api.HtmlFormat.Appendable = apply(firstname,status)
 
-  def f:((String,String) => play.twirl.api.HtmlFormat.Appendable) = (message,username) => apply(message,username)
+  def f:((String,String) => play.twirl.api.HtmlFormat.Appendable) = (firstname,status) => apply(firstname,status)
 
   def ref: this.type = this
 
@@ -66,11 +71,11 @@ Seq[Any](format.raw/*3.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: 2023-03-02T16:44:07.323
+                  DATE: 2023-03-04T16:05:50.720
                   SOURCE: C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/app/views/index.scala.html
-                  HASH: 40547313b9f7275ca79d9019e0194b16067ae13f
-                  MATRIX: 955->1|1063->38|1120->67|1456->376|1484->383|1546->418|1574->425|1618->442|1647->450|1697->473|1712->479|1765->511|1832->551|1847->557|1908->597
-                  LINES: 28->1|31->2|34->3|44->13|44->13|46->15|46->15|47->16|47->16|48->17|48->17|48->17|49->18|49->18|49->18
+                  HASH: 61784fa63abc8a1ef2ccb39fcd3c3837cb58b84d
+                  MATRIX: 955->1|1063->42|1120->37|1150->71|1238->133|1264->139|1292->140|1676->497|1706->506|1776->549|1803->555|1857->582|1872->588|1925->620|2005->673|2042->701|2082->703|2127->720|2164->730|2179->736|2240->776|2307->812|2348->825
+                  LINES: 28->1|31->2|34->2|34->3|37->6|37->6|37->6|47->16|47->16|49->18|49->18|50->19|50->19|50->19|52->21|52->21|52->21|53->22|53->22|53->22|53->22|54->23|55->24
                   -- GENERATED --
               */
           

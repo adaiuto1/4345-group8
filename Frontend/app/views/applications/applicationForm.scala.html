@@ -1,4 +1,4 @@
-@(firstname: String)
+@(currUser: Profile, message: String, classOptions: Seq[String])
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -17,13 +17,40 @@
     </head>
     <body>
         <div class="row">
-            <div class="card col s6 offset-s3 ">
+            <div class="card col s8 offset-s2">
                 <div class="card-panel">
                     <form action="@routes.ApplicationController.ApplicationHandler()" method="POST">
-                        <div class="row s12 offset-s2" name="row-1">
+                        <div class="row s12" name="row-1">
                             <div class="input-field col ">
-                                <input id="firstname" name="firstname" type="text" value="@firstname" readonly>
+                                <input id="firstname" name="firstname" type="text" value="@currUser.firstname" readonly required>
                                 <label for="firstname">First Name</label>
+                            </div>
+                            <div class="input-field col ">
+                                <input id="lastname" name="lastname" type="text" value="@currUser.lastname" readonly required>
+                                <label for="lastname">First Name</label>
+                            </div>
+                        </div>
+                        <div class="row s12" name="row-2">
+                            <div class="input-field col ">
+                                <input id="email" name="email" type="text" value="@currUser.email" readonly required>
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="input-field col ">
+                                <input id="phone" name="phone" type="text" value="@currUser.phone" readonly required>
+                                <label for="phone">Phone</label>
+                            </div>
+                        </div>
+                        <div class="row s12" name="row-2">
+                            <div class="col s2">
+                                <strong>Degree Plan: @currUser.degree</strong>
+                            </div>
+                            <div class="input-field col s5">
+                                <input id="startingSemester" name="startingSemester" type="text" value="@currUser.startingSemester" readonly required>
+                                <label for="startingSemester">Starting Semester</label>
+                            </div>
+                            <div class="input-field col 5">
+                                <input id="gradSemester" name="gradSemester" type="text" value="@currUser.gradSemester" readonly required>
+                                <label for="gradSemester">Graduating Semester</label>
                             </div>
                         </div>
                     </form>

@@ -10,9 +10,12 @@ import play.libs.ws.WSRequest;
 import play.libs.ws.WSResponse;
 import play.mvc.Controller;
 import play.mvc.Result;
+import scala.collection.JavaConverters;
 import scala.collection.Seq;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CompletionStage;
 
 public class ApplicationController extends Controller {
@@ -20,31 +23,66 @@ public class ApplicationController extends Controller {
     HttpExecutionContext ec;
 
     private FormFactory formFactory;
+    Seq<String> classSeq;
 
     public CompletionStage<Result> openApplication() {
+        List<String> classes = new ArrayList<String>();
+        classes.add("CS4345");
+        classes.add("CS3353");
+        classes.add("MATH3315");
+        classes.add("ENGR1304");
+        classSeq = JavaConverters.asScalaBufferConverter(classes).asScala().toSeq();
+
         System.out.println(session("email"));
         WSClient ws = play.test.WSTestClient.newClient(9005);
         WSRequest request = ws.url("http://localhost:9005/getProfileByEmail/" + session("email"));
         return request.get().thenApplyAsync((WSResponse r) -> {
-            String h = r.asJson().get("data").asText();
-            return ok(views.html.applications.applicationForm.render(h));
+            Profile p = new Profile();
+            p.setFirstName(r.asJson().get("firstname").asText());
+            p.lastname = r.asJson().get("lastname").asText();
+            p.position = r.asJson().get("position").asText();
+            p.affiliation = r.asJson().get("affiliation").asText();
+            p.email = r.asJson().get("email").asText();
+            p.phone = r.asJson().get("phone").asText();
+            p.fax = r.asJson().get("fax").asText();
+            p.address = r.asJson().get("address").asText();
+            p.state = r.asJson().get("state").asText();
+            p.country = r.asJson().get("country").asText();
+            p.zip = r.asJson().get("zip").asText();
+            p.comments = r.asJson().get("comments").asText();
+            p.status = r.asJson().get("status").asText();
+            p.degree = r.asJson().get("degree").asText();
+            p.startingSemester = r.asJson().get("startingSemester").asText();
+            p.gradSemester = r.asJson().get("gradSemester").asText();
+            p.courses = r.asJson().get("courses").asText();
+            p.title = r.asJson().get("title").asText();
+
+            return ok(views.html.applications.applicationForm.render(p, "", classSeq));
         }, ec.current());
     }
 
     public CompletionStage<Result> ApplicationHandler() {
+        List<String> classes = new ArrayList<String>();
+        classes.add("CS4345");
+        classes.add("CS3353");
+        classes.add("MATH3315");
+        classes.add("ENGR1304");
+        classSeq = JavaConverters.asScalaBufferConverter(classes).asScala().toSeq();
+
         Form<Application> applicationForm = formFactory.form(Application.class).bindFromRequest();
         if (applicationForm.hasErrors()) {
-            return (CompletionStage<Result>) badRequest(views.html.applications.applicationForm.render("cannot submit application"));
+            return (CompletionStage<Result>) badRequest(views.html.applications.applicationForm.render(null, "cannot submit application", classSeq));
         } else {
             return applicationForm.get().sendApplication()
                     .thenApplyAsync((WSResponse r) -> {
+
                         if (r.getStatus() == 200 && r.asJson() != null) {
                             System.out.println("appication success");
                             System.out.println(r.asJson());
-                            return ok(views.html.index.render("application submitted", null));
+                            return ok(views.html.index.render(session("firstname"), "Application Submitted"));
                         } else {
                             System.out.println("application response null");
-                            return badRequest(views.html.applications.applicationForm.render("application response error"));
+                            return badRequest(views.html.applications.applicationForm.render(null, "application response error", classSeq));
                         }
                     }, ec.current());
         }

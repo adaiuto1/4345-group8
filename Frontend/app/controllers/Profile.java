@@ -10,6 +10,11 @@ import java.util.concurrent.CompletionStage;
 
 public class Profile {
     public String firstname;
+
+    public void setFirstName(String firstname) {
+        this.firstname = firstname;
+    }
+
     public String lastname;
     public String position;
     public String affiliation;
@@ -33,6 +38,10 @@ public class Profile {
     public String gradSemester;
     public String courses;
     public String title;
+
+    public Profile() {
+    }
+
 
     public CompletionStage<WSResponse> registerProfile() {
         WSClient ws = play.test.WSTestClient.newClient(9005);

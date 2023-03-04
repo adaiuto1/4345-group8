@@ -72,7 +72,7 @@ public class ProfileController extends Controller{
         if (p != null) {
             System.out.println("new profile");
             result = Json.newObject();
-            result.put("data", p.firstname);
+            result.put("firstname", p.firstname);
             result.put("lastname", p.lastname);
             result.put("email", p.email);
             result.put("position", p.position);
@@ -84,6 +84,9 @@ public class ProfileController extends Controller{
             result.put("state", p.state);
             result.put("country", p.country);
             result.put("zip", p.zip);
+            result.put("degree", p.degree);
+            result.put("comments", p.comments);
+            result.put("status", p.status);
             result.put("degree", p.degree);
             result.put("startingSemester", p.startingSemester);
             result.put("gradSemester", p.gradSemester);

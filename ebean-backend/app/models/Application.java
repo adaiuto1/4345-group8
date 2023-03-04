@@ -22,11 +22,13 @@ public class Application extends Model{
     @Constraints.Required
     public String applicantUsername;
 
+    public String className;
+
     @Constraints.Required
     public String message;
 
     @Constraints.Required
-    public String className;
+    public String classID;
     public Application(){}
     public Application(Long id, String recipientUsername){
         this.id = id;
