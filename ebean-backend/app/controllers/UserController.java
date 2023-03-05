@@ -2,6 +2,7 @@ package controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import models.Profile;
 import models.User;
 import play.libs.Json;
 import play.mvc.Controller;
@@ -75,5 +76,25 @@ public class UserController extends Controller {
         return ok(result);
     }
 
+    public Result getUserByUsername(String username){
 
+        User u = User.findByName(username);
+        if(u == null){
+            return badRequest("user not found");
+        }
+        else {
+            ObjectNode result = Json.newObject();
+            Profile p = Profile.findByEmail(u.email);
+            result.put("username", u.username);
+            result.put("password", u.password);
+            result.put("email", u.email);
+            result.put("status", p.status);
+            result.put("firstname", p.firstname);
+            result.put("question1", u.question1);
+            result.put("answer1", u.answer1);
+            result.put("question2", u.question2);
+            result.put("answer2", u.answer2);
+            return ok(result);
+        }
+    }
 }

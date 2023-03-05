@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/conf/routes
-// @DATE:Wed Mar 01 22:01:11 CST 2023
+// @DATE:Sun Mar 05 16:16:46 CST 2023
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -19,22 +19,22 @@ package controllers.javascript {
     }
 
   
-    // @LINE:22
+    // @LINE:18
     def ApplicationHandler: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ApplicationController.ApplicationHandler",
       """
         function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "sendApplication"})
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "sendOpenApplication"})
         }
       """
     )
   
     // @LINE:16
-    def openApplication: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.ApplicationController.openApplication",
+    def openApplicationForm: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ApplicationController.openApplicationForm",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "apply"})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "openApplication"})
         }
       """
     )
@@ -59,7 +59,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:20
+    // @LINE:22
     def passwordHandler: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.passwordHandler",
       """
@@ -79,7 +79,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:18
+    // @LINE:20
     def changePassword: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.changePassword",
       """
@@ -121,7 +121,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:25
+  // @LINE:27
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -129,7 +129,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:25
+    // @LINE:27
     def at: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.at",
       """

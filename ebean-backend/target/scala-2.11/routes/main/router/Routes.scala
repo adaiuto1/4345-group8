@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/ebean-backend/conf/routes
-// @DATE:Wed Mar 01 22:14:02 CST 2023
+// @DATE:Sun Mar 05 16:00:34 CST 2023
 
 package router
 
@@ -23,9 +23,9 @@ class Routes(
   // @LINE:17
   PasswordController_4: controllers.PasswordController,
   // @LINE:20
-  ProfileController_2: controllers.ProfileController,
+  ProfileController_3: controllers.ProfileController,
   // @LINE:23
-  ApplicationController_3: controllers.ApplicationController,
+  OpenApplicationController_2: controllers.OpenApplicationController,
   val prefix: String
 ) extends GeneratedRouter {
 
@@ -38,16 +38,16 @@ class Routes(
     // @LINE:17
     PasswordController_4: controllers.PasswordController,
     // @LINE:20
-    ProfileController_2: controllers.ProfileController,
+    ProfileController_3: controllers.ProfileController,
     // @LINE:23
-    ApplicationController_3: controllers.ApplicationController
-  ) = this(errorHandler, HomeController_0, UserController_1, PasswordController_4, ProfileController_2, ApplicationController_3, "/")
+    OpenApplicationController_2: controllers.OpenApplicationController
+  ) = this(errorHandler, HomeController_0, UserController_1, PasswordController_4, ProfileController_3, OpenApplicationController_2, "/")
 
   import ReverseRouteContext.empty
 
   def withPrefix(prefix: String): Routes = {
     router.RoutesPrefix.setPrefix(prefix)
-    new Routes(errorHandler, HomeController_0, UserController_1, PasswordController_4, ProfileController_2, ApplicationController_3, prefix)
+    new Routes(errorHandler, HomeController_0, UserController_1, PasswordController_4, ProfileController_3, OpenApplicationController_2, prefix)
   }
 
   private[this] val defaultPrefix: String = {
@@ -61,7 +61,9 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """info""", """controllers.HomeController.info()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """resetPassword""", """controllers.PasswordController.resetPassword()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """registerProfile""", """controllers.ProfileController.registerNew()"""),
-    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """sendApplication""", """controllers.ApplicationController.sendApplication()"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """sendOpenApplication""", """controllers.OpenApplicationController.sendOpenApplication()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getUserByUsername/""" + "$" + """u<[^/]+>""", """controllers.UserController.getUserByUsername(u:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getProfileByEmail/""" + "$" + """p<[^/]+>""", """controllers.ProfileController.getProfileByEmail(p:String)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -159,7 +161,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("registerProfile")))
   )
   private[this] lazy val controllers_ProfileController_registerNew5_invoker = createInvoker(
-    ProfileController_2.registerNew(),
+    ProfileController_3.registerNew(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.ProfileController",
@@ -172,19 +174,53 @@ class Routes(
   )
 
   // @LINE:23
-  private[this] lazy val controllers_ApplicationController_sendApplication6_route = Route("POST",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("sendApplication")))
+  private[this] lazy val controllers_OpenApplicationController_sendOpenApplication6_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("sendOpenApplication")))
   )
-  private[this] lazy val controllers_ApplicationController_sendApplication6_invoker = createInvoker(
-    ApplicationController_3.sendApplication(),
+  private[this] lazy val controllers_OpenApplicationController_sendOpenApplication6_invoker = createInvoker(
+    OpenApplicationController_2.sendOpenApplication(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
-      "controllers.ApplicationController",
-      "sendApplication",
+      "controllers.OpenApplicationController",
+      "sendOpenApplication",
       Nil,
       "POST",
       """send application""",
-      this.prefix + """sendApplication"""
+      this.prefix + """sendOpenApplication"""
+    )
+  )
+
+  // @LINE:25
+  private[this] lazy val controllers_UserController_getUserByUsername7_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("getUserByUsername/"), DynamicPart("u", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_UserController_getUserByUsername7_invoker = createInvoker(
+    UserController_1.getUserByUsername(fakeValue[String]),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.UserController",
+      "getUserByUsername",
+      Seq(classOf[String]),
+      "GET",
+      """""",
+      this.prefix + """getUserByUsername/""" + "$" + """u<[^/]+>"""
+    )
+  )
+
+  // @LINE:27
+  private[this] lazy val controllers_ProfileController_getProfileByEmail8_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("getProfileByEmail/"), DynamicPart("p", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_ProfileController_getProfileByEmail8_invoker = createInvoker(
+    ProfileController_3.getProfileByEmail(fakeValue[String]),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.ProfileController",
+      "getProfileByEmail",
+      Seq(classOf[String]),
+      "GET",
+      """""",
+      this.prefix + """getProfileByEmail/""" + "$" + """p<[^/]+>"""
     )
   )
 
@@ -224,13 +260,25 @@ class Routes(
     // @LINE:20
     case controllers_ProfileController_registerNew5_route(params) =>
       call { 
-        controllers_ProfileController_registerNew5_invoker.call(ProfileController_2.registerNew())
+        controllers_ProfileController_registerNew5_invoker.call(ProfileController_3.registerNew())
       }
   
     // @LINE:23
-    case controllers_ApplicationController_sendApplication6_route(params) =>
+    case controllers_OpenApplicationController_sendOpenApplication6_route(params) =>
       call { 
-        controllers_ApplicationController_sendApplication6_invoker.call(ApplicationController_3.sendApplication())
+        controllers_OpenApplicationController_sendOpenApplication6_invoker.call(OpenApplicationController_2.sendOpenApplication())
+      }
+  
+    // @LINE:25
+    case controllers_UserController_getUserByUsername7_route(params) =>
+      call(params.fromPath[String]("u", None)) { (u) =>
+        controllers_UserController_getUserByUsername7_invoker.call(UserController_1.getUserByUsername(u))
+      }
+  
+    // @LINE:27
+    case controllers_ProfileController_getProfileByEmail8_route(params) =>
+      call(params.fromPath[String]("p", None)) { (p) =>
+        controllers_ProfileController_getProfileByEmail8_invoker.call(ProfileController_3.getProfileByEmail(p))
       }
   }
 }

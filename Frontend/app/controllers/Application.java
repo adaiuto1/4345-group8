@@ -10,20 +10,20 @@ import java.util.concurrent.CompletionStage;
 
 public class Application {
 
-    public String applicantUsername;
+    public String applicantFirstName;
+    public String applicantLastName;
     public String recipientUsername;
     public String className;
-    public String message;
 
-    public CompletionStage<WSResponse> sendApplication() {
+    public CompletionStage<WSResponse> sendOpenApplication() {
         WSClient ws = play.test.WSTestClient.newClient(9005);
         ObjectNode newApplication = Json.newObject();
-        newApplication.put("applicantUsername", applicantUsername);
+        newApplication.put("applicantFirstName", applicantFirstName);
+        newApplication.put("applicantLastName", applicantLastName);
         newApplication.put("recipientUsername", recipientUsername);
         newApplication.put("className", this.className);
-        newApplication.put("message", this.message);
 
-        WSRequest request = ws.url("http://localhost:9005/sendApplication");
+        WSRequest request = ws.url("http://localhost:9005/sendOpenApplication");
         return request.addHeader("Content-Type", "application/json")
                 .post(newApplication)
                 .thenApply((WSResponse r) -> {

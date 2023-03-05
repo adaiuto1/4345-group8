@@ -55,42 +55,71 @@ Seq[Any](format.raw/*1.66*/("""
                 <strong>Change Password</strong>
             </h1>
         </header>
-        <form action=""""),_display_(/*26.24*/routes/*26.30*/.HomeController.passwordHandler()),format.raw/*26.63*/("""" method="GET">
-            <input id="email" name="email" type="text" class="validate">
-            <label for="email">email</label>
-            <div class="input-field col s5">
-                <select style="display: block" id="question1" name="question1" required>
-                    <option selected disabled style="color: #888888">Security Question 1</option>
-                    <option value="street">What street did you grow up on?</option>
-                    <option value="color">What is your favorite color?</option>
-                    <option value="mascot">What was your school mascot?</option>
-                </select>
-            </div>
-            <div class="input-field col s2">
-                <input id="answer1" name="answer1" type="text" class="validate" required>
-                <label for="answer1">Answer 1</label>
+        <div class="row">
+            <div class="card col s10 offset-s1 ">
+                <div class="card-panel">
+                    <form action=""""),_display_(/*29.36*/routes/*29.42*/.HomeController.passwordHandler()),format.raw/*29.75*/("""" method="GET">
+                        <div class="row">
+                            <div class="col s5">
+                                <input id="email" name="email" type="text" class="validate" required>
+                                <label for="email">email</label>
+                            </div>
+                        </div>
 
+                        <div class="row" name="row-1">
+                            <div class="input-field col s5">
+                                <select style="display: block" id="question1" name="question1" required>
+                                    <option selected disabled style="color: #888888">Security Question 1</option>
+                                    <option value="street">What street did you grow up on?</option>
+                                    <option value="color">What is your favorite color?</option>
+                                    <option value="mascot">What was your school mascot?</option>
+                                </select>
+                            </div>
+
+                            <div class="input-field col s2">
+                                <input id="answer1" name="answer1" type="text" class="validate" required>
+                                <label for="answer1">Answer 1</label>
+
+                            </div>
+                        </div>
+                        <div class="row" name="row-2">
+                            <div class="input-field col s5">
+                                <select style="display: block" id="question2" name="question2" required>
+                                    <option selected disabled style="color: #888888">Security Question 2</option>
+                                    <option value="maiden">What is your mother's maiden name?</option>
+                                    <option value="friend">Who was your best friend in school?</option>
+                                    <option value="date">Where was your first date?</option>
+                                </select>
+                            </div>
+
+
+                            <div class="input-field col s2">
+                                <input id="answer2" name="answer2" type="text" class="validate" required>
+                                <label for="answer2">Answer 2</label>
+                            </div>
+                        </div>
+                        <div class="row" name="row-3">
+                            <div class="col s6">
+
+                                <input id="newPassword" name="newPassword" type="text" class="validate" required>
+                                <label for="newPassword">New Password</label>
+                            </div>
+                        </div>
+                        <div class="row" name="row-3">
+                            <div class="col s6">
+
+                                <input id="confirmNewPassword" name="confirmNewPassword" type="text" class="validate" required>
+                                <label for="confirmNewPassword">Confirm New Password</label>
+                            </div>
+                        </div>
+                        <h5>"""),_display_(/*83.30*/authorizeMessage),format.raw/*83.46*/("""</h5>
+                        <div class="row">
+                            <button id="api-search-button" class="btn col s4 offset-s4" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="input-field col s5 offset-s4">
-                <select style="display: block" id="question2" name="question2" required>
-                    <option selected disabled style="color: #888888">Security Question 2</option>
-                    <option value="maiden">What is your mother's maiden name?</option>
-                    <option value="friend">Who was your best friend in school?</option>
-                    <option value="date">Where was your first date?</option>
-                </select>
-            </div>
-            <div class="input-field col s2">
-                <input id="answer2" name="answer2" type="text" class="validate" required>
-                <label for="answer2">Answer 2</label>
-            </div>
-            <input id="newPassword" name="newPassword" type="text" class="validate" >
-            <label for="newPassword">New Password</label>
-            <input id="confirmNewPassword" name="confirmNewPassword" type="text" class="validate" >
-            <label for="confirmNewPassword">Confirm New Password</label>
-            <div class="row">
-                <button id="api-search-button" class="btn col s4 offset-s4" type="submit">Submit</button>
-            </div>
-        </form>
+        </div>
     </body>
 </html>"""))
       }
@@ -108,11 +137,11 @@ Seq[Any](format.raw/*1.66*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2023-03-01T17:11:57.898
+                  DATE: 2023-03-05T11:27:36.736
                   SOURCE: C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/app/views/account/passwordChange.scala.html
-                  HASH: a23d6bd50cb9ebe57ff8ea08681db64a69e23b9a
-                  MATRIX: 979->1|1138->65|1166->67|2693->1569|2708->1575|2762->1608
-                  LINES: 28->1|33->1|34->2|58->26|58->26|58->26
+                  HASH: c95f2f310c9d3bdecfc881dc0aa7f70f4895ceff
+                  MATRIX: 979->1|1138->65|1166->67|2825->1701|2840->1707|2894->1740|6127->4946|6164->4962
+                  LINES: 28->1|33->1|34->2|61->29|61->29|61->29|115->83|115->83
                   -- GENERATED --
               */
           

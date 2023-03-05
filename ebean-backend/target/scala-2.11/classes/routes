@@ -20,4 +20,8 @@ POST    /resetPassword              controllers.PasswordController.resetPassword
 POST    /registerProfile            controllers.ProfileController.registerNew()
 
 #send application
-POST    /sendApplication             controllers.ApplicationController.sendApplication()
+POST    /sendOpenApplication             controllers.OpenApplicationController.sendOpenApplication()
+
+GET     /getUserByUsername/:u          controllers.UserController.getUserByUsername(u)
+
+GET     /getProfileByEmail/:p       controllers.ProfileController.getProfileByEmail(p)

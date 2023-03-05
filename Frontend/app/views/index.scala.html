@@ -1,20 +1,26 @@
-@(message: String, username: String)
+@(firstname: String, status: String)
     @import java.math.BigInteger;
 <!DOCTYPE html>
     <html>
+        <head>
+            <title>@status TA Portal</title>
+        </head>
         <body>
 
             <header class="topbar">
                 <h1 class="focused" style="font-size: 37px;
                     color: #57a957">
-                    <strong>Login Message</strong>
+                    <strong>TA Portal</strong>
                 </h1>
                 <p class="focused" style="font-size: 20px;
-                    color: #3F51B5">@message</p>
+                    color: #3F51B5">Welcome, @firstname</p>
             </header>
-            <p>@message</p>
-            <p>@username</p>
+            <p>@status</p>
             <a href="@routes.HomeController.changePassword()">CHANGE PASSWORD</a>
-            <a href="@routes.ApplicationController.openApplication()">Open Application</a>
+            <div>
+            @if(status.equals("Student")) {
+                <a href="@routes.ApplicationController.openApplicationForm()">Create Open Application</a>
+            }
+            </div>
         </body>
     </html>

@@ -25,7 +25,7 @@ import play.core.j.PlayFormsMagicForJava._
 object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[String,String,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(message: String, username: String):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(firstname: String, status: String):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 /*2.6*/import java.math.BigInteger;
@@ -33,20 +33,26 @@ object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.Html
 
 Seq[Any](format.raw/*2.1*/("""    """),format.raw/*3.1*/("""<!DOCTYPE html>
     <html>
+        <head>
+            <title>"""),_display_(/*6.21*/status),format.raw/*6.27*/(""" """),format.raw/*6.28*/("""TA Portal</title>
+        </head>
         <body>
 
             <header class="topbar">
                 <h1 class="focused" style="font-size: 37px;
                     color: #57a957">
-                    <strong>Login Message</strong>
+                    <strong>TA Portal</strong>
                 </h1>
                 <p class="focused" style="font-size: 20px;
-                    color: #3F51B5">"""),_display_(/*13.38*/message),format.raw/*13.45*/("""</p>
+                    color: #3F51B5">Welcome, """),_display_(/*16.47*/firstname),format.raw/*16.56*/("""</p>
             </header>
-            <p>"""),_display_(/*15.17*/message),format.raw/*15.24*/("""</p>
-            <p>"""),_display_(/*16.17*/username),format.raw/*16.25*/("""</p>
-            <a href=""""),_display_(/*17.23*/routes/*17.29*/.HomeController.changePassword()),format.raw/*17.61*/("""">CHANGE PASSWORD</a>
-            <a href=""""),_display_(/*18.23*/routes/*18.29*/.ApplicationController.openApplication()),format.raw/*18.69*/("""">Open Application</a>
+            <p>"""),_display_(/*18.17*/status),format.raw/*18.23*/("""</p>
+            <a href=""""),_display_(/*19.23*/routes/*19.29*/.HomeController.changePassword()),format.raw/*19.61*/("""">CHANGE PASSWORD</a>
+            <div>
+            """),_display_(/*21.14*/if(status.equals("Student"))/*21.42*/ {_display_(Seq[Any](format.raw/*21.44*/("""
+                """),format.raw/*22.17*/("""<a href=""""),_display_(/*22.27*/routes/*22.33*/.ApplicationController.openApplicationForm()),format.raw/*22.77*/("""">Create Open Application</a>
+            """)))}),format.raw/*23.14*/("""
+            """),format.raw/*24.13*/("""</div>
         </body>
     </html>
 """))
@@ -54,9 +60,9 @@ Seq[Any](format.raw/*2.1*/("""    """),format.raw/*3.1*/("""<!DOCTYPE html>
     }
   }
 
-  def render(message:String,username:String): play.twirl.api.HtmlFormat.Appendable = apply(message,username)
+  def render(firstname:String,status:String): play.twirl.api.HtmlFormat.Appendable = apply(firstname,status)
 
-  def f:((String,String) => play.twirl.api.HtmlFormat.Appendable) = (message,username) => apply(message,username)
+  def f:((String,String) => play.twirl.api.HtmlFormat.Appendable) = (firstname,status) => apply(firstname,status)
 
   def ref: this.type = this
 
@@ -65,11 +71,11 @@ Seq[Any](format.raw/*2.1*/("""    """),format.raw/*3.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: 2023-03-01T21:14:26.535
+                  DATE: 2023-03-05T16:17:17.889
                   SOURCE: C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/app/views/index.scala.html
-                  HASH: 491fdc2ebf5d88e7784b6932c159003cc46cf819
-                  MATRIX: 955->1|1063->42|1120->37|1150->71|1522->416|1550->423|1620->466|1648->473|1696->494|1725->502|1779->529|1794->535|1847->567|1918->611|1933->617|1994->657
-                  LINES: 28->1|31->2|34->2|34->3|44->13|44->13|46->15|46->15|47->16|47->16|48->17|48->17|48->17|49->18|49->18|49->18
+                  HASH: 5c121013fbd710ad00eb5c5036cc49b378e0eb17
+                  MATRIX: 955->1|1063->42|1120->37|1150->71|1238->133|1264->139|1292->140|1676->497|1706->506|1776->549|1803->555|1857->582|1872->588|1925->620|2005->673|2042->701|2082->703|2127->720|2164->730|2179->736|2244->780|2318->823|2359->836
+                  LINES: 28->1|31->2|34->2|34->3|37->6|37->6|37->6|47->16|47->16|49->18|49->18|50->19|50->19|50->19|52->21|52->21|52->21|53->22|53->22|53->22|53->22|54->23|55->24
                   -- GENERATED --
               */
           

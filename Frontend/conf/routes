@@ -4,24 +4,26 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET         /                         controllers.HomeController.index()
-GET         /login                    controllers.HomeController.loginHandler()
+GET         /                           controllers.HomeController.index()
+GET         /login                      controllers.HomeController.loginHandler()
 
-GET         /signup                   controllers.HomeController.signup()
+GET         /signup                     controllers.HomeController.signup()
 
-GET         /register                 controllers.HomeController.signupHandler()
+GET         /register                   controllers.HomeController.signupHandler()
 
-GET         /registerProfile          controllers.HomeController.profileHandler()
+GET         /registerProfile            controllers.HomeController.profileHandler()
 
-GET         /apply                    controllers.ApplicationController.openApplication()
+GET         /openApplication            controllers.ApplicationController.openApplicationForm()
 
-GET         /changePassword           controllers.HomeController.changePassword()
+POST        /sendOpenApplication        controllers.ApplicationController.ApplicationHandler()
 
-GET         /submitNewPassword        controllers.HomeController.passwordHandler()
+GET         /changePassword             controllers.HomeController.changePassword()
 
-POST        /sendApplication          controllers.ApplicationController.ApplicationHandler()
+GET         /submitNewPassword          controllers.HomeController.passwordHandler()
+
+
 
 # Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file             controllers.Assets.at(path="/public", file)
+GET         /assets/*file               controllers.Assets.at(path="/public", file)
 
 

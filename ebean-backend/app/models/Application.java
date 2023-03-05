@@ -1,11 +1,9 @@
 package models;
-import com.avaje.ebean.ExpressionList;
 import com.avaje.ebean.Model;
 import play.data.validation.Constraints;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.validation.Constraint;
 import java.util.Set;
 
 @Entity
@@ -16,17 +14,21 @@ public class Application extends Model{
     public Long id;
     @Constraints.Required
     public String recipientUsername;
-
+    @Constraints.Required
+    public String recipientEmail;
     public static Model.Find<String, Application> find = new Model.Find<String, Application>(){};
 
     @Constraints.Required
     public String applicantUsername;
+    @Constraints.Required
+    public String applicantEmail;
+    public String className;
 
     @Constraints.Required
     public String message;
 
     @Constraints.Required
-    public String className;
+    public String classID;
     public Application(){}
     public Application(Long id, String recipientUsername){
         this.id = id;

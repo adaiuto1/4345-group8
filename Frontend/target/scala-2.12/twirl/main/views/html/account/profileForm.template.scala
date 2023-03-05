@@ -40,9 +40,9 @@ Seq[Any](format.raw/*1.43*/("""
         <title>Create Profile</title>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
+        <script src="/assets/javascripts/ProfileForm.js"></script>
             <!-- Compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src=" https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
         <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
@@ -71,6 +71,7 @@ Seq[Any](format.raw/*1.43*/("""
                                     <option value="Mr.">Mr.</option>
                                     <option value="Ms.">Ms.</option>
                                     <option value="Mrs.">Mrs.</option>
+                                    <option value="Dr.">Dr.</option>
                                 </select>
                             </div>
                             <div class="input-field col s3">
@@ -130,15 +131,44 @@ Seq[Any](format.raw/*1.43*/("""
                                     <option value="Staff">Staff</option>
                                 </select>
                             </div>
+                            <div class="input-field col s3">
+                                <select id="degree" name="degree">
+                                    <option selected disabled style="color: #888888">Select Degree...</option>
+                                    <option value="Ph.D.">Ph.D.</option>
+                                    <option value="D.E.-SE">D.E.-SE</option>
+                                    <option value="MS-CS">MS-CS</option>
+                                    <option value="MS-SE">MS-SE</option>
+                                    <option value="MS-Cybersecurity">MS-Cybersecurity</option>
+                                    <option value="BS-CS">BS-CS</option>
+                                    <option value="BA-CS">BA-CS</option>
+                                </select>
+                            </div>
+                            <div class="input-field col s2">
+                                <input id="startingSemester"
+                                name="startingSemester"
+                                type="text"
+                                style="display: none">
+                                <label id="startLabel"
+                                for="startingSemester"
+                                style="display: none">Starting Semester</label>
+                            </div>
+                            <div class="input-field col s3">
+                                <input id="gradSemester"
+                                name="gradSemester"
+                                type="text"
+                                style="display: none">
+                                <label id="gradLabel"
+                                for="gradSemester"
+                                style="display: none">Graduating Semester</label>
+                            </div>
                         </div>
-                        """),_display_(/*102.26*/if(authorizeMessage != null)/*102.54*/ {_display_(Seq[Any](format.raw/*102.56*/("""
-                            """),format.raw/*103.29*/("""<div class="alert alert-primary" role="alert">
-                            """),_display_(/*104.30*/authorizeMessage),format.raw/*104.46*/("""
-                            """),format.raw/*105.29*/("""</div>
+                        """),_display_(/*133.26*/if(authorizeMessage != null)/*133.54*/ {_display_(Seq[Any](format.raw/*133.56*/("""
+                            """),format.raw/*134.29*/("""<div class="alert alert-primary" role="alert">
+                            """),_display_(/*135.30*/authorizeMessage),format.raw/*135.46*/("""
+                            """),format.raw/*136.29*/("""</div>
                             <br>
-                        """)))}),format.raw/*107.26*/("""
-
-                        """),format.raw/*109.25*/("""<div class="row">
+                        """)))}),format.raw/*138.26*/("""
+                        """),format.raw/*139.25*/("""<div class="row">
                             <button id="api-search-button" class="btn col s4 offset-s4" type="submit">Submit</button>
                         </div>
                     </div>
@@ -162,11 +192,11 @@ Seq[Any](format.raw/*1.43*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2023-02-28T15:29:48.665
+                  DATE: 2023-03-05T16:53:32.214
                   SOURCE: C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/app/views/account/profileForm.scala.html
-                  HASH: 73c6a463b666f3c27391c965eb3671cba66ac891
-                  MATRIX: 969->1|1105->42|1133->44|2744->1630|2759->1636|2812->1668|3121->1949|3148->1954|7608->6386|7646->6414|7687->6416|7746->6446|7851->6523|7889->6539|7948->6569|8047->6636|8104->6664
-                  LINES: 28->1|33->1|34->2|60->28|60->28|60->28|64->32|64->32|134->102|134->102|134->102|135->103|136->104|136->104|137->105|139->107|141->109
+                  HASH: 34df00230aa270aa541d416b0773b9c9d0c70873
+                  MATRIX: 969->1|1105->42|1133->44|2811->1697|2826->1703|2879->1735|3188->2016|3215->2021|9621->8399|9659->8427|9700->8429|9759->8459|9864->8536|9902->8552|9961->8582|10060->8649|10115->8675
+                  LINES: 28->1|33->1|34->2|60->28|60->28|60->28|64->32|64->32|165->133|165->133|165->133|166->134|167->135|167->135|168->136|170->138|171->139
                   -- GENERATED --
               */
           

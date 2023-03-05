@@ -66,5 +66,36 @@ public class ProfileController extends Controller{
 
     }
 
+    public Result getProfileByEmail(String email) {
+        Profile p = Profile.findByEmail(email);
+        ObjectNode result = null;
+        if (p != null) {
+            System.out.println("new profile");
+            result = Json.newObject();
+            result.put("firstname", p.firstname);
+            result.put("lastname", p.lastname);
+            result.put("email", p.email);
+            result.put("position", p.position);
+            result.put("affiliation", p.affiliation);
+            result.put("phone", p.phone);
+            result.put("fax", p.fax);
+            result.put("address", p.address);
+            result.put("city", p.city);
+            result.put("state", p.state);
+            result.put("country", p.country);
+            result.put("zip", p.zip);
+            result.put("degree", p.degree);
+            result.put("comments", p.comments);
+            result.put("status", p.status);
+            result.put("degree", p.degree);
+            result.put("startingSemester", p.startingSemester);
+            result.put("gradSemester", p.gradSemester);
+            result.put("courses", p.courses);
+            result.put("title", p.title);
+
+        }
+        return ok(result);
+
+    }
 
 }
