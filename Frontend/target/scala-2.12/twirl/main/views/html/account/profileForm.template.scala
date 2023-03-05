@@ -42,7 +42,7 @@ Seq[Any](format.raw/*1.43*/("""
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
             <!-- Compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src=" https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
         <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
@@ -71,6 +71,7 @@ Seq[Any](format.raw/*1.43*/("""
                                     <option value="Mr.">Mr.</option>
                                     <option value="Ms.">Ms.</option>
                                     <option value="Mrs.">Mrs.</option>
+                                    <option value="Dr.">Dr.</option>
                                 </select>
                             </div>
                             <div class="input-field col s3">
@@ -130,15 +131,26 @@ Seq[Any](format.raw/*1.43*/("""
                                     <option value="Staff">Staff</option>
                                 </select>
                             </div>
+                            <div class="input-field col s2">
+                                <select style="display: block" id="degree" name="degree">
+                                    <option selected disabled style="color: #888888">Select Degree...</option>
+                                    <option value="Ph.D.">Ph.D.</option>
+                                    <option value="D.E.-SE">D.E.-SE</option>
+                                    <option value="MS-CS">MS-CS</option>
+                                    <option value="MS-SE">MS-SE</option>
+                                    <option value="MS-Cybersecurity">MS-Cybersecurity</option>
+                                    <option value="BS-CS">BS-CS</option>
+                                    <option value="BA-CS">BA-CS</option>
+                                </select>
+                            </div>
                         </div>
-                        """),_display_(/*102.26*/if(authorizeMessage != null)/*102.54*/ {_display_(Seq[Any](format.raw/*102.56*/("""
-                            """),format.raw/*103.29*/("""<div class="alert alert-primary" role="alert">
-                            """),_display_(/*104.30*/authorizeMessage),format.raw/*104.46*/("""
-                            """),format.raw/*105.29*/("""</div>
+                        """),_display_(/*115.26*/if(authorizeMessage != null)/*115.54*/ {_display_(Seq[Any](format.raw/*115.56*/("""
+                            """),format.raw/*116.29*/("""<div class="alert alert-primary" role="alert">
+                            """),_display_(/*117.30*/authorizeMessage),format.raw/*117.46*/("""
+                            """),format.raw/*118.29*/("""</div>
                             <br>
-                        """)))}),format.raw/*107.26*/("""
-
-                        """),format.raw/*109.25*/("""<div class="row">
+                        """)))}),format.raw/*120.26*/("""
+                        """),format.raw/*121.25*/("""<div class="row">
                             <button id="api-search-button" class="btn col s4 offset-s4" type="submit">Submit</button>
                         </div>
                     </div>
@@ -162,11 +174,11 @@ Seq[Any](format.raw/*1.43*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2023-02-28T15:29:48.665
+                  DATE: 2023-03-05T11:21:09.068
                   SOURCE: C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/app/views/account/profileForm.scala.html
-                  HASH: 73c6a463b666f3c27391c965eb3671cba66ac891
-                  MATRIX: 969->1|1105->42|1133->44|2744->1630|2759->1636|2812->1668|3121->1949|3148->1954|7608->6386|7646->6414|7687->6416|7746->6446|7851->6523|7889->6539|7948->6569|8047->6636|8104->6664
-                  LINES: 28->1|33->1|34->2|60->28|60->28|60->28|64->32|64->32|134->102|134->102|134->102|135->103|136->104|136->104|137->105|139->107|141->109
+                  HASH: c7317b410c28926fbdff580a95961aed41f822f4
+                  MATRIX: 969->1|1105->42|1133->44|2745->1631|2760->1637|2813->1669|3122->1950|3149->1955|8567->7345|8605->7373|8646->7375|8705->7405|8810->7482|8848->7498|8907->7528|9006->7595|9061->7621
+                  LINES: 28->1|33->1|34->2|60->28|60->28|60->28|64->32|64->32|147->115|147->115|147->115|148->116|149->117|149->117|150->118|152->120|153->121
                   -- GENERATED --
               */
           

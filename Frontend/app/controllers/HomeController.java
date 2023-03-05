@@ -128,7 +128,7 @@ public class HomeController extends Controller {
                     if (r.getStatus() == 200 && r.asJson() != null) {
                         System.out.println("password success");
                         System.out.println(r.asJson());
-                        return ok(views.html.index.render("password successfully changed", passwordForm.get().getEmail()));
+                        return ok(views.html.index.render("password successfully changed", session("status")));
                     } else {
                         System.out.println("password response null");
                         return badRequest(views.html.account.passwordChange.render("password error", session("question1"), session("question2")));
@@ -136,6 +136,6 @@ public class HomeController extends Controller {
                 }, ec.current());
     }
 
-    
+
 }
 
