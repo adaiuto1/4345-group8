@@ -50,7 +50,7 @@ Seq[Any](format.raw/*2.1*/("""    """),format.raw/*3.1*/("""<!DOCTYPE html>
             <a href=""""),_display_(/*19.23*/routes/*19.29*/.HomeController.changePassword()),format.raw/*19.61*/("""">CHANGE PASSWORD</a>
             <div>
             """),_display_(/*21.14*/if(status.equals("Student"))/*21.42*/ {_display_(Seq[Any](format.raw/*21.44*/("""
-                """),format.raw/*22.17*/("""<a href=""""),_display_(/*22.27*/routes/*22.33*/.ApplicationController.openApplication()),format.raw/*22.73*/("""">Open Application</a>
+                """),format.raw/*22.17*/("""<a href=""""),_display_(/*22.27*/routes/*22.33*/.ApplicationController.openApplicationForm()),format.raw/*22.77*/("""">Create Open Application</a>
             """)))}),format.raw/*23.14*/("""
             """),format.raw/*24.13*/("""</div>
         </body>
@@ -71,10 +71,10 @@ Seq[Any](format.raw/*2.1*/("""    """),format.raw/*3.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: 2023-03-04T16:05:50.720
+                  DATE: 2023-03-05T16:17:17.889
                   SOURCE: C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/app/views/index.scala.html
-                  HASH: 61784fa63abc8a1ef2ccb39fcd3c3837cb58b84d
-                  MATRIX: 955->1|1063->42|1120->37|1150->71|1238->133|1264->139|1292->140|1676->497|1706->506|1776->549|1803->555|1857->582|1872->588|1925->620|2005->673|2042->701|2082->703|2127->720|2164->730|2179->736|2240->776|2307->812|2348->825
+                  HASH: 5c121013fbd710ad00eb5c5036cc49b378e0eb17
+                  MATRIX: 955->1|1063->42|1120->37|1150->71|1238->133|1264->139|1292->140|1676->497|1706->506|1776->549|1803->555|1857->582|1872->588|1925->620|2005->673|2042->701|2082->703|2127->720|2164->730|2179->736|2244->780|2318->823|2359->836
                   LINES: 28->1|31->2|34->2|34->3|37->6|37->6|37->6|47->16|47->16|49->18|49->18|50->19|50->19|50->19|52->21|52->21|52->21|53->22|53->22|53->22|53->22|54->23|55->24
                   -- GENERATED --
               */

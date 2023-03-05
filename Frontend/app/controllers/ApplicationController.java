@@ -1,9 +1,7 @@
 package controllers;
 
-import com.fasterxml.jackson.databind.node.ObjectNode;
 import play.data.Form;
 import play.data.FormFactory;
-import play.libs.Json;
 import play.libs.concurrent.HttpExecutionContext;
 import play.libs.ws.WSClient;
 import play.libs.ws.WSRequest;
@@ -25,7 +23,7 @@ public class ApplicationController extends Controller {
     private FormFactory formFactory;
     Seq<String> classSeq;
 
-    public CompletionStage<Result> openApplication() {
+    public CompletionStage<Result> openApplicationForm() {
         List<String> classes = new ArrayList<String>();
         classes.add("CS4345");
         classes.add("CS3353");
@@ -57,7 +55,7 @@ public class ApplicationController extends Controller {
             p.courses = r.asJson().get("courses").asText();
             p.title = r.asJson().get("title").asText();
 
-            return ok(views.html.applications.applicationForm.render(p, "", classSeq));
+            return ok(views.html.applications.openApplicationForm.render(p, "", classSeq));
         }, ec.current());
     }
 
@@ -71,18 +69,18 @@ public class ApplicationController extends Controller {
 
         Form<Application> applicationForm = formFactory.form(Application.class).bindFromRequest();
         if (applicationForm.hasErrors()) {
-            return (CompletionStage<Result>) badRequest(views.html.applications.applicationForm.render(null, "cannot submit application", classSeq));
+            return (CompletionStage<Result>) badRequest(views.html.applications.openApplicationForm.render(null, "cannot submit application", classSeq));
         } else {
-            return applicationForm.get().sendApplication()
+            return applicationForm.get().sendOpenApplication()
                     .thenApplyAsync((WSResponse r) -> {
 
                         if (r.getStatus() == 200 && r.asJson() != null) {
                             System.out.println("appication success");
                             System.out.println(r.asJson());
-                            return ok(views.html.index.render(session("firstname"), "Application Submitted"));
+                            return ok(views.html.index.render(session("firstname"), "Open Application Submitted"));
                         } else {
                             System.out.println("application response null");
-                            return badRequest(views.html.applications.applicationForm.render(null, "application response error", classSeq));
+                            return badRequest(views.html.applications.openApplicationForm.render(null, "application response error", classSeq));
                         }
                     }, ec.current());
         }

@@ -5,20 +5,83 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ffa6d230-5926-407e-983e-789957ec3281" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Frontend/app/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/app/controllers/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/app/views/account/passwordChange.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/app/views/account/passwordChange.scala.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Frontend/public/javascripts/ProfileForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Frontend/public/javascripts/openApplicationForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend/app/controllers/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/app/controllers/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend/app/controllers/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/app/controllers/ApplicationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Frontend/app/views/account/profileForm.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/app/views/account/profileForm.scala.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend/app/views/applications/applicationForm.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/app/views/applications/openApplicationForm.scala.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend/app/views/index.scala.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/app/views/index.scala.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend/conf/routes" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/conf/routes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Frontend/logs/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/logs/application.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/target/scala-2.12/classes/views/html/account/passwordChange$.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/target/scala-2.12/classes/views/html/account/passwordChange$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend/target/scala-2.12/classes/controllers/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/target/scala-2.12/classes/controllers/Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend/target/scala-2.12/classes/controllers/ApplicationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/target/scala-2.12/classes/controllers/ApplicationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend/target/scala-2.12/classes/controllers/ReverseApplicationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/target/scala-2.12/classes/controllers/ReverseApplicationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend/target/scala-2.12/classes/controllers/javascript/ReverseApplicationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/target/scala-2.12/classes/controllers/javascript/ReverseApplicationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend/target/scala-2.12/classes/router/Routes$$anonfun$routes$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/target/scala-2.12/classes/router/Routes$$anonfun$routes$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend/target/scala-2.12/classes/router/Routes.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/target/scala-2.12/classes/router/Routes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend/target/scala-2.12/classes/routes" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/target/scala-2.12/classes/routes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Frontend/target/scala-2.12/classes/views/html/account/profileForm$.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/target/scala-2.12/classes/views/html/account/profileForm$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Frontend/target/scala-2.12/twirl/main/views/html/account/passwordChange.template.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/target/scala-2.12/twirl/main/views/html/account/passwordChange.template.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend/target/scala-2.12/classes/views/html/applications/applicationForm$.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/target/scala-2.12/classes/views/html/applications/applicationForm$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend/target/scala-2.12/classes/views/html/index$.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/target/scala-2.12/classes/views/html/index$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend/target/scala-2.12/routes/main/controllers/ReverseRoutes.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/target/scala-2.12/routes/main/controllers/ReverseRoutes.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend/target/scala-2.12/routes/main/controllers/javascript/JavaScriptReverseRoutes.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/target/scala-2.12/routes/main/controllers/javascript/JavaScriptReverseRoutes.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend/target/scala-2.12/routes/main/controllers/routes.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/target/scala-2.12/routes/main/controllers/routes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend/target/scala-2.12/routes/main/router/Routes.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/target/scala-2.12/routes/main/router/Routes.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend/target/scala-2.12/routes/main/router/RoutesPrefix.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/target/scala-2.12/routes/main/router/RoutesPrefix.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Frontend/target/scala-2.12/twirl/main/views/html/account/profileForm.template.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/target/scala-2.12/twirl/main/views/html/account/profileForm.template.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend/target/scala-2.12/twirl/main/views/html/applications/applicationForm.template.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/target/scala-2.12/twirl/main/views/html/applications/applicationForm.template.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend/target/scala-2.12/twirl/main/views/html/index.template.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/target/scala-2.12/twirl/main/views/html/index.template.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend/target/streams/$global/$global/$global/streams/sync-exported-assets-web-assets" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/target/streams/$global/$global/$global/streams/sync-exported-assets-web-assets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Frontend/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/output_dsp" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/output_dsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Frontend/target/streams/$global/playCommonClassloader/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/target/streams/$global/playCommonClassloader/$global/streams/out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Frontend/target/streams/compile/compileIncremental/$global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/target/streams/compile/compileIncremental/$global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend/target/streams/compile/copyResources/$global/streams/copy-resources" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/target/streams/compile/copyResources/$global/streams/copy-resources" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Frontend/target/streams/compile/incCompileSetup/$global/streams/inc_compile_2.12" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/target/streams/compile/incCompileSetup/$global/streams/inc_compile_2.12" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend/target/streams/compile/playRoutes/$global/streams/op-cache" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/target/streams/compile/playRoutes/$global/streams/op-cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Frontend/target/streams/web-assets/assets/$global/streams/sync-assets-web-assets" beforeDir="false" afterPath="$PROJECT_DIR$/../Frontend/target/streams/web-assets/assets/$global/streams/sync-assets-web-assets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/OpenApplicationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/evolutions/default/1.sql" beforeDir="false" afterPath="$PROJECT_DIR$/conf/evolutions/default/1.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/routes" beforeDir="false" afterPath="$PROJECT_DIR$/conf/routes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/application.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/controllers/ApplicationController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/controllers/ReverseApplicationController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/controllers/ReverseHomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/controllers/ReverseHomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/controllers/ReverseUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/controllers/ReverseUserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/controllers/javascript/ReverseApplicationController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/controllers/javascript/ReverseHomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/controllers/javascript/ReverseHomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/controllers/javascript/ReverseUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/controllers/javascript/ReverseUserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/controllers/routes$javascript.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/controllers/routes$javascript.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/controllers/routes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/controllers/routes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/evolutions/default/1.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/evolutions/default/1.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/models/Application$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/models/Application$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/models/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/models/Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/router/Routes$$anonfun$router$Routes$$controllers_ApplicationController_sendApplication6_invoker$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/router/Routes$$anonfun$router$Routes$$controllers_ProfileController_getProfileByEmail8_invoker$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/router/Routes$$anonfun$router$Routes$$controllers_ProfileController_getProfileByEmail8_invoker$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/router/Routes$$anonfun$router$Routes$$controllers_ProfileController_registerNew5_invoker$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/router/Routes$$anonfun$router$Routes$$controllers_ProfileController_registerNew5_invoker$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/router/Routes$$anonfun$routes$1$$anonfun$applyOrElse$6$$anonfun$apply$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/router/Routes$$anonfun$routes$1$$anonfun$applyOrElse$6$$anonfun$apply$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/router/Routes$$anonfun$routes$1$$anonfun$applyOrElse$7$$anonfun$apply$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/router/Routes$$anonfun$routes$1$$anonfun$applyOrElse$7$$anonfun$apply$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/router/Routes$$anonfun$routes$1$$anonfun$applyOrElse$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/router/Routes$$anonfun$routes$1$$anonfun$applyOrElse$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/router/Routes$$anonfun$routes$1$$anonfun$applyOrElse$9$$anonfun$apply$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/router/Routes$$anonfun$routes$1$$anonfun$applyOrElse$9$$anonfun$apply$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/router/Routes$$anonfun$routes$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/router/Routes$$anonfun$routes$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/router/Routes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/router/Routes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.11/classes/routes" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/classes/routes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.11/routes/main/controllers/ReverseRoutes.scala" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/routes/main/controllers/ReverseRoutes.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.11/routes/main/controllers/javascript/JavaScriptReverseRoutes.scala" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/routes/main/controllers/javascript/JavaScriptReverseRoutes.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.11/routes/main/controllers/routes.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/routes/main/controllers/routes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.11/routes/main/router/Routes.scala" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/routes/main/router/Routes.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.11/routes/main/router/RoutesPrefix.scala" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/routes/main/router/RoutesPrefix.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.11/output_dsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.11/output_dsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/$global/playCommonClassloader/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/$global/playCommonClassloader/$global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/copyResources/$global/streams/copy-resources" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/copyResources/$global/streams/copy-resources" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/incCompileSetup/$global/streams/inc_compile_2.11" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/incCompileSetup/$global/streams/inc_compile_2.11" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/playEnhancerGenerateAccessors/$global/streams/play_instrumentation_2.11" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/playEnhancerGenerateAccessors/$global/streams/play_instrumentation_2.11" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/playEnhancerRewriteAccessors/$global/streams/play_instrumentation_2.11" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/playEnhancerRewriteAccessors/$global/streams/play_instrumentation_2.11" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/playRoutes/$global/streams/op-cache" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/playRoutes/$global/streams/op-cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,30 +165,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
-    "spring.configuration.checksum": "3609318d8565d5b2465e123fde93c234",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;3609318d8565d5b2465e123fde93c234&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Play 2 App.Backend Test">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="lab-2-ebean-copy" />
@@ -274,12 +337,24 @@
       <workItem from="1677868257029" duration="803000" />
       <workItem from="1677874330652" duration="1158000" />
       <workItem from="1677964289306" duration="5078000" />
-      <workItem from="1678035132283" duration="1623000" />
+      <workItem from="1678035132283" duration="1809000" />
+      <workItem from="1678051417081" duration="4584000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -8,7 +8,7 @@
         <title>Create Profile</title>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
+        <script src="/assets/javascripts/ProfileForm.js"></script>
             <!-- Compiled and minified JavaScript -->
         <script src=" https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
@@ -99,8 +99,8 @@
                                     <option value="Staff">Staff</option>
                                 </select>
                             </div>
-                            <div class="input-field col s2">
-                                <select style="display: block" id="degree" name="degree">
+                            <div class="input-field col s3">
+                                <select id="degree" name="degree">
                                     <option selected disabled style="color: #888888">Select Degree...</option>
                                     <option value="Ph.D.">Ph.D.</option>
                                     <option value="D.E.-SE">D.E.-SE</option>
@@ -110,6 +110,24 @@
                                     <option value="BS-CS">BS-CS</option>
                                     <option value="BA-CS">BA-CS</option>
                                 </select>
+                            </div>
+                            <div class="input-field col s2">
+                                <input id="startingSemester"
+                                name="startingSemester"
+                                type="text"
+                                style="display: none">
+                                <label id="startLabel"
+                                for="startingSemester"
+                                style="display: none">Starting Semester</label>
+                            </div>
+                            <div class="input-field col s3">
+                                <input id="gradSemester"
+                                name="gradSemester"
+                                type="text"
+                                style="display: none">
+                                <label id="gradLabel"
+                                for="gradSemester"
+                                style="display: none">Graduating Semester</label>
                             </div>
                         </div>
                         @if(authorizeMessage != null) {

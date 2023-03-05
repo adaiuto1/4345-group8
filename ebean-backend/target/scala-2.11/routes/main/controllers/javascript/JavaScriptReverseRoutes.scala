@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/ebean-backend/conf/routes
-// @DATE:Thu Mar 02 11:52:30 CST 2023
+// @DATE:Sun Mar 05 16:00:34 CST 2023
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -59,26 +59,6 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "registerProfile"})
-        }
-      """
-    )
-  
-  }
-
-  // @LINE:23
-  class ReverseApplicationController(_prefix: => String) {
-
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:23
-    def sendApplication: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.ApplicationController.sendApplication",
-      """
-        function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "sendApplication"})
         }
       """
     )
@@ -149,6 +129,26 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "info"})
+        }
+      """
+    )
+  
+  }
+
+  // @LINE:23
+  class ReverseOpenApplicationController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:23
+    def sendOpenApplication: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.OpenApplicationController.sendOpenApplication",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "sendOpenApplication"})
         }
       """
     )

@@ -40,7 +40,7 @@ Seq[Any](format.raw/*1.43*/("""
         <title>Create Profile</title>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
+        <script src="/assets/javascripts/ProfileForm.js"></script>
             <!-- Compiled and minified JavaScript -->
         <script src=" https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
@@ -131,8 +131,8 @@ Seq[Any](format.raw/*1.43*/("""
                                     <option value="Staff">Staff</option>
                                 </select>
                             </div>
-                            <div class="input-field col s2">
-                                <select style="display: block" id="degree" name="degree">
+                            <div class="input-field col s3">
+                                <select id="degree" name="degree">
                                     <option selected disabled style="color: #888888">Select Degree...</option>
                                     <option value="Ph.D.">Ph.D.</option>
                                     <option value="D.E.-SE">D.E.-SE</option>
@@ -143,14 +143,32 @@ Seq[Any](format.raw/*1.43*/("""
                                     <option value="BA-CS">BA-CS</option>
                                 </select>
                             </div>
+                            <div class="input-field col s2">
+                                <input id="startingSemester"
+                                name="startingSemester"
+                                type="text"
+                                style="display: none">
+                                <label id="startLabel"
+                                for="startingSemester"
+                                style="display: none">Starting Semester</label>
+                            </div>
+                            <div class="input-field col s3">
+                                <input id="gradSemester"
+                                name="gradSemester"
+                                type="text"
+                                style="display: none">
+                                <label id="gradLabel"
+                                for="gradSemester"
+                                style="display: none">Graduating Semester</label>
+                            </div>
                         </div>
-                        """),_display_(/*115.26*/if(authorizeMessage != null)/*115.54*/ {_display_(Seq[Any](format.raw/*115.56*/("""
-                            """),format.raw/*116.29*/("""<div class="alert alert-primary" role="alert">
-                            """),_display_(/*117.30*/authorizeMessage),format.raw/*117.46*/("""
-                            """),format.raw/*118.29*/("""</div>
+                        """),_display_(/*133.26*/if(authorizeMessage != null)/*133.54*/ {_display_(Seq[Any](format.raw/*133.56*/("""
+                            """),format.raw/*134.29*/("""<div class="alert alert-primary" role="alert">
+                            """),_display_(/*135.30*/authorizeMessage),format.raw/*135.46*/("""
+                            """),format.raw/*136.29*/("""</div>
                             <br>
-                        """)))}),format.raw/*120.26*/("""
-                        """),format.raw/*121.25*/("""<div class="row">
+                        """)))}),format.raw/*138.26*/("""
+                        """),format.raw/*139.25*/("""<div class="row">
                             <button id="api-search-button" class="btn col s4 offset-s4" type="submit">Submit</button>
                         </div>
                     </div>
@@ -174,11 +192,11 @@ Seq[Any](format.raw/*1.43*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2023-03-05T11:21:09.068
+                  DATE: 2023-03-05T16:53:32.214
                   SOURCE: C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/app/views/account/profileForm.scala.html
-                  HASH: c7317b410c28926fbdff580a95961aed41f822f4
-                  MATRIX: 969->1|1105->42|1133->44|2745->1631|2760->1637|2813->1669|3122->1950|3149->1955|8567->7345|8605->7373|8646->7375|8705->7405|8810->7482|8848->7498|8907->7528|9006->7595|9061->7621
-                  LINES: 28->1|33->1|34->2|60->28|60->28|60->28|64->32|64->32|147->115|147->115|147->115|148->116|149->117|149->117|150->118|152->120|153->121
+                  HASH: 34df00230aa270aa541d416b0773b9c9d0c70873
+                  MATRIX: 969->1|1105->42|1133->44|2811->1697|2826->1703|2879->1735|3188->2016|3215->2021|9621->8399|9659->8427|9700->8429|9759->8459|9864->8536|9902->8552|9961->8582|10060->8649|10115->8675
+                  LINES: 28->1|33->1|34->2|60->28|60->28|60->28|64->32|64->32|165->133|165->133|165->133|166->134|167->135|167->135|168->136|170->138|171->139
                   -- GENERATED --
               */
           
