@@ -5,13 +5,12 @@
 
 create table application (
   id                            bigint auto_increment not null,
-  recipient_username            varchar(255),
-  recipient_email               varchar(255),
-  applicant_username            varchar(255),
-  applicant_email               varchar(255),
-  class_name                    varchar(255),
-  message                       varchar(255),
-  class_id                      varchar(255),
+  student_email                 varchar(255),
+  first_choice                  varchar(255),
+  second_choice                 varchar(255),
+  third_choice                  varchar(255),
+  avoid                         varchar(255),
+  is_available                  tinyint(1) default 0,
   constraint pk_application primary key (id)
 );
 

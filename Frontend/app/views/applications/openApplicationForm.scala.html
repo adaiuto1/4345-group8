@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>Application Form</title>
+        <title>Open Application Form</title>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <script src="/assets/javascripts/openApplicationForm.js"></script>
@@ -18,51 +18,56 @@
     <body>
         <div class="row">
             <div class="card col s8 offset-s2">
+                <div class="row">
+                    <div class="col s6">
+                        <h1 style="font-size: 37px;
+                            color: #186aad">
+                            <strong>Open Application Form</strong>
+                        </h1>
+                        <p>Select what classes you wish to TA for, and our staff will respond shortly!</p>
+                    </div>
+                    <div class="col s5" style="padding: 1em">
+                        <div class="row" name="infoRow1">
+                            <div class="col s6">
+                                <h5 style="color: #186aad;">
+                                    <strong>@currUser.firstname @currUser.lastname</strong>
+                                </h5>
+                                <h6>@currUser.degree</h6>
+                                <h6 style="font-size: 1em">@currUser.startingSemester - @currUser.gradSemester</h6>
+                            </div>
+                            <div class="col s6">
+                                <input id="studentEmail" value="@currUser.email" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="card-panel">
                     <form action="@routes.ApplicationController.ApplicationHandler()" method="GET">
-                        <div class="row s12" name="row-1">
-                            <div class="input-field col ">
-                                <input id="firstname" name="firstname" type="text" value="@currUser.firstname" readonly required>
-                                <label for="firstname">First Name</label>
-                            </div>
-                            <div class="input-field col ">
-                                <input id="lastname" name="lastname" type="text" value="@currUser.lastname" readonly required>
-                                <label for="lastname">First Name</label>
-                            </div>
-                        </div>
-                        <div class="row s12" name="row-2">
-                            <div class="input-field col ">
-                                <input id="email" name="email" type="text" value="@currUser.email" readonly required>
-                                <label for="email">Email</label>
-                            </div>
-                            <div class="input-field col ">
-                                <input id="phone" name="phone" type="text" value="@currUser.phone" readonly required>
-                                <label for="phone">Phone</label>
-                            </div>
-                        </div>
-                        <div class="row s12" name="row-2">
-                            <div class="col s2">
-                                <strong>Degree Plan: @currUser.degree</strong>
-                            </div>
-                            <div class="input-field col s5">
-                                <input id="startingSemester" name="startingSemester" type="text" value="@currUser.startingSemester" readonly required>
-                                <label for="startingSemester">Starting Semester</label>
-                            </div>
-                            <div class="input-field col 5">
-                                <input id="gradSemester" name="gradSemester" type="text" value="@currUser.gradSemester" readonly required>
-                                <label for="gradSemester">Graduating Semester</label>
+                        <div class="row">
+                            <div class="col s3">
+                                <h6>Previous Coursework</h6>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="input-field col">
-                                <select id="classes" name="classes" style="display: block">
-                                @for(classOption <- classOptions) {
-                                    <option value="@classOption">@classOption</option>
-                                }
-                                </select>
-                            </div>
 
+                            <div class="col s2">
+                                <div class="input-field">
+                                    <select id="classSelector" name="classSelector" style="display: block">
+                                        <option selected disabled style="color: #888888">Select...</option>
+                                        @for(classOption <- classOptions) {
+                                            <option value="@classOption">@classOption</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col s5">
+                                <input type="text" id="classDisplay"
+                                required readonly
+                                value="@currUser.courses">
+                            </div>
                         </div>
+
+
                     </form>
                 </div>
             </div>

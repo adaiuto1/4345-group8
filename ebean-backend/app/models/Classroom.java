@@ -12,5 +12,4 @@ public class Classroom extends Model {
 
 
 
-
 }

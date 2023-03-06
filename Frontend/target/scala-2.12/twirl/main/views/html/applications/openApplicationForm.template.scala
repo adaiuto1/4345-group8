@@ -37,7 +37,7 @@ Seq[Any](format.raw/*1.65*/("""
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>Application Form</title>
+        <title>Open Application Form</title>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <script src="/assets/javascripts/openApplicationForm.js"></script>
@@ -50,51 +50,56 @@ Seq[Any](format.raw/*1.65*/("""
     <body>
         <div class="row">
             <div class="card col s8 offset-s2">
+                <div class="row">
+                    <div class="col s6">
+                        <h1 style="font-size: 37px;
+                            color: #186aad">
+                            <strong>Open Application Form</strong>
+                        </h1>
+                        <p>Select what classes you wish to TA for, and our staff will respond shortly!</p>
+                    </div>
+                    <div class="col s5" style="padding: 1em">
+                        <div class="row" name="infoRow1">
+                            <div class="col s6">
+                                <h5 style="color: #186aad;">
+                                    <strong>"""),_display_(/*33.46*/currUser/*33.54*/.firstname),format.raw/*33.64*/(""" """),_display_(/*33.66*/currUser/*33.74*/.lastname),format.raw/*33.83*/("""</strong>
+                                </h5>
+                                <h6>"""),_display_(/*35.38*/currUser/*35.46*/.degree),format.raw/*35.53*/("""</h6>
+                                <h6 style="font-size: 1em">"""),_display_(/*36.61*/currUser/*36.69*/.startingSemester),format.raw/*36.86*/(""" """),format.raw/*36.87*/("""- """),_display_(/*36.90*/currUser/*36.98*/.gradSemester),format.raw/*36.111*/("""</h6>
+                            </div>
+                            <div class="col s6">
+                                <input id="studentEmail" value=""""),_display_(/*39.66*/currUser/*39.74*/.email),format.raw/*39.80*/("""" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="card-panel">
-                    <form action=""""),_display_(/*22.36*/routes/*22.42*/.ApplicationController.ApplicationHandler()),format.raw/*22.85*/("""" method="GET">
-                        <div class="row s12" name="row-1">
-                            <div class="input-field col ">
-                                <input id="firstname" name="firstname" type="text" value=""""),_display_(/*25.92*/currUser/*25.100*/.firstname),format.raw/*25.110*/("""" readonly required>
-                                <label for="firstname">First Name</label>
-                            </div>
-                            <div class="input-field col ">
-                                <input id="lastname" name="lastname" type="text" value=""""),_display_(/*29.90*/currUser/*29.98*/.lastname),format.raw/*29.107*/("""" readonly required>
-                                <label for="lastname">First Name</label>
-                            </div>
-                        </div>
-                        <div class="row s12" name="row-2">
-                            <div class="input-field col ">
-                                <input id="email" name="email" type="text" value=""""),_display_(/*35.84*/currUser/*35.92*/.email),format.raw/*35.98*/("""" readonly required>
-                                <label for="email">Email</label>
-                            </div>
-                            <div class="input-field col ">
-                                <input id="phone" name="phone" type="text" value=""""),_display_(/*39.84*/currUser/*39.92*/.phone),format.raw/*39.98*/("""" readonly required>
-                                <label for="phone">Phone</label>
-                            </div>
-                        </div>
-                        <div class="row s12" name="row-2">
-                            <div class="col s2">
-                                <strong>Degree Plan: """),_display_(/*45.55*/currUser/*45.63*/.degree),format.raw/*45.70*/("""</strong>
-                            </div>
-                            <div class="input-field col s5">
-                                <input id="startingSemester" name="startingSemester" type="text" value=""""),_display_(/*48.106*/currUser/*48.114*/.startingSemester),format.raw/*48.131*/("""" readonly required>
-                                <label for="startingSemester">Starting Semester</label>
-                            </div>
-                            <div class="input-field col 5">
-                                <input id="gradSemester" name="gradSemester" type="text" value=""""),_display_(/*52.98*/currUser/*52.106*/.gradSemester),format.raw/*52.119*/("""" readonly required>
-                                <label for="gradSemester">Graduating Semester</label>
+                    <form action=""""),_display_(/*45.36*/routes/*45.42*/.ApplicationController.ApplicationHandler()),format.raw/*45.85*/("""" method="GET">
+                        <div class="row">
+                            <div class="col s3">
+                                <h6>Previous Coursework</h6>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="input-field col">
-                                <select id="classes" name="classes" style="display: block">
-                                """),_display_(/*59.34*/for(classOption <- classOptions) yield /*59.66*/ {_display_(Seq[Any](format.raw/*59.68*/("""
-                                    """),format.raw/*60.37*/("""<option value=""""),_display_(/*60.53*/classOption),format.raw/*60.64*/("""">"""),_display_(/*60.67*/classOption),format.raw/*60.78*/("""</option>
-                                """)))}),format.raw/*61.34*/("""
-                                """),format.raw/*62.33*/("""</select>
-                            </div>
 
+                            <div class="col s2">
+                                <div class="input-field">
+                                    <select id="classSelector" name="classSelector" style="display: block">
+                                        <option selected disabled style="color: #888888">Select...</option>
+                                        """),_display_(/*57.42*/for(classOption <- classOptions) yield /*57.74*/ {_display_(Seq[Any](format.raw/*57.76*/("""
+                                            """),format.raw/*58.45*/("""<option value=""""),_display_(/*58.61*/classOption),format.raw/*58.72*/("""">"""),_display_(/*58.75*/classOption),format.raw/*58.86*/("""</option>
+                                        """)))}),format.raw/*59.42*/("""
+                                    """),format.raw/*60.37*/("""</select>
+                                </div>
+                            </div>
+                            <div class="col s5">
+                                <input type="text" id="classDisplay"
+                                required readonly
+                                value=""""),_display_(/*66.41*/currUser/*66.49*/.courses),format.raw/*66.57*/("""">
+                            </div>
                         </div>
+
+
                     </form>
                 </div>
             </div>
@@ -116,11 +121,11 @@ Seq[Any](format.raw/*1.65*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2023-03-05T16:24:46.188
+                  DATE: 2023-03-06T14:16:29.507
                   SOURCE: C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/app/views/applications/openApplicationForm.scala.html
-                  HASH: 9a2e503ef30e03e5aa38ce4cc4a2810f6abe4d04
-                  MATRIX: 995->1|1153->64|1181->66|2664->1524|2679->1530|2743->1573|2998->1801|3016->1809|3048->1819|3357->2101|3374->2109|3405->2118|3799->2485|3816->2493|3843->2499|4137->2766|4154->2774|4181->2780|4528->3100|4545->3108|4573->3115|4815->3329|4833->3337|4872->3354|5204->3659|5222->3667|5257->3680|5689->4085|5737->4117|5777->4119|5843->4157|5886->4173|5918->4184|5948->4187|5980->4198|6055->4242|6117->4276
-                  LINES: 28->1|33->1|34->2|54->22|54->22|54->22|57->25|57->25|57->25|61->29|61->29|61->29|67->35|67->35|67->35|71->39|71->39|71->39|77->45|77->45|77->45|80->48|80->48|80->48|84->52|84->52|84->52|91->59|91->59|91->59|92->60|92->60|92->60|92->60|92->60|93->61|94->62
+                  HASH: 48c3c706480311734f812d5ff0c3a68dabcdabf7
+                  MATRIX: 995->1|1153->64|1181->66|3282->2142|3299->2150|3330->2160|3359->2162|3376->2170|3406->2179|3520->2266|3537->2274|3565->2281|3659->2348|3676->2356|3714->2373|3743->2374|3773->2377|3790->2385|3825->2398|4010->2556|4027->2564|4054->2570|4291->2780|4306->2786|4370->2829|5050->3482|5098->3514|5138->3516|5212->3562|5255->3578|5287->3589|5317->3592|5349->3603|5432->3655|5498->3693|5823->3991|5840->3999|5869->4007
+                  LINES: 28->1|33->1|34->2|65->33|65->33|65->33|65->33|65->33|65->33|67->35|67->35|67->35|68->36|68->36|68->36|68->36|68->36|68->36|68->36|71->39|71->39|71->39|77->45|77->45|77->45|89->57|89->57|89->57|90->58|90->58|90->58|90->58|90->58|91->59|92->60|98->66|98->66|98->66
                   -- GENERATED --
               */
           
