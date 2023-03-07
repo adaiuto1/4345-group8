@@ -128,7 +128,6 @@ public class HomeController extends Controller {
         if (passwordForm.hasErrors()) {
             return (CompletionStage<Result>) badRequest(views.html.account.profileForm.render(null, null));
         }
-
         return passwordForm.get().registerPasswordRequest()
                 .thenApplyAsync((WSResponse r) -> {
                     if (r.getStatus() == 200 && r.asJson() != null) {
@@ -142,33 +141,6 @@ public class HomeController extends Controller {
                 }, ec.current());
     }
 
-    public CompletionStage<Result> ApplicationHandler() {
-        List<String> classes = new ArrayList<String>();
-        classes.add("CS4345");
-        classes.add("CS3353");
-        classes.add("MATH3315");
-        classes.add("ENGR1304");
-        classSeq = JavaConverters.asScalaBufferConverter(classes).asScala().toSeq();
-
-        Form<Application> applicationForm = formFactory.form(Application.class).bindFromRequest();
-        System.out.println("why the");
-
-        if (applicationForm.hasErrors()) {
-            return (CompletionStage<Result>) badRequest(views.html.applications.openApplicationForm.render(null, "cannot submit application", classSeq));
-        } else {
-            return applicationForm.get().sendOpenApplication()
-                    .thenApplyAsync((WSResponse r) -> {
-                        if (r.getStatus() == 200 && r.asJson() != null) {
-                            System.out.println("application success");
-                            System.out.println(r.asJson());
-                            return ok(views.html.index.render(session("firstname"), "Open Application Submitted"));
-                        } else {
-                            System.out.println("application response null");
-                            return badRequest(views.html.applications.openApplicationForm.render(null, "application response error", classSeq));
-                        }
-                    }, ec.current());
-        }
-    }
 
 }
 

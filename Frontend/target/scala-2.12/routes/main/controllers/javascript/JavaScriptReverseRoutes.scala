@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/conf/routes
-// @DATE:Mon Mar 06 15:13:03 CST 2023
+// @DATE:Tue Mar 07 11:32:41 CST 2023
 
 import play.api.routing.JavaScriptReverseRoute
 

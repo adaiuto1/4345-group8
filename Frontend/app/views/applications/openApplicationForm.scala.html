@@ -22,9 +22,9 @@
         }
         </div>
         <div class="row">
-            <form action="@routes.ApplicationController.ApplicationHandler()" method="GET">
+            <div class="card col s8 offset-s2">
+                <form action="@routes.ApplicationController.ApplicationHandler()" method="GET">
 
-                <div class="card col s8 offset-s2">
                     <div class="row">
                         <div class="col s6">
                             <h1 style="font-size: 37px;
@@ -36,6 +36,11 @@
                         <div class="col s5" style="padding: 1em">
                             <div class="row" name="infoRow1">
                                 <div class="col s6">
+                                    <div class="input-field">
+                                        <input id="studentEmail" name="studentEmail"
+                                        type="text" value="@currUser.email"
+                                        readonly style="display: none">
+                                    </div>
                                     <h5 style="color: #186aad;">
                                         <strong>@currUser.firstname @currUser.lastname</strong>
                                     </h5>
@@ -43,7 +48,7 @@
                                     <h6 style="font-size: 1em">@currUser.startingSemester - @currUser.gradSemester</h6>
                                 </div>
                                 <div class="col s6">
-                                    <input id="studentEmail" value="@currUser.email" readonly>
+                                    <h6 style="font-size: 1em" readonly>@currUser.email</h6>
                                 </div>
                             </div>
                         </div>
@@ -85,7 +90,8 @@
                             <div class="col s4" id="first">
                                 <h6 style="color: #186aad">First Preference</h6>
                                 <div class="input-field">
-                                    <select id="firstChoice" style="display: block" required>
+                                    <input type="text" id="firstChoice" name="firstChoice" required style="display: none">
+                                    <select id="firstChoiceSelector" style="display: block" required>
                                         <option selected disabled
                                         style="color: #888888">Select...</option>
                                         @for(classOption <- classOptions) {
@@ -99,7 +105,8 @@
                             <div class="col s4" id="second" style="display: none">
                                 <h6 style="color: #186aad">Second Preference (Optional)</h6>
                                 <div class="input-field">
-                                    <select id="secondChoice" style="display: block">
+                                    <input type="text" id="secondChoice" name="secondChoice" style="display: none">
+                                    <select id="secondChoiceSelector" style="display: block">
                                         <option selected disabled
                                         style="color: #888888"
                                         value="null">Select...</option>
@@ -115,7 +122,8 @@
                             <div class="col s4" id="third" style="display: none">
                                 <h6 style="color: #186aad">Third Preference (Optional)</h6>
                                 <div class="input-field">
-                                    <select id="thirdChoice" style="display: block">
+                                    <input type="text" id="thirdChoice" name="thirdChoice" style="display: none">
+                                    <select id="thirdChoiceSelector" style="display: block">
                                         <option selected disabled
                                         style="color: #888888"
                                         value="null">Select...</option>
@@ -128,14 +136,28 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row" id="ignorance">
+                            <h6 style="color: #186aad">Select classes you do NOT wish to TA for</h6>
+                            <div class="input-field">
+                                <input type="text" id="avoid" name="avoid" readonly>
+                                <select id="avoidSelector" style="display: block">
+                                    <option selected disabled
+                                    style="color: #888888"
+                                    value="null">Select...</option>
+                                    @for(classOption <- classOptions) {
+                                        @if(!currUser.courses.contains(classOption)) {
+                                            <option value="@classOption">@classOption</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
                         <div class="row">
                             <button id="api-search-button" class="btn col s4 offset-s4" type="submit">Submit</button>
                         </div>
-
                     </div>
-
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </body>
 </html>
