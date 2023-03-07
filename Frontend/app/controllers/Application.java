@@ -8,6 +8,8 @@ import play.libs.ws.WSResponse;
 
 import java.util.concurrent.CompletionStage;
 
+import static play.mvc.Controller.session;
+
 public class Application {
 
     public String studentEmail;
@@ -17,6 +19,9 @@ public class Application {
     public String avoid;
     public boolean isAvailable;
 
+    public Application() {
+    }
+
     public CompletionStage<WSResponse> sendOpenApplication() {
         WSClient ws = play.test.WSTestClient.newClient(9005);
         ObjectNode newApplication = Json.newObject();
@@ -24,9 +29,9 @@ public class Application {
         newApplication.put("firstChoice", firstChoice);
         newApplication.put("secondChoice", secondChoice);
         newApplication.put("thirdChoice", thirdChoice);
-        newApplication.put("isAvailable", isAvailable);
+        newApplication.put("isAvailable", true);
         newApplication.put("avoid", avoid);
-
+        System.out.println(newApplication);
         WSRequest request = ws.url("http://localhost:9005/sendOpenApplication");
         return request.addHeader("Content-Type", "application/json")
                 .post(newApplication)

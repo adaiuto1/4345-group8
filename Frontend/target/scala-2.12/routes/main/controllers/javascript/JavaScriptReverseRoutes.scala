@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/conf/routes
-// @DATE:Sun Mar 05 16:16:46 CST 2023
+// @DATE:Mon Mar 06 15:13:03 CST 2023
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -24,7 +24,7 @@ package controllers.javascript {
       "controllers.ApplicationController.ApplicationHandler",
       """
         function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "sendOpenApplication"})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "sendOpenApplication"})
         }
       """
     )

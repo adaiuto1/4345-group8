@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/conf/routes
-// @DATE:Sun Mar 05 16:16:46 CST 2023
+// @DATE:Mon Mar 06 15:13:03 CST 2023
 
 package router
 
@@ -50,7 +50,7 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """register""", """controllers.HomeController.signupHandler()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """registerProfile""", """controllers.HomeController.profileHandler()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """openApplication""", """controllers.ApplicationController.openApplicationForm()"""),
-    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """sendOpenApplication""", """controllers.ApplicationController.ApplicationHandler()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """sendOpenApplication""", """controllers.ApplicationController.ApplicationHandler()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """changePassword""", """controllers.HomeController.changePassword()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """submitNewPassword""", """controllers.HomeController.passwordHandler()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.at(path:String = "/public", file:String)"""),
@@ -170,7 +170,7 @@ class Routes(
   )
 
   // @LINE:18
-  private[this] lazy val controllers_ApplicationController_ApplicationHandler6_route = Route("POST",
+  private[this] lazy val controllers_ApplicationController_ApplicationHandler6_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("sendOpenApplication")))
   )
   private[this] lazy val controllers_ApplicationController_ApplicationHandler6_invoker = createInvoker(
@@ -180,7 +180,7 @@ class Routes(
       "controllers.ApplicationController",
       "ApplicationHandler",
       Nil,
-      "POST",
+      "GET",
       this.prefix + """sendOpenApplication""",
       """""",
       Seq()

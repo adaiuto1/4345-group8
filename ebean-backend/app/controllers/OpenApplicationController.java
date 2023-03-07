@@ -24,7 +24,9 @@ public class OpenApplicationController extends Controller{
         newApp.thirdChoice = thirdChoice;
         newApp.isAvailable = isAvailable;
         newApp.avoid = avoid;
+        System.out.println(newApp);
         newApp.save();
+
         ObjectNode result = Json.newObject();
         result.put("studentEmail", studentEmail);
         return(ok(result));

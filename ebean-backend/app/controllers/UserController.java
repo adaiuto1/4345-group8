@@ -29,11 +29,11 @@ public class UserController extends Controller {
             if(user!=null && username.equals(user.username) && password.equals(user.password)){
                 return ok("true");
             }else{
-                return ok("false");
+                return badRequest("false");
             }
         }
         catch (Exception e) {
-            return ok("false");
+            return badRequest("false");
         }
 
     }

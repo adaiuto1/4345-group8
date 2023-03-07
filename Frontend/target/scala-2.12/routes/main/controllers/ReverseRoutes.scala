@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/conf/routes
-// @DATE:Sun Mar 05 16:16:46 CST 2023
+// @DATE:Mon Mar 06 15:13:03 CST 2023
 
 import play.api.mvc.Call
 
@@ -21,7 +21,7 @@ package controllers {
     // @LINE:18
     def ApplicationHandler(): Call = {
       
-      Call("POST", _prefix + { _defaultPrefix } + "sendOpenApplication")
+      Call("GET", _prefix + { _defaultPrefix } + "sendOpenApplication")
     }
   
     // @LINE:16

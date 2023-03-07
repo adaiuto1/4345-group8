@@ -111,9 +111,7 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
                         """),format.raw/*80.25*/("""<div class="row">
                             <button id="api-search-button" class="btn col s4 offset-s4" type="submit">Submit</button>
                         </div>
-
                     </form>
-
                 </div>
             </div>
         </div>
@@ -135,9 +133,9 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: 2023-02-28T15:29:48.682
+                  DATE: 2023-03-06T15:13:03.896
                   SOURCE: C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/app/views/account/register.scala.html
-                  HASH: 2c0d732dfcf4d0b862e67be0d115f7a5d94c4b4b
+                  HASH: 7d11fb156dc7e1992ea60824167ab67c69fd0f4f
                   MATRIX: 959->1|1079->28|2701->1625|2716->1631|2768->1662|5656->4523|5693->4551|5733->4553|5790->4582|5893->4658|5930->4674|5987->4703|6083->4768|6137->4794
                   LINES: 28->1|33->2|62->31|62->31|62->31|104->73|104->73|104->73|105->74|106->75|106->75|107->76|109->78|111->80
                   -- GENERATED --

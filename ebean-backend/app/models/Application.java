@@ -25,7 +25,7 @@ public class Application extends Model{
     public String avoid;
 
     @Constraints.Required
-    public boolean isAvailable;
+    public boolean isAvailable = true;
 
     public Set<Application> getApplicationsBySender(String studentEmail){
         return Application.find
