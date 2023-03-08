@@ -137,6 +137,35 @@ public class HomeController extends Controller {
                 }, ec.current());
     }
 
+    public CompletionStage<Result> editProfile() {
+        List<String> classes = new ArrayList<String>();
+        classes.add("CS4345");
+        classes.add("CS3353");
+        classes.add("MATH3315");
+        classes.add("ENGR1304");
+        classes.add("MATH3303");
+        classes.add("PHYS1304");
+        classes.add("CS3330");
+        classes.add("CS2381");
+        classSeq = JavaConverters.asScalaBufferConverter(classes).asScala().toSeq();
+
+        WSClient ws = play.test.WSTestClient.newClient(9005);
+        WSRequest request = ws.url("http://localhost:9005/getProfileByEmail/" + session("email"));
+        return request.addHeader("Content-Type", "application/json")
+                .get().thenApplyAsync((WSResponse r) -> {
+                    return ok(views.html.account.editProfileForm.render(r.asJson(), classSeq));
+                }, ec.current());
+    }
+
+    public CompletionStage<Result> editProfileHandler() {
+        Form<Profile> editProfileForm = formFactory.form(Profile.class).bindFromRequest();
+        return editProfileForm.get().updateProfileInfo()
+                .thenApplyAsync((WSResponse r) -> {
+                    session("firstname", r.asJson().get("firstname").asText());
+                    return ok(views.html.index.render(session("firstname"), session("status")));
+                }, ec.current());
+    }
+
     public CompletionStage<Result> passwordHandler() {
         Form<PasswordRequest> passwordForm = formFactory.form(PasswordRequest.class).bindFromRequest();
         if (passwordForm.hasErrors()) {

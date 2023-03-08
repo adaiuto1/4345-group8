@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/ebean-backend/conf/routes
-// @DATE:Wed Mar 08 13:33:50 CST 2023
+// @DATE:Wed Mar 08 15:43:52 CST 2023
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -69,6 +69,16 @@ package controllers.javascript {
       """
         function(p0) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "getProfileByEmail/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("p", encodeURIComponent(p0))})
+        }
+      """
+    )
+  
+    // @LINE:21
+    def editProfile: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ProfileController.editProfile",
+      """
+        function(e0) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "editProfile/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("e", encodeURIComponent(e0))})
         }
       """
     )

@@ -4,28 +4,32 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET        /                           controllers.HomeController.index()
-GET        /login                      controllers.HomeController.loginHandler()
+GET        /                            controllers.HomeController.index()
+GET        /login                       controllers.HomeController.loginHandler()
 
-GET        /signup                     controllers.HomeController.signup()
+GET        /signup                      controllers.HomeController.signup()
 
-GET        /register                   controllers.HomeController.signupHandler()
+GET        /register                    controllers.HomeController.signupHandler()
 
-GET        /registerProfile            controllers.HomeController.profileHandler()
+GET        /registerProfile             controllers.HomeController.profileHandler()
 
-GET        /openApplication            controllers.ApplicationController.openApplicationForm()
+GET        /editProfile                 controllers.HomeController.editProfile()
 
-GET        /sendOpenApplication        controllers.ApplicationController.ApplicationHandler()
+GET        /submitProfileChanges        controllers.HomeController.editProfileHandler()
 
-GET        /changePassword             controllers.HomeController.changePassword()
+GET        /openApplication             controllers.ApplicationController.openApplicationForm()
 
-GET        /submitNewPassword          controllers.HomeController.passwordHandler()
+GET        /sendOpenApplication         controllers.ApplicationController.ApplicationHandler()
 
-GET        /TA_Application/:c          controllers.TAResponseController.openResponseForm(c)
+GET        /changePassword              controllers.HomeController.changePassword()
 
-GET        /sendTAResponse             controllers.TAResponseController.TAResponseHandler()
+GET        /submitNewPassword           controllers.HomeController.passwordHandler()
+
+GET        /TA_Application/:c           controllers.TAResponseController.openResponseForm(c)
+
+GET        /sendTAResponse              controllers.TAResponseController.TAResponseHandler()
 
 # Map static resources from the /public folder to the /assets URL path
-GET        /assets/*file               controllers.Assets.at(path="/public", file)
+GET        /assets/*file                controllers.Assets.at(path="/public", file)
 
 

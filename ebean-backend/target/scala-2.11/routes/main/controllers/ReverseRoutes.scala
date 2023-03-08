@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/ebean-backend/conf/routes
-// @DATE:Wed Mar 08 13:33:50 CST 2023
+// @DATE:Wed Mar 08 15:43:52 CST 2023
 
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
 import play.core.routing.{ HandlerDef, ReverseRouteContext, queryString, dynamicString }
@@ -54,6 +54,12 @@ package controllers {
     def getProfileByEmail(p:String): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "getProfileByEmail/" + implicitly[PathBindable[String]].unbind("p", dynamicString(p)))
+    }
+  
+    // @LINE:21
+    def editProfile(e:String): Call = {
+      import ReverseRouteContext.empty
+      Call("POST", _prefix + { _defaultPrefix } + "editProfile/" + implicitly[PathBindable[String]].unbind("e", dynamicString(e)))
     }
   
     // @LINE:20

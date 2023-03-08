@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/conf/routes
-// @DATE:Wed Mar 08 13:38:06 CST 2023
+// @DATE:Wed Mar 08 15:47:37 CST 2023
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -11,7 +11,7 @@ import _root_.play.libs.F
 // @LINE:7
 package controllers.javascript {
 
-  // @LINE:16
+  // @LINE:20
   class ReverseApplicationController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -19,7 +19,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:18
+    // @LINE:22
     def ApplicationHandler: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ApplicationController.ApplicationHandler",
       """
@@ -29,7 +29,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:16
+    // @LINE:20
     def openApplicationForm: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ApplicationController.openApplicationForm",
       """
@@ -59,7 +59,17 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:22
+    // @LINE:18
+    def editProfileHandler: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.editProfileHandler",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "submitProfileChanges"})
+        }
+      """
+    )
+  
+    // @LINE:26
     def passwordHandler: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.passwordHandler",
       """
@@ -79,7 +89,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:20
+    // @LINE:24
     def changePassword: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.changePassword",
       """
@@ -95,6 +105,16 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "login"})
+        }
+      """
+    )
+  
+    // @LINE:16
+    def editProfile: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.editProfile",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "editProfile"})
         }
       """
     )
@@ -121,7 +141,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:29
+  // @LINE:33
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -129,7 +149,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:29
+    // @LINE:33
     def at: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.at",
       """
@@ -141,7 +161,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:24
+  // @LINE:28
   class ReverseTAResponseController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -149,7 +169,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:24
+    // @LINE:28
     def openResponseForm: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.TAResponseController.openResponseForm",
       """
@@ -159,7 +179,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:26
+    // @LINE:30
     def TAResponseHandler: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.TAResponseController.TAResponseHandler",
       """

@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/ebean-backend/conf/routes
-// @DATE:Wed Mar 08 13:33:50 CST 2023
+// @DATE:Wed Mar 08 15:43:52 CST 2023
 
 package router
 
@@ -69,6 +69,7 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """info""", """controllers.HomeController.info()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """resetPassword""", """controllers.PasswordController.resetPassword()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """registerProfile""", """controllers.ProfileController.registerNew()"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """editProfile/""" + "$" + """e<[^/]+>""", """controllers.ProfileController.editProfile(e:String)"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """sendOpenApplication""", """controllers.OpenApplicationController.sendOpenApplication()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getUserByUsername/""" + "$" + """u<[^/]+>""", """controllers.UserController.getUserByUsername(u:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """getProfileByEmail/""" + "$" + """p<[^/]+>""", """controllers.ProfileController.getProfileByEmail(p:String)"""),
@@ -185,11 +186,28 @@ class Routes(
     )
   )
 
+  // @LINE:21
+  private[this] lazy val controllers_ProfileController_editProfile6_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("editProfile/"), DynamicPart("e", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_ProfileController_editProfile6_invoker = createInvoker(
+    ProfileController_3.editProfile(fakeValue[String]),
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.ProfileController",
+      "editProfile",
+      Seq(classOf[String]),
+      "POST",
+      """""",
+      this.prefix + """editProfile/""" + "$" + """e<[^/]+>"""
+    )
+  )
+
   // @LINE:23
-  private[this] lazy val controllers_OpenApplicationController_sendOpenApplication6_route = Route("POST",
+  private[this] lazy val controllers_OpenApplicationController_sendOpenApplication7_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("sendOpenApplication")))
   )
-  private[this] lazy val controllers_OpenApplicationController_sendOpenApplication6_invoker = createInvoker(
+  private[this] lazy val controllers_OpenApplicationController_sendOpenApplication7_invoker = createInvoker(
     OpenApplicationController_2.sendOpenApplication(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -203,10 +221,10 @@ class Routes(
   )
 
   // @LINE:25
-  private[this] lazy val controllers_UserController_getUserByUsername7_route = Route("GET",
+  private[this] lazy val controllers_UserController_getUserByUsername8_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("getUserByUsername/"), DynamicPart("u", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_UserController_getUserByUsername7_invoker = createInvoker(
+  private[this] lazy val controllers_UserController_getUserByUsername8_invoker = createInvoker(
     UserController_1.getUserByUsername(fakeValue[String]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -220,10 +238,10 @@ class Routes(
   )
 
   // @LINE:27
-  private[this] lazy val controllers_ProfileController_getProfileByEmail8_route = Route("GET",
+  private[this] lazy val controllers_ProfileController_getProfileByEmail9_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("getProfileByEmail/"), DynamicPart("p", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_ProfileController_getProfileByEmail8_invoker = createInvoker(
+  private[this] lazy val controllers_ProfileController_getProfileByEmail9_invoker = createInvoker(
     ProfileController_3.getProfileByEmail(fakeValue[String]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -237,10 +255,10 @@ class Routes(
   )
 
   // @LINE:29
-  private[this] lazy val controllers_TAResponseController_createNewTAResponse9_route = Route("POST",
+  private[this] lazy val controllers_TAResponseController_createNewTAResponse10_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("sendTAResponse")))
   )
-  private[this] lazy val controllers_TAResponseController_createNewTAResponse9_invoker = createInvoker(
+  private[this] lazy val controllers_TAResponseController_createNewTAResponse10_invoker = createInvoker(
     TAResponseController_5.createNewTAResponse(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -254,10 +272,10 @@ class Routes(
   )
 
   // @LINE:32
-  private[this] lazy val controllers_ClassroomController_getClassById10_route = Route("GET",
+  private[this] lazy val controllers_ClassroomController_getClassById11_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("classes/id/"), DynamicPart("c", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_ClassroomController_getClassById10_invoker = createInvoker(
+  private[this] lazy val controllers_ClassroomController_getClassById11_invoker = createInvoker(
     ClassroomController_6.getClassById(fakeValue[String]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -271,10 +289,10 @@ class Routes(
   )
 
   // @LINE:33
-  private[this] lazy val controllers_ClassroomController_getClassByEmail11_route = Route("GET",
+  private[this] lazy val controllers_ClassroomController_getClassByEmail12_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("classes/teacher/"), DynamicPart("e", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_ClassroomController_getClassByEmail11_invoker = createInvoker(
+  private[this] lazy val controllers_ClassroomController_getClassByEmail12_invoker = createInvoker(
     ClassroomController_6.getClassByEmail(fakeValue[String]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -288,10 +306,10 @@ class Routes(
   )
 
   // @LINE:34
-  private[this] lazy val controllers_ClassroomController_createNewClassroom12_route = Route("POST",
+  private[this] lazy val controllers_ClassroomController_createNewClassroom13_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("classes/newClassroom")))
   )
-  private[this] lazy val controllers_ClassroomController_createNewClassroom12_invoker = createInvoker(
+  private[this] lazy val controllers_ClassroomController_createNewClassroom13_invoker = createInvoker(
     ClassroomController_6.createNewClassroom(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -343,46 +361,52 @@ class Routes(
         controllers_ProfileController_registerNew5_invoker.call(ProfileController_3.registerNew())
       }
   
+    // @LINE:21
+    case controllers_ProfileController_editProfile6_route(params) =>
+      call(params.fromPath[String]("e", None)) { (e) =>
+        controllers_ProfileController_editProfile6_invoker.call(ProfileController_3.editProfile(e))
+      }
+  
     // @LINE:23
-    case controllers_OpenApplicationController_sendOpenApplication6_route(params) =>
+    case controllers_OpenApplicationController_sendOpenApplication7_route(params) =>
       call { 
-        controllers_OpenApplicationController_sendOpenApplication6_invoker.call(OpenApplicationController_2.sendOpenApplication())
+        controllers_OpenApplicationController_sendOpenApplication7_invoker.call(OpenApplicationController_2.sendOpenApplication())
       }
   
     // @LINE:25
-    case controllers_UserController_getUserByUsername7_route(params) =>
+    case controllers_UserController_getUserByUsername8_route(params) =>
       call(params.fromPath[String]("u", None)) { (u) =>
-        controllers_UserController_getUserByUsername7_invoker.call(UserController_1.getUserByUsername(u))
+        controllers_UserController_getUserByUsername8_invoker.call(UserController_1.getUserByUsername(u))
       }
   
     // @LINE:27
-    case controllers_ProfileController_getProfileByEmail8_route(params) =>
+    case controllers_ProfileController_getProfileByEmail9_route(params) =>
       call(params.fromPath[String]("p", None)) { (p) =>
-        controllers_ProfileController_getProfileByEmail8_invoker.call(ProfileController_3.getProfileByEmail(p))
+        controllers_ProfileController_getProfileByEmail9_invoker.call(ProfileController_3.getProfileByEmail(p))
       }
   
     // @LINE:29
-    case controllers_TAResponseController_createNewTAResponse9_route(params) =>
+    case controllers_TAResponseController_createNewTAResponse10_route(params) =>
       call { 
-        controllers_TAResponseController_createNewTAResponse9_invoker.call(TAResponseController_5.createNewTAResponse())
+        controllers_TAResponseController_createNewTAResponse10_invoker.call(TAResponseController_5.createNewTAResponse())
       }
   
     // @LINE:32
-    case controllers_ClassroomController_getClassById10_route(params) =>
+    case controllers_ClassroomController_getClassById11_route(params) =>
       call(params.fromPath[String]("c", None)) { (c) =>
-        controllers_ClassroomController_getClassById10_invoker.call(ClassroomController_6.getClassById(c))
+        controllers_ClassroomController_getClassById11_invoker.call(ClassroomController_6.getClassById(c))
       }
   
     // @LINE:33
-    case controllers_ClassroomController_getClassByEmail11_route(params) =>
+    case controllers_ClassroomController_getClassByEmail12_route(params) =>
       call(params.fromPath[String]("e", None)) { (e) =>
-        controllers_ClassroomController_getClassByEmail11_invoker.call(ClassroomController_6.getClassByEmail(e))
+        controllers_ClassroomController_getClassByEmail12_invoker.call(ClassroomController_6.getClassByEmail(e))
       }
   
     // @LINE:34
-    case controllers_ClassroomController_createNewClassroom12_route(params) =>
+    case controllers_ClassroomController_createNewClassroom13_route(params) =>
       call { 
-        controllers_ClassroomController_createNewClassroom12_invoker.call(ClassroomController_6.createNewClassroom())
+        controllers_ClassroomController_createNewClassroom13_invoker.call(ClassroomController_6.createNewClassroom())
       }
   }
 }

@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/conf/routes
-// @DATE:Wed Mar 08 13:38:06 CST 2023
+// @DATE:Wed Mar 08 15:47:37 CST 2023
 
 package router
 
@@ -16,11 +16,11 @@ class Routes(
   override val errorHandler: play.api.http.HttpErrorHandler, 
   // @LINE:7
   HomeController_3: controllers.HomeController,
-  // @LINE:16
+  // @LINE:20
   ApplicationController_0: controllers.ApplicationController,
-  // @LINE:24
+  // @LINE:28
   TAResponseController_1: controllers.TAResponseController,
-  // @LINE:29
+  // @LINE:33
   Assets_2: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -29,11 +29,11 @@ class Routes(
    def this(errorHandler: play.api.http.HttpErrorHandler,
     // @LINE:7
     HomeController_3: controllers.HomeController,
-    // @LINE:16
+    // @LINE:20
     ApplicationController_0: controllers.ApplicationController,
-    // @LINE:24
+    // @LINE:28
     TAResponseController_1: controllers.TAResponseController,
-    // @LINE:29
+    // @LINE:33
     Assets_2: controllers.Assets
   ) = this(errorHandler, HomeController_3, ApplicationController_0, TAResponseController_1, Assets_2, "/")
 
@@ -53,6 +53,8 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """signup""", """controllers.HomeController.signup()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """register""", """controllers.HomeController.signupHandler()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """registerProfile""", """controllers.HomeController.profileHandler()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """editProfile""", """controllers.HomeController.editProfile()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """submitProfileChanges""", """controllers.HomeController.editProfileHandler()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """openApplication""", """controllers.ApplicationController.openApplicationForm()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """sendOpenApplication""", """controllers.ApplicationController.ApplicationHandler()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """changePassword""", """controllers.HomeController.changePassword()"""),
@@ -158,10 +160,46 @@ class Routes(
   )
 
   // @LINE:16
-  private[this] lazy val controllers_ApplicationController_openApplicationForm5_route = Route("GET",
+  private[this] lazy val controllers_HomeController_editProfile5_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("editProfile")))
+  )
+  private[this] lazy val controllers_HomeController_editProfile5_invoker = createInvoker(
+    HomeController_3.editProfile(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "editProfile",
+      Nil,
+      "GET",
+      this.prefix + """editProfile""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:18
+  private[this] lazy val controllers_HomeController_editProfileHandler6_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("submitProfileChanges")))
+  )
+  private[this] lazy val controllers_HomeController_editProfileHandler6_invoker = createInvoker(
+    HomeController_3.editProfileHandler(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "editProfileHandler",
+      Nil,
+      "GET",
+      this.prefix + """submitProfileChanges""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:20
+  private[this] lazy val controllers_ApplicationController_openApplicationForm7_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("openApplication")))
   )
-  private[this] lazy val controllers_ApplicationController_openApplicationForm5_invoker = createInvoker(
+  private[this] lazy val controllers_ApplicationController_openApplicationForm7_invoker = createInvoker(
     ApplicationController_0.openApplicationForm(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -175,11 +213,11 @@ class Routes(
     )
   )
 
-  // @LINE:18
-  private[this] lazy val controllers_ApplicationController_ApplicationHandler6_route = Route("GET",
+  // @LINE:22
+  private[this] lazy val controllers_ApplicationController_ApplicationHandler8_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("sendOpenApplication")))
   )
-  private[this] lazy val controllers_ApplicationController_ApplicationHandler6_invoker = createInvoker(
+  private[this] lazy val controllers_ApplicationController_ApplicationHandler8_invoker = createInvoker(
     ApplicationController_0.ApplicationHandler(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -193,11 +231,11 @@ class Routes(
     )
   )
 
-  // @LINE:20
-  private[this] lazy val controllers_HomeController_changePassword7_route = Route("GET",
+  // @LINE:24
+  private[this] lazy val controllers_HomeController_changePassword9_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("changePassword")))
   )
-  private[this] lazy val controllers_HomeController_changePassword7_invoker = createInvoker(
+  private[this] lazy val controllers_HomeController_changePassword9_invoker = createInvoker(
     HomeController_3.changePassword(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -211,11 +249,11 @@ class Routes(
     )
   )
 
-  // @LINE:22
-  private[this] lazy val controllers_HomeController_passwordHandler8_route = Route("GET",
+  // @LINE:26
+  private[this] lazy val controllers_HomeController_passwordHandler10_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("submitNewPassword")))
   )
-  private[this] lazy val controllers_HomeController_passwordHandler8_invoker = createInvoker(
+  private[this] lazy val controllers_HomeController_passwordHandler10_invoker = createInvoker(
     HomeController_3.passwordHandler(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -229,11 +267,11 @@ class Routes(
     )
   )
 
-  // @LINE:24
-  private[this] lazy val controllers_TAResponseController_openResponseForm9_route = Route("GET",
+  // @LINE:28
+  private[this] lazy val controllers_TAResponseController_openResponseForm11_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("TA_Application/"), DynamicPart("c", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_TAResponseController_openResponseForm9_invoker = createInvoker(
+  private[this] lazy val controllers_TAResponseController_openResponseForm11_invoker = createInvoker(
     TAResponseController_1.openResponseForm(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -247,11 +285,11 @@ class Routes(
     )
   )
 
-  // @LINE:26
-  private[this] lazy val controllers_TAResponseController_TAResponseHandler10_route = Route("GET",
+  // @LINE:30
+  private[this] lazy val controllers_TAResponseController_TAResponseHandler12_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("sendTAResponse")))
   )
-  private[this] lazy val controllers_TAResponseController_TAResponseHandler10_invoker = createInvoker(
+  private[this] lazy val controllers_TAResponseController_TAResponseHandler12_invoker = createInvoker(
     TAResponseController_1.TAResponseHandler(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -265,11 +303,11 @@ class Routes(
     )
   )
 
-  // @LINE:29
-  private[this] lazy val controllers_Assets_at11_route = Route("GET",
+  // @LINE:33
+  private[this] lazy val controllers_Assets_at13_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_at11_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_at13_invoker = createInvoker(
     Assets_2.at(fakeValue[String], fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -317,45 +355,57 @@ class Routes(
       }
   
     // @LINE:16
-    case controllers_ApplicationController_openApplicationForm5_route(params@_) =>
+    case controllers_HomeController_editProfile5_route(params@_) =>
       call { 
-        controllers_ApplicationController_openApplicationForm5_invoker.call(ApplicationController_0.openApplicationForm())
+        controllers_HomeController_editProfile5_invoker.call(HomeController_3.editProfile())
       }
   
     // @LINE:18
-    case controllers_ApplicationController_ApplicationHandler6_route(params@_) =>
+    case controllers_HomeController_editProfileHandler6_route(params@_) =>
       call { 
-        controllers_ApplicationController_ApplicationHandler6_invoker.call(ApplicationController_0.ApplicationHandler())
+        controllers_HomeController_editProfileHandler6_invoker.call(HomeController_3.editProfileHandler())
       }
   
     // @LINE:20
-    case controllers_HomeController_changePassword7_route(params@_) =>
+    case controllers_ApplicationController_openApplicationForm7_route(params@_) =>
       call { 
-        controllers_HomeController_changePassword7_invoker.call(HomeController_3.changePassword())
+        controllers_ApplicationController_openApplicationForm7_invoker.call(ApplicationController_0.openApplicationForm())
       }
   
     // @LINE:22
-    case controllers_HomeController_passwordHandler8_route(params@_) =>
+    case controllers_ApplicationController_ApplicationHandler8_route(params@_) =>
       call { 
-        controllers_HomeController_passwordHandler8_invoker.call(HomeController_3.passwordHandler())
+        controllers_ApplicationController_ApplicationHandler8_invoker.call(ApplicationController_0.ApplicationHandler())
       }
   
     // @LINE:24
-    case controllers_TAResponseController_openResponseForm9_route(params@_) =>
-      call(params.fromPath[String]("c", None)) { (c) =>
-        controllers_TAResponseController_openResponseForm9_invoker.call(TAResponseController_1.openResponseForm(c))
+    case controllers_HomeController_changePassword9_route(params@_) =>
+      call { 
+        controllers_HomeController_changePassword9_invoker.call(HomeController_3.changePassword())
       }
   
     // @LINE:26
-    case controllers_TAResponseController_TAResponseHandler10_route(params@_) =>
+    case controllers_HomeController_passwordHandler10_route(params@_) =>
       call { 
-        controllers_TAResponseController_TAResponseHandler10_invoker.call(TAResponseController_1.TAResponseHandler())
+        controllers_HomeController_passwordHandler10_invoker.call(HomeController_3.passwordHandler())
       }
   
-    // @LINE:29
-    case controllers_Assets_at11_route(params@_) =>
+    // @LINE:28
+    case controllers_TAResponseController_openResponseForm11_route(params@_) =>
+      call(params.fromPath[String]("c", None)) { (c) =>
+        controllers_TAResponseController_openResponseForm11_invoker.call(TAResponseController_1.openResponseForm(c))
+      }
+  
+    // @LINE:30
+    case controllers_TAResponseController_TAResponseHandler12_route(params@_) =>
+      call { 
+        controllers_TAResponseController_TAResponseHandler12_invoker.call(TAResponseController_1.TAResponseHandler())
+      }
+  
+    // @LINE:33
+    case controllers_Assets_at13_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
-        controllers_Assets_at11_invoker.call(Assets_2.at(path, file))
+        controllers_Assets_at13_invoker.call(Assets_2.at(path, file))
       }
   }
 }

@@ -983,3 +983,18 @@ Caused by: java.lang.NullPointerException: Null content
 	at play.api.mvc.Action$$anonfun$apply$2.apply(Action.scala:103)
 	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:253)
 	... 14 common frames omitted
+2023-03-08 14:59:26,103 [INFO] from application in application-akka.actor.default-dispatcher-46 - Shutting down connection pool.
+2023-03-08 14:59:26,255 [INFO] from application in application-akka.actor.default-dispatcher-46 - Creating Pool for datasource 'default'
+2023-03-08 14:59:26,288 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-46 - Database [default] connected at jdbc:mysql://localhost:3306/CS4345?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+2023-03-08 14:59:26,364 [WARN] from com.avaje.ebeaninternal.server.deploy.BeanDescriptorManager in application-akka.actor.default-dispatcher-46 - Bean [models.TAResponse] has no unique id set
+2023-03-08 14:59:26,558 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-46 - Application started (Dev)
+2023-03-08 15:05:11,728 [INFO] from application in application-akka.actor.default-dispatcher-7 - Shutting down connection pool.
+2023-03-08 15:05:11,815 [INFO] from application in application-akka.actor.default-dispatcher-7 - Creating Pool for datasource 'default'
+2023-03-08 15:05:11,837 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-7 - Database [default] connected at jdbc:mysql://localhost:3306/CS4345?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+2023-03-08 15:05:11,873 [WARN] from com.avaje.ebeaninternal.server.deploy.BeanDescriptorManager in application-akka.actor.default-dispatcher-7 - Bean [models.TAResponse] has no unique id set
+2023-03-08 15:05:11,951 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-7 - Application started (Dev)
+2023-03-08 15:43:55,786 [INFO] from application in application-akka.actor.default-dispatcher-19 - Shutting down connection pool.
+2023-03-08 15:43:55,919 [INFO] from application in application-akka.actor.default-dispatcher-19 - Creating Pool for datasource 'default'
+2023-03-08 15:43:55,953 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-19 - Database [default] connected at jdbc:mysql://localhost:3306/CS4345?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+2023-03-08 15:43:56,015 [WARN] from com.avaje.ebeaninternal.server.deploy.BeanDescriptorManager in application-akka.actor.default-dispatcher-19 - Bean [models.TAResponse] has no unique id set
+2023-03-08 15:43:56,119 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-19 - Application started (Dev)
