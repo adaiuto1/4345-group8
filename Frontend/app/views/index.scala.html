@@ -17,10 +17,17 @@
             </header>
             <p>@status</p>
             <a href="@routes.HomeController.changePassword()">CHANGE PASSWORD</a>
+            <a href="@routes.HomeController.editProfile()">Edit Profule</a>
             <div>
             @if(status.equals("Student")) {
                 <a href="@routes.ApplicationController.openApplicationForm()">Create Open Application</a>
             }
             </div>
+            <div>
+            @if(status.equals("Student")) {
+                <a href="@routes.TAResponseController.openResponseForm("CS2341")">CS2341</a>
+            }
+            </div>
+
         </body>
     </html>

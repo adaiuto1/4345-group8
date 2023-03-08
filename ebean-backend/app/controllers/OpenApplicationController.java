@@ -9,25 +9,27 @@ public class OpenApplicationController extends Controller{
 
     public Result sendOpenApplication(){
 
-        Application newOpenApp = new Application();
+        Application newApp = new Application();
         JsonNode req = request().body().asJson();
-        String applicantUsername = req.get("applicantUsername").asText();
-        String recipientUsername = req.get("recipientUsername").asText();
-        String message = req.get("message").asText();
-        String className = req.get("className").asText();
-        newOpenApp.applicantUsername = applicantUsername;
-        newOpenApp.recipientUsername = recipientUsername;
-        newOpenApp.message = message;
-        newOpenApp.className = className;
-        newOpenApp.save();
+        String studentEmail = req.get("studentEmail").asText();
+        String firstChoice = req.get("firstChoice").asText();
+        String secondChoice = req.get("secondChoice").asText();
+        String thirdChoice = req.get("thirdChoice").asText();
+        boolean isAvailable = req.get("isAvailable").asBoolean();
+        String avoid = req.get("avoid").asText();
+
+        newApp.studentEmail = studentEmail;
+        newApp.firstChoice = firstChoice;
+        newApp.secondChoice = secondChoice;
+        newApp.thirdChoice = thirdChoice;
+        newApp.isAvailable = isAvailable;
+        newApp.avoid = avoid;
+        System.out.println(newApp);
+        newApp.save();
+
         ObjectNode result = Json.newObject();
-        result.put("applicantUsername", applicantUsername);
-        result.put("recipientUsername", recipientUsername);
-        result.put("message", message);
-        result.put("className", className);
+        result.put("studentEmail", studentEmail);
         return(ok(result));
-
     }
-
 
 }

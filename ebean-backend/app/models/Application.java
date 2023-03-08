@@ -1,6 +1,7 @@
 package models;
 import com.avaje.ebean.Model;
 import play.data.validation.Constraints;
+import scala.App;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -13,44 +14,24 @@ public class Application extends Model{
     @Id
     public Long id;
     @Constraints.Required
-    public String recipientUsername;
-    @Constraints.Required
-    public String recipientEmail;
+    public String studentEmail;
     public static Model.Find<String, Application> find = new Model.Find<String, Application>(){};
+    @Constraints.Required
+    public String firstChoice;
+
+    public String secondChoice;
+    public String thirdChoice;
+
+    public String avoid;
 
     @Constraints.Required
-    public String applicantUsername;
-    @Constraints.Required
-    public String applicantEmail;
-    public String className;
+    public boolean isAvailable = true;
 
-    @Constraints.Required
-    public String message;
-
-    @Constraints.Required
-    public String classID;
-    public Application(){}
-    public Application(Long id, String recipientUsername){
-        this.id = id;
-        this.recipientUsername = recipientUsername;
-    }
-
-    public static Set<Application> findByRecipient(String recipientUsername){
+    public Set<Application> getApplicationsBySender(String studentEmail){
         return Application.find
                 .where()
-                .eq("recipient_username", recipientUsername)
+                .eq("studentEmail", studentEmail)
                 .findSet();
     }
 
-    public static Application findApplicationById(int id){
-        return Application.find
-                .where()
-                .eq("id", id)
-                .findUnique();
-    }public static Set<Application> findApplicationByApplicant(String applicantUsername){
-        return Application.find
-                .where()
-                .eq("applicant_username", applicantUsername)
-                .findSet();
-    }
 }

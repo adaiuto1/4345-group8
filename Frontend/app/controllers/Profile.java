@@ -6,6 +6,7 @@ import play.libs.ws.WSClient;
 import play.libs.ws.WSRequest;
 import play.libs.ws.WSResponse;
 
+import javax.xml.transform.Result;
 import java.util.concurrent.CompletionStage;
 
 public class Profile {
@@ -73,4 +74,33 @@ public class Profile {
                 });
     }
 
+    public CompletionStage<WSResponse> updateProfileInfo() {
+        WSClient ws = play.test.WSTestClient.newClient(9005);
+        ObjectNode newProfile = Json.newObject();
+        newProfile.put("firstname", this.firstname);
+        newProfile.put("lastname", this.lastname);
+        newProfile.put("position", this.position);
+        newProfile.put("affiliation", this.affiliation);
+        newProfile.put("email", this.email);
+        newProfile.put("phone", this.phone);
+        newProfile.put("fax", this.fax);
+        newProfile.put("address", this.address);
+        newProfile.put("city", this.city);
+        newProfile.put("state", this.state);
+        newProfile.put("country", this.country);
+        newProfile.put("zip", this.zip);
+        newProfile.put("comments", this.comments);
+        newProfile.put("status", this.status);
+        newProfile.put("degree", this.degree);
+        newProfile.put("startingSemester", this.startingSemester);
+        newProfile.put("gradSemester", this.gradSemester);
+        newProfile.put("courses", this.courses);
+        newProfile.put("title", this.title);
+        WSRequest request = ws.url("http://localhost:9005/editProfile/" + newProfile.get("email").asText());
+        return request.addHeader("Content-Type", "application/json")
+                .post(newProfile)
+                .thenApply((WSResponse r) -> {
+                    return r;
+                });
+    }
 }

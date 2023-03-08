@@ -19,9 +19,10 @@ import java.util.concurrent.CompletionStage;
 public class ApplicationController extends Controller {
     @Inject
     HttpExecutionContext ec;
-
+    @Inject
     private FormFactory formFactory;
     Seq<String> classSeq;
+    WSClient ws = play.test.WSTestClient.newClient(9005);
 
     public CompletionStage<Result> openApplicationForm() {
         List<String> classes = new ArrayList<String>();
@@ -29,10 +30,12 @@ public class ApplicationController extends Controller {
         classes.add("CS3353");
         classes.add("MATH3315");
         classes.add("ENGR1304");
+        classes.add("MATH3303");
+        classes.add("PHYS1304");
+        classes.add("CS3330");
+        classes.add("CS2381");
         classSeq = JavaConverters.asScalaBufferConverter(classes).asScala().toSeq();
-
         System.out.println(session("email"));
-        WSClient ws = play.test.WSTestClient.newClient(9005);
         WSRequest request = ws.url("http://localhost:9005/getProfileByEmail/" + session("email"));
         return request.get().thenApplyAsync((WSResponse r) -> {
             Profile p = new Profile();
@@ -54,7 +57,6 @@ public class ApplicationController extends Controller {
             p.gradSemester = r.asJson().get("gradSemester").asText();
             p.courses = r.asJson().get("courses").asText();
             p.title = r.asJson().get("title").asText();
-
             return ok(views.html.applications.openApplicationForm.render(p, "", classSeq));
         }, ec.current());
     }
@@ -65,25 +67,29 @@ public class ApplicationController extends Controller {
         classes.add("CS3353");
         classes.add("MATH3315");
         classes.add("ENGR1304");
+        classes.add("MATH3303");
+        classes.add("PHYS1304");
+        classes.add("CS3330");
+        classes.add("CS2381");
         classSeq = JavaConverters.asScalaBufferConverter(classes).asScala().toSeq();
 
         Form<Application> applicationForm = formFactory.form(Application.class).bindFromRequest();
+
         if (applicationForm.hasErrors()) {
             return (CompletionStage<Result>) badRequest(views.html.applications.openApplicationForm.render(null, "cannot submit application", classSeq));
         } else {
             return applicationForm.get().sendOpenApplication()
                     .thenApplyAsync((WSResponse r) -> {
-
                         if (r.getStatus() == 200 && r.asJson() != null) {
-                            System.out.println("appication success");
+                            System.out.println("application success");
                             System.out.println(r.asJson());
-                            return ok(views.html.index.render(session("firstname"), "Open Application Submitted"));
+                            System.out.println(session("status"));
+                            return ok(views.html.index.render(session("firstname"), session("status")));
                         } else {
                             System.out.println("application response null");
                             return badRequest(views.html.applications.openApplicationForm.render(null, "application response error", classSeq));
                         }
                     }, ec.current());
         }
-
     }
 }

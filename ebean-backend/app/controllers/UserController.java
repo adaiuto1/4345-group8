@@ -29,11 +29,11 @@ public class UserController extends Controller {
             if(user!=null && username.equals(user.username) && password.equals(user.password)){
                 return ok("true");
             }else{
-                return ok("false");
+                return badRequest("false");
             }
         }
         catch (Exception e) {
-            return ok("false");
+            return badRequest("false");
         }
 
     }
@@ -85,11 +85,16 @@ public class UserController extends Controller {
         else {
             ObjectNode result = Json.newObject();
             Profile p = Profile.findByEmail(u.email);
+            System.out.println(p.lastname);
             result.put("username", u.username);
             result.put("password", u.password);
             result.put("email", u.email);
             result.put("status", p.status);
             result.put("firstname", p.firstname);
+            result.put("lastname", p.lastname);
+            result.put("courses",p.courses);
+            result.put("phone",p.phone);
+            result.put("degree", p.degree);
             result.put("question1", u.question1);
             result.put("answer1", u.answer1);
             result.put("question2", u.question2);
