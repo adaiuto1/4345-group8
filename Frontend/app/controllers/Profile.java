@@ -41,7 +41,7 @@ public class Profile {
 
     public Profile() {
     }
-
+    
 
     public CompletionStage<WSResponse> registerProfile() {
         WSClient ws = play.test.WSTestClient.newClient(9005);

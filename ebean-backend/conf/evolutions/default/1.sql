@@ -14,6 +14,15 @@ create table application (
   constraint pk_application primary key (id)
 );
 
+create table classroom (
+  class_id                      varchar(255) not null,
+  class_title                   varchar(255),
+  teacher_email                 varchar(255),
+  location                      varchar(255),
+  num_openings                  integer,
+  constraint pk_classroom primary key (class_id)
+);
+
 create table profile (
   id                            bigint auto_increment not null,
   email                         varchar(255),
@@ -38,6 +47,14 @@ create table profile (
   constraint pk_profile primary key (id)
 );
 
+create table taresponse (
+  applicant_email               varchar(255),
+  class_id                      varchar(255),
+  teacher_email                 varchar(255),
+  coursework                    varchar(255),
+  applicant_message             varchar(255)
+);
+
 create table user (
   id                            bigint auto_increment not null,
   username                      varchar(255),
@@ -55,7 +72,11 @@ create table user (
 
 drop table if exists application;
 
+drop table if exists classroom;
+
 drop table if exists profile;
+
+drop table if exists taresponse;
 
 drop table if exists user;
 

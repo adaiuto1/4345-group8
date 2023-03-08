@@ -22,15 +22,15 @@ import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
 
-object profileForm extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[String,String,play.twirl.api.HtmlFormat.Appendable] {
+object profileForm extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template3[String,String,Seq[String],play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(authorizeMessage: String, email: String):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(authorizeMessage: String, email: String, classOptions: Seq[String]):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](format.raw/*1.43*/("""
+Seq[Any](format.raw/*1.70*/("""
 """),format.raw/*2.1*/("""<!DOCTYPE html>
 <html lang="en">
     <head>
@@ -162,13 +162,38 @@ Seq[Any](format.raw/*1.43*/("""
                                 style="display: none">Graduating Semester</label>
                             </div>
                         </div>
-                        """),_display_(/*133.26*/if(authorizeMessage != null)/*133.54*/ {_display_(Seq[Any](format.raw/*133.56*/("""
-                            """),format.raw/*134.29*/("""<div class="alert alert-primary" role="alert">
-                            """),_display_(/*135.30*/authorizeMessage),format.raw/*135.46*/("""
-                            """),format.raw/*136.29*/("""</div>
+                        <div id="courseworkInterface">
+                            <div class="row">
+                                <div class="col s5">
+                                    <input type="text" id="courses" name="courses"
+                                    readonly>
+                                </div>
+                                <div class="col s2">
+                                    <div class="input-field">
+                                        <select id="classSelector" name="classSelector" style="display: block">
+                                            <option selected disabled style="color: #888888">Select...</option>
+                                            """),_display_(/*143.46*/for(classOption <- classOptions) yield /*143.78*/ {_display_(Seq[Any](format.raw/*143.80*/("""
+                                                """),format.raw/*144.49*/("""<option
+                                                class="selectorOption"
+                                                value=""""),_display_(/*146.57*/classOption),format.raw/*146.68*/(""""
+                                                style="font-size: 20px;
+                                                    font-weight: bold;
+                                                    color: #186aad">
+                                                """),_display_(/*150.50*/classOption),format.raw/*150.61*/("""
+                                                """),format.raw/*151.49*/("""</option>
+                                            """)))}),format.raw/*152.46*/("""
+                                        """),format.raw/*153.41*/("""</select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        """),_display_(/*158.26*/if(authorizeMessage != null)/*158.54*/ {_display_(Seq[Any](format.raw/*158.56*/("""
+                            """),format.raw/*159.29*/("""<div class="alert alert-primary" role="alert">
+                            """),_display_(/*160.30*/authorizeMessage),format.raw/*160.46*/("""
+                            """),format.raw/*161.29*/("""</div>
                             <br>
-                        """)))}),format.raw/*138.26*/("""
-                        """),format.raw/*139.25*/("""<div class="row">
+                        """)))}),format.raw/*163.26*/("""
+                        """),format.raw/*164.25*/("""<div class="row">
                             <button id="api-search-button" class="btn col s4 offset-s4" type="submit">Submit</button>
                         </div>
                     </div>
@@ -181,9 +206,9 @@ Seq[Any](format.raw/*1.43*/("""
     }
   }
 
-  def render(authorizeMessage:String,email:String): play.twirl.api.HtmlFormat.Appendable = apply(authorizeMessage,email)
+  def render(authorizeMessage:String,email:String,classOptions:Seq[String]): play.twirl.api.HtmlFormat.Appendable = apply(authorizeMessage,email,classOptions)
 
-  def f:((String,String) => play.twirl.api.HtmlFormat.Appendable) = (authorizeMessage,email) => apply(authorizeMessage,email)
+  def f:((String,String,Seq[String]) => play.twirl.api.HtmlFormat.Appendable) = (authorizeMessage,email,classOptions) => apply(authorizeMessage,email,classOptions)
 
   def ref: this.type = this
 
@@ -192,11 +217,11 @@ Seq[Any](format.raw/*1.43*/("""
 
               /*
                   -- GENERATED --
-                  DATE: 2023-03-05T16:53:32.214
+                  DATE: 2023-03-08T14:15:54.703
                   SOURCE: C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/app/views/account/profileForm.scala.html
-                  HASH: 34df00230aa270aa541d416b0773b9c9d0c70873
-                  MATRIX: 969->1|1105->42|1133->44|2811->1697|2826->1703|2879->1735|3188->2016|3215->2021|9621->8399|9659->8427|9700->8429|9759->8459|9864->8536|9902->8552|9961->8582|10060->8649|10115->8675
-                  LINES: 28->1|33->1|34->2|60->28|60->28|60->28|64->32|64->32|165->133|165->133|165->133|166->134|167->135|167->135|168->136|170->138|171->139
+                  HASH: 7d166547964bf55f4514cdb0f0cb683a9961f9e8
+                  MATRIX: 981->1|1144->69|1172->71|2850->1724|2865->1730|2918->1762|3227->2043|3254->2048|10351->9117|10400->9149|10441->9151|10520->9201|10685->9338|10718->9349|11013->9616|11046->9627|11125->9677|11213->9733|11284->9775|11500->9963|11538->9991|11579->9993|11638->10023|11743->10100|11781->10116|11840->10146|11939->10213|11994->10239
+                  LINES: 28->1|33->1|34->2|60->28|60->28|60->28|64->32|64->32|175->143|175->143|175->143|176->144|178->146|178->146|182->150|182->150|183->151|184->152|185->153|190->158|190->158|190->158|191->159|192->160|192->160|193->161|195->163|196->164
                   -- GENERATED --
               */
           

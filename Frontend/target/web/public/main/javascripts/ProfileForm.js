@@ -6,7 +6,10 @@ window.onload = function () {
     let gradSemester = document.getElementById("gradSemester")
     let startLabel = document.getElementById("startLabel")
     let gradLabel = document.getElementById("gradLabel")
-
+    let courseworkInterface = document.getElementById("courseworkInterface")
+    let courseArray = [];
+    let courseworkString = "";
+    let classSelector = document.getElementById("classSelector")
     statusSelector.onchange = () => {
         if (statusSelector.value === "Student") {
             degreeSelector.setAttribute("style", "display:block")
@@ -20,6 +23,7 @@ window.onload = function () {
 
             startLabel.setAttribute("style", "display:block")
             gradLabel.setAttribute("style", "display:block")
+            courseworkInterface.setAttribute("style", "display:block")
         } else {
             degreeSelector.setAttribute("style", "display:none")
             degreeSelector.setAttribute("value", "")
@@ -35,7 +39,20 @@ window.onload = function () {
 
             startLabel.setAttribute("style", "display:none")
             gradLabel.setAttribute("style", "display:none")
+            courseworkInterface.setAttribute("style", "display:none")
         }
     }
-
+    classSelector.onchange(e => {
+        let v = e.target.value
+        if (courseArray.includes(v)) {
+            courseArray.splice(courseArray.indexOf(v), 1)
+        } else {
+            courseArray.push(v)
+        }
+        courseworkString = ""
+        courseArray.forEach(c => {
+            courseworkString = courseworkString + c + ","
+        })
+        document.getElementById("courses").value = courseworkString
+    })
 }

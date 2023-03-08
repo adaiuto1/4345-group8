@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/conf/routes
-// @DATE:Tue Mar 07 11:32:41 CST 2023
+// @DATE:Wed Mar 08 13:38:06 CST 2023
 
 import play.api.mvc.Call
 
@@ -83,17 +83,38 @@ package controllers {
   
   }
 
-  // @LINE:27
+  // @LINE:29
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:27
+    // @LINE:29
     def at(file:String): Call = {
       implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[String]].unbind("file", file))
+    }
+  
+  }
+
+  // @LINE:24
+  class ReverseTAResponseController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:24
+    def openResponseForm(c:String): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "TA_Application/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("c", c)))
+    }
+  
+    // @LINE:26
+    def TAResponseHandler(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "sendTAResponse")
     }
   
   }

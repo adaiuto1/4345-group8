@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/ebean-backend/conf/routes
-// @DATE:Mon Mar 06 15:21:24 CST 2023
+// @DATE:Wed Mar 08 13:33:50 CST 2023
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -14,6 +14,26 @@ import _root_.play.libs.F
 // @LINE:6
 package controllers.javascript {
   import ReverseRouteContext.empty
+
+  // @LINE:29
+  class ReverseTAResponseController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:29
+    def createNewTAResponse: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.TAResponseController.createNewTAResponse",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "sendTAResponse"})
+        }
+      """
+    )
+  
+  }
 
   // @LINE:17
   class ReversePasswordController(_prefix: => String) {
@@ -59,6 +79,46 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "registerProfile"})
+        }
+      """
+    )
+  
+  }
+
+  // @LINE:32
+  class ReverseClassroomController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:32
+    def getClassById: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ClassroomController.getClassById",
+      """
+        function(c0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "classes/id/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("c", encodeURIComponent(c0))})
+        }
+      """
+    )
+  
+    // @LINE:33
+    def getClassByEmail: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ClassroomController.getClassByEmail",
+      """
+        function(e0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "classes/teacher/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("e", encodeURIComponent(e0))})
+        }
+      """
+    )
+  
+    // @LINE:34
+    def createNewClassroom: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ClassroomController.createNewClassroom",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "classes/newClassroom"})
         }
       """
     )

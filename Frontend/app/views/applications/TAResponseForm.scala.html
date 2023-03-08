@@ -1,0 +1,72 @@
+@import com.fasterxml.jackson.databind.JsonNode
+@import com.fasterxml.jackson.databind.node.ObjectNode
+@(targetClass: JsonNode, user: ObjectNode)
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>TA Application Form</title>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+            <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+
+    </head>
+    <body>
+        <div class="row">
+            <div class="card col s8 offset-s2">
+                <h1 style="font-size: 37px;
+                    color: #186aad">
+                    <strong>TA Application</strong>
+                </h1>
+                <h1 style="font-size: 24px;
+                    color: #186aad">
+                    <strong>@targetClass.get("classID").textValue(): @targetClass.get("classTitle").textValue()</strong>
+                </h1>
+                <h2 style="font-size: 18px;
+                    color: #186aad">
+                    Instructor: @targetClass.get("teacherEmail").textValue()
+                </h2>
+                <form action="@routes.TAResponseController.TAResponseHandler()" method="GET">
+
+                    <div class="card-panel">
+                        <div>
+                            <h2 style="font-size: 1.5em;
+                                color: #186aad;
+                                margin-top: 0.5em">Application Form</h2>
+                            <p>Please submit your application to this open TA position using the form below. Note that some fields are mandatory</p>
+                        </div>
+                        <div>
+                            <div class="row">
+                                <div class="input-field col s2">
+                                    <input type="text" id="applicantEmail" name="applicantEmail" value="@user.get("email").asText()" readonly>
+                                    <input type="text" id="teacherEmail" name="teacherEmail" value="@targetClass.get("teacherEmail").textValue()" readonly style="display: none">
+                                </div>
+
+                                <div class="input-field col s2">
+                                    <input id="applicantFirstName" value="@user.get("firstname").asText()" readonly>
+                                </div>
+                                <div class="input-field col s2">
+                                    <input id="applicantLastName" value="@user.get("lastname").asText()" readonly>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <input id="classID" name="classID" type="text" value="@targetClass.get("classID").textValue()" readonly style="display: none">
+                                <input id="coursework" name="coursework" type="text" value="@user.get("courses").asText()" readonly style="display: none">
+                                <input id="message" name="message" type="text">
+                                <label for="message">Tell the instructor about yourself and your goals!</label>
+                            </div>
+                            <div class="row">
+                                <button id="api-search-button" class="btn col s4 offset-s4" type="submit">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

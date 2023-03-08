@@ -75,6 +75,10 @@ public class HomeController extends Controller {
                         session("email", sessionEmail);
                         session("status", sessionStatus);
                         session("firstname", sessionFirstName);
+                        session("lastname", r.asJson().get("lastname").asText());
+                        session("phone", r.asJson().get("phone").asText());
+                        session("degree", r.asJson().get("degree").asText());
+                        session("courses", r.asJson().get("courses").asText());
                         return ok(views.html.index.render(session("firstname"), session("status")));
                     } else {
                         System.out.println("response null");
@@ -85,6 +89,16 @@ public class HomeController extends Controller {
     }
 
     public CompletionStage<Result> signupHandler() {
+        List<String> classes = new ArrayList<String>();
+        classes.add("CS4345");
+        classes.add("CS3353");
+        classes.add("MATH3315");
+        classes.add("ENGR1304");
+        classes.add("MATH3303");
+        classes.add("PHYS1304");
+        classes.add("CS3330");
+        classes.add("CS2381");
+        classSeq = JavaConverters.asScalaBufferConverter(classes).asScala().toSeq();
 
         Form<User> registrationForm = formFactory.form(User.class).bindFromRequest();
         if (registrationForm.hasErrors()) {
@@ -96,7 +110,7 @@ public class HomeController extends Controller {
                     if (r.getStatus() == 200 && r.asJson() != null) {
                         System.out.println("user success");
                         System.out.println(r.asJson());
-                        return ok(views.html.account.profileForm.render("", r.asJson().get("email").asText()));
+                        return ok(views.html.account.profileForm.render("", r.asJson().get("email").asText(), classSeq));
                     } else {
                         System.out.println("response null");
                         return badRequest(views.html.account.register.render("Username already exists"));
@@ -107,7 +121,7 @@ public class HomeController extends Controller {
     public CompletionStage<Result> profileHandler() {
         Form<Profile> registrationForm = formFactory.form(Profile.class).bindFromRequest();
         if (registrationForm.hasErrors()) {
-            return (CompletionStage<Result>) badRequest(views.html.account.profileForm.render(null, null));
+            return (CompletionStage<Result>) badRequest(views.html.account.profileForm.render(null, null, classSeq));
         }
 
         return registrationForm.get().registerProfile()
@@ -126,7 +140,7 @@ public class HomeController extends Controller {
     public CompletionStage<Result> passwordHandler() {
         Form<PasswordRequest> passwordForm = formFactory.form(PasswordRequest.class).bindFromRequest();
         if (passwordForm.hasErrors()) {
-            return (CompletionStage<Result>) badRequest(views.html.account.profileForm.render(null, null));
+            return (CompletionStage<Result>) badRequest(views.html.account.passwordChange.render("form has errors", session("question1"), session("question2")));
         }
         return passwordForm.get().registerPasswordRequest()
                 .thenApplyAsync((WSResponse r) -> {

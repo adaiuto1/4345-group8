@@ -25,3 +25,10 @@ POST    /sendOpenApplication             controllers.OpenApplicationController.s
 GET     /getUserByUsername/:u          controllers.UserController.getUserByUsername(u)
 
 GET     /getProfileByEmail/:p       controllers.ProfileController.getProfileByEmail(p)
+
+POST    /sendTAResponse             controllers.TAResponseController.createNewTAResponse()
+
+#get classroom information
+GET     /classes/id/:c                  controllers.ClassroomController.getClassById(c)
+GET     /classes/teacher/:e          controllers.ClassroomController.getClassByEmail(e)
+POST    /classes/newClassroom        controllers.ClassroomController.createNewClassroom()
