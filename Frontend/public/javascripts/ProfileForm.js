@@ -42,7 +42,7 @@ window.onload = function () {
             courseworkInterface.setAttribute("style", "display:none")
         }
     }
-    classSelector.onchange(e => {
+    classSelector.onchange = (e) => {
         let v = e.target.value
         if (courseArray.includes(v)) {
             courseArray.splice(courseArray.indexOf(v), 1)
@@ -54,5 +54,5 @@ window.onload = function () {
             courseworkString = courseworkString + c + ","
         })
         document.getElementById("courses").value = courseworkString
-    })
+    }
 }
