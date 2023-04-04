@@ -1,7 +1,9 @@
 package controllers;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import play.data.Form;
 import play.data.FormFactory;
+import play.libs.Json;
 import play.libs.concurrent.HttpExecutionContext;
 import play.libs.ws.WSClient;
 import play.libs.ws.WSRequest;
@@ -80,11 +82,19 @@ public class ApplicationController extends Controller {
         } else {
             return applicationForm.get().sendOpenApplication()
                     .thenApplyAsync((WSResponse r) -> {
+                        ObjectNode curr = Json.newObject();
+                        curr.put("email", session("email"));
+                        curr.put("firstname", session("firstname"));
+                        curr.put("lastname", session("lastname"));
+                        curr.put("phone", session("phone"));
+                        curr.put("degree", session("degree"));
+                        curr.put("status", session("status"));
+                        curr.put("courses", session("courses"));
                         if (r.getStatus() == 200 && r.asJson() != null) {
                             System.out.println("application success");
                             System.out.println(r.asJson());
                             System.out.println(session("status"));
-                            return ok(views.html.index.render(session("firstname"), session("status")));
+                            return ok(views.html.index.render(curr, "Open Application sent!"));
                         } else {
                             System.out.println("application response null");
                             return badRequest(views.html.applications.openApplicationForm.render(null, "application response error", classSeq));

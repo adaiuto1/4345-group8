@@ -1,5 +1,6 @@
 package controllers;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import play.data.Form;
 import play.data.FormFactory;
@@ -79,7 +80,15 @@ public class HomeController extends Controller {
                         session("phone", r.asJson().get("phone").asText());
                         session("degree", r.asJson().get("degree").asText());
                         session("courses", r.asJson().get("courses").asText());
-                        return ok(views.html.index.render(session("firstname"), session("status")));
+                        ObjectNode curr = Json.newObject();
+                        curr.put("email", session("email"));
+                        curr.put("firstname", session("firstname"));
+                        curr.put("lastname", session("lastname"));
+                        curr.put("phone", session("phone"));
+                        curr.put("degree", session("degree"));
+                        curr.put("status", session("status"));
+                        curr.put("courses", session("courses"));
+                        return ok(views.html.index.render(curr, ""));
                     } else {
                         System.out.println("response null");
                         String authorizeMessage = "Incorrect Username or Password ";
@@ -162,7 +171,15 @@ public class HomeController extends Controller {
         return editProfileForm.get().updateProfileInfo()
                 .thenApplyAsync((WSResponse r) -> {
                     session("firstname", r.asJson().get("firstname").asText());
-                    return ok(views.html.index.render(session("firstname"), session("status")));
+                    ObjectNode curr = Json.newObject();
+                    curr.put("email", session("email"));
+                    curr.put("firstname", session("firstname"));
+                    curr.put("lastname", session("lastname"));
+                    curr.put("phone", session("phone"));
+                    curr.put("degree", session("degree"));
+                    curr.put("status", session("status"));
+                    curr.put("courses", session("courses"));
+                    return ok(views.html.index.render(curr, "profile sucessfully updated"));
                 }, ec.current());
     }
 
@@ -176,7 +193,15 @@ public class HomeController extends Controller {
                     if (r.getStatus() == 200 && r.asJson() != null) {
                         System.out.println("password success");
                         System.out.println(r.asJson());
-                        return ok(views.html.index.render("password successfully changed", session("status")));
+                        ObjectNode curr = Json.newObject();
+                        curr.put("email", session("email"));
+                        curr.put("firstname", session("firstname"));
+                        curr.put("lastname", session("lastname"));
+                        curr.put("phone", session("phone"));
+                        curr.put("degree", session("degree"));
+                        curr.put("status", session("status"));
+                        curr.put("courses", session("courses"));
+                        return ok(views.html.index.render(curr, "password successfully changed"));
                     } else {
                         System.out.println("password response null");
                         return badRequest(views.html.account.passwordChange.render("password error", session("question1"), session("question2")));

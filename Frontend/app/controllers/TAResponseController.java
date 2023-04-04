@@ -45,19 +45,16 @@ public class TAResponseController extends Controller {
         Form<TAResponse> TAResponseForm = formFactory.form(TAResponse.class).bindFromRequest();
         return TAResponseForm.get().submitTAResponse()
                 .thenApplyAsync((WSResponse r) -> {
+                    ObjectNode curr = Json.newObject();
+                    curr.put("email", session("email"));
+                    curr.put("firstname", session("firstname"));
+                    curr.put("lastname", session("lastname"));
+                    curr.put("status", session("status"));
                     if (r.getStatus() == 200 && r.asJson() != null) {
                         System.out.println("TA response success");
-                        return ok(views.html.index.render(session("firstname"), session("status")));
+                        return ok(views.html.index.render(curr, "TA response successful!"));
                     } else {
                         System.out.println("unable to send TA response");
-                        ObjectNode curr = Json.newObject();
-                        curr.put("email", session("email"));
-                        curr.put("firstname", session("firstname"));
-                        curr.put("lastname", session("lastname"));
-                        curr.put("phone", session("phone"));
-                        curr.put("degree", session("degree"));
-                        curr.put("status", session("status"));
-                        curr.put("courses", session("courses"));
                         return badRequest("unable to send TA response");
                     }
                 }, ec.current());
