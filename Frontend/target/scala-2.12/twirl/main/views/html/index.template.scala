@@ -21,55 +21,142 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import play.data._
 import play.core.j.PlayFormsMagicForJava._
+/*1.2*/import com.fasterxml.jackson.databind.JsonNode
 
-object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[String,String,play.twirl.api.HtmlFormat.Appendable] {
+object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template2[JsonNode,String,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(firstname: String, status: String):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*2.2*/(curr: JsonNode, message: String):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
-/*2.6*/import java.math.BigInteger;
 
 
-Seq[Any](format.raw/*2.1*/("""    """),format.raw/*3.1*/("""<!DOCTYPE html>
-    <html>
-        <head>
-            <title>"""),_display_(/*6.21*/status),format.raw/*6.27*/(""" """),format.raw/*6.28*/("""TA Portal</title>
-        </head>
-        <body>
+Seq[Any](format.raw/*3.1*/("""<!DOCTYPE html>
+<html>
+    <head>
+        <title>"""),_display_(/*6.17*/curr/*6.21*/.get("status").textValue()),format.raw/*6.47*/(""" """),format.raw/*6.48*/("""TA Portal</title>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+            <!-- Compiled and minified JavaScript -->
+        <script src=" https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+        <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+    </head>
+    <body style="background-color: #555555">
+        <header>
+            <div class="row">
+                <div class="card col s6 offset-s3" style="text-align: center">
+                    <div class="row">
+                        <h1 style="font-size: 37px;
+                            color: #57a957">
+                            <strong>"""),_display_(/*21.38*/curr/*21.42*/.get("status").textValue()),format.raw/*21.68*/(""" """),format.raw/*21.69*/("""TA Portal</strong>
+                        </h1>
+                    </div>
+                    <div class="row">
+                        <p style="font-size: 20px;
+                            color: #3F51B5">"""),_display_(/*26.46*/(curr.get("firstname").textValue() + " " + curr.get("lastname").textValue())),format.raw/*26.122*/("""</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="row ">
+            <div class="card col s6 offset-s3" style="padding: 3em">
+                <div class="row">
+                    <a href=""""),_display_(/*34.31*/routes/*34.37*/.ApplicationController.openApplicationForm()),format.raw/*34.81*/("""" class="btn" style="width: 100%;
+                        height: max-content;
+                        padding: 0.5em">
+                        <div>
+                            <div class="col s2">
+                                <img src="https://static.thenounproject.com/png/2505633-200.png"
+                                style="height: 8em;
+                                    margin-top: 1em">
+                            </div>
+                            <div class="col s8">
+                                <div class="row" style="text-align: left">
+                                    <h1 style="font-size: 2em">Create Open TA Application</h1>
+                                    <p class="flow-text" style="font-size: 1em;
+                                        line-height: 1.2em">
+                                        Publish your skills and select courses you wish to TA for. Your candidacy will be reviewed by professors and you will hear back shortly!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="row">
+                    <a href="" class="btn" style="width: 100%;
+                        height: max-content;
+                        padding: 0.5em">
+                        <div>
+                            <div class="col s2">
+                                <img src="https://static.thenounproject.com/png/3785157-200.png"
+                                style="height: 5em;
+                                    margin-top: 3em">
+                            </div>
+                            <div class="col s8">
+                                <div class="row" style="text-align: left">
+                                    <h1 style="font-size: 2em">Browse Available Positions</h1>
+                                    <p class="flow-text" style="font-size: 1em;
+                                        line-height: 1.2em">
+                                        View classrooms with open TA positions</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="row">
+                    <div class="col s6">
+                        <a href="" class="btn" style="width: 100%;
+                            height: 18%;
+                            padding: 0.5em">
+                            <div>
+                                <div class="col s2">
+                                    <img src="https://static.thenounproject.com/png/5633225-200.png"
+                                    style="height: 5em;
+                                        margin-top: 1.5em">
+                                </div>
+                                <div class="col s8 offset-s1">
+                                    <div class="row" style="text-align: left">
+                                        <h1 style="font-size: 2em">Inbox</h1>
+                                        <p class="flow-text" style="font-size: 1em;
+                                            line-height: 1.2em">
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col s6">
+                        <a href="" class="btn" style="width: 100%;
+                            height: 18%;
+                            padding: 0.5em">
+                            <div>
+                                <div class="col s2">
+                                    <img src="https://static.thenounproject.com/png/4584119-200.png"
+                                    style="height: 5em;
+                                        margin-top: 1.5em">
+                                </div>
+                                <div class="col s8 offset-s1">
+                                    <div class="row" style="text-align: left">
+                                        <h1 style="font-size: 2em">My Profile</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            <header class="topbar">
-                <h1 class="focused" style="font-size: 37px;
-                    color: #57a957">
-                    <strong>TA Portal</strong>
-                </h1>
-                <p class="focused" style="font-size: 20px;
-                    color: #3F51B5">Welcome, """),_display_(/*16.47*/firstname),format.raw/*16.56*/("""</p>
-            </header>
-            <p>"""),_display_(/*18.17*/status),format.raw/*18.23*/("""</p>
-            <a href=""""),_display_(/*19.23*/routes/*19.29*/.HomeController.changePassword()),format.raw/*19.61*/("""">CHANGE PASSWORD</a>
-            <a href=""""),_display_(/*20.23*/routes/*20.29*/.HomeController.editProfile()),format.raw/*20.58*/("""">Edit Profule</a>
-            <div>
-            """),_display_(/*22.14*/if(status.equals("Student"))/*22.42*/ {_display_(Seq[Any](format.raw/*22.44*/("""
-                """),format.raw/*23.17*/("""<a href=""""),_display_(/*23.27*/routes/*23.33*/.ApplicationController.openApplicationForm()),format.raw/*23.77*/("""">Create Open Application</a>
-            """)))}),format.raw/*24.14*/("""
-            """),format.raw/*25.13*/("""</div>
-            <div>
-            """),_display_(/*27.14*/if(status.equals("Student"))/*27.42*/ {_display_(Seq[Any](format.raw/*27.44*/("""
-                """),format.raw/*28.17*/("""<a href=""""),_display_(/*28.27*/routes/*28.33*/.TAResponseController.openResponseForm("CS2341")),format.raw/*28.81*/("""">CS2341</a>
-            """)))}),format.raw/*29.14*/("""
-            """),format.raw/*30.13*/("""</div>
-
-        </body>
-    </html>
+    </body>
+</html>
 """))
       }
     }
   }
 
-  def render(firstname:String,status:String): play.twirl.api.HtmlFormat.Appendable = apply(firstname,status)
+  def render(curr:JsonNode,message:String): play.twirl.api.HtmlFormat.Appendable = apply(curr,message)
 
-  def f:((String,String) => play.twirl.api.HtmlFormat.Appendable) = (firstname,status) => apply(firstname,status)
+  def f:((JsonNode,String) => play.twirl.api.HtmlFormat.Appendable) = (curr,message) => apply(curr,message)
 
   def ref: this.type = this
 
@@ -78,11 +165,11 @@ Seq[Any](format.raw/*2.1*/("""    """),format.raw/*3.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: 2023-03-08T15:28:28.059
+                  DATE: 2023-04-04T15:48:14.230
                   SOURCE: C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/app/views/index.scala.html
-                  HASH: a94a5fdf9089cb7ab516c36a6c5b8a36a31a4bf7
-                  MATRIX: 955->1|1063->42|1120->37|1150->71|1238->133|1264->139|1292->140|1676->497|1706->506|1776->549|1803->555|1857->582|1872->588|1925->620|1996->664|2011->670|2061->699|2138->749|2175->777|2215->779|2260->796|2297->806|2312->812|2377->856|2451->899|2492->912|2557->950|2594->978|2634->980|2679->997|2716->1007|2731->1013|2800->1061|2857->1087|2898->1100
-                  LINES: 28->1|31->2|34->2|34->3|37->6|37->6|37->6|47->16|47->16|49->18|49->18|50->19|50->19|50->19|51->20|51->20|51->20|53->22|53->22|53->22|54->23|54->23|54->23|54->23|55->24|56->25|58->27|58->27|58->27|59->28|59->28|59->28|59->28|60->29|61->30
+                  HASH: cb50731e94998216de6e068a0efb7ab4af90ad3a
+                  MATRIX: 651->1|1011->49|1138->83|1214->133|1226->137|1272->163|1300->164|2466->1304|2479->1308|2526->1334|2555->1335|2792->1545|2890->1621|3169->1873|3184->1879|3249->1923
+                  LINES: 24->1|29->2|34->3|37->6|37->6|37->6|37->6|52->21|52->21|52->21|52->21|57->26|57->26|65->34|65->34|65->34
                   -- GENERATED --
               */
           

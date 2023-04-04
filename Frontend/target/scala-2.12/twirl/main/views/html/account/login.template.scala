@@ -36,7 +36,7 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>Play Setup Demo</title>
+        <title>TA Portal Login</title>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
@@ -106,9 +106,9 @@ Seq[Any](format.raw/*2.1*/("""<!DOCTYPE html>
 
               /*
                   -- GENERATED --
-                  DATE: 2023-03-01T14:56:13.568
+                  DATE: 2023-04-04T14:59:23.457
                   SOURCE: C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/app/views/account/login.scala.html
-                  HASH: 6199080457c595b9592c532a727664cf085dd788
+                  HASH: e70f66bb551aee71f7770c5e928e64166a22f9a5
                   MATRIX: 956->1|1076->28|2694->1621|2709->1627|2760->1657|3513->2383|3550->2411|3590->2413|3647->2442|3750->2518|3787->2534|3844->2563|3940->2628|3993->2653|4221->2854|4236->2860|4281->2884
                   LINES: 28->1|33->2|63->32|63->32|63->32|77->46|77->46|77->46|78->47|79->48|79->48|80->49|82->51|83->52|86->55|86->55|86->55
                   -- GENERATED --

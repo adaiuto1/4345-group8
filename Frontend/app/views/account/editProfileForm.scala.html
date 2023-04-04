@@ -18,12 +18,16 @@
         <script src="https://unpkg.com/leaflet@@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
     </head>
     <body>
-        <header class="topbar">
+        <header class="topbar" style="align-content: center;
+            text-align: center">
             <h1 class="focused" style="font-size: 37px;
                 color: #57a957;
                 text-align: center">
                 <strong>Edit Profile</strong>
             </h1>
+            <a href="@routes.HomeController.changePassword()">
+                <button>Change Password</button>
+            </a>
         </header>
         <div class="row">
             <div class="card col s10 offset-s1 ">
@@ -78,7 +82,7 @@
                                 </select>
                             </div>
                             <div class="input-field col s2">
-                                <input id="zip" name="zip" type="text" required>
+                                <input id="zip" name="zip" type="text" value="@curr.get("zip").textValue()" required>
                                 <label for="zip">Zip/Postal Code</label>
                             </div>
                             <div class="input-field col s2">
