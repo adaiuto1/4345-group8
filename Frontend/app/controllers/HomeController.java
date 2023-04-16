@@ -1,6 +1,7 @@
 package controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import play.data.Form;
 import play.data.FormFactory;
@@ -16,6 +17,7 @@ import scala.collection.Seq;
 import views.html.*;
 
 import javax.inject.Inject;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletionStage;
@@ -209,6 +211,35 @@ public class HomeController extends Controller {
                 }, ec.current());
     }
 
+    public CompletionStage<Result> openProfileView(String profile) {
+        WSClient ws = play.test.WSTestClient.newClient(9005);
+        WSRequest request = ws.url("http://localhost:9005/getProfileByEmail/" + profile);
+        return request.addHeader("Content-Type", "application/json")
+                .get().thenApplyAsync((WSResponse r) -> {
+                    return ok(views.html.account.profileView.render(r.asJson()));
+                }, ec.current());
+    }
 
+    public CompletionStage<Result> openPositionViewer() {
+        WSClient ws = play.test.WSTestClient.newClient(9005);
+        WSRequest request = ws.url("http://localhost:9005/classes");
+        return request.addHeader("Content-Type", "application/json")
+                .get().thenApplyAsync((WSResponse r) -> {
+                    String classString = r.asJson().toString();
+                    List<Classroom> classList = new ArrayList<Classroom>();
+                    ObjectMapper objectMapper = new ObjectMapper();
+                    try {
+                        JsonNode classNodes = objectMapper.readTree(classString);
+                        for (JsonNode classNode : classNodes) {
+                            classList.add(objectMapper.convertValue(classNode, Classroom.class));
+                        }
+
+                    } catch (IOException e) {
+
+                        throw new RuntimeException(e);
+                    }
+                    return ok(views.html.applications.PositionViewer.render(classList));
+                }, ec.current());
+    }
 }
 

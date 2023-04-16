@@ -6,6 +6,11 @@ import models.Classroom;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
+import play.twirl.api.Content;
+import scala.collection.Seq;
+
+import java.util.Arrays;
+import java.util.Set;
 
 import static play.mvc.Results.ok;
 
@@ -59,5 +64,12 @@ public class ClassroomController extends Controller {
         System.out.println("retreived class information:");
         System.out.println(result);
         return ok(result);
+    }
+    public Result getAllClassrooms(){
+        Set<Classroom> classList = Classroom.getAllClassrooms("");
+
+
+        return ok(Json.toJson(classList.toArray()));
+
     }
 }

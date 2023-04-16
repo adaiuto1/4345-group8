@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/conf/routes
-// @DATE:Wed Mar 08 15:47:37 CST 2023
+// @DATE:Sun Apr 16 13:14:27 CDT 2023
 
 package router
 
@@ -20,7 +20,7 @@ class Routes(
   ApplicationController_0: controllers.ApplicationController,
   // @LINE:28
   TAResponseController_1: controllers.TAResponseController,
-  // @LINE:33
+  // @LINE:34
   Assets_2: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -33,7 +33,7 @@ class Routes(
     ApplicationController_0: controllers.ApplicationController,
     // @LINE:28
     TAResponseController_1: controllers.TAResponseController,
-    // @LINE:33
+    // @LINE:34
     Assets_2: controllers.Assets
   ) = this(errorHandler, HomeController_3, ApplicationController_0, TAResponseController_1, Assets_2, "/")
 
@@ -61,7 +61,9 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """submitNewPassword""", """controllers.HomeController.passwordHandler()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """TA_Application/""" + "$" + """c<[^/]+>""", """controllers.TAResponseController.openResponseForm(c:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """sendTAResponse""", """controllers.TAResponseController.TAResponseHandler()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """openPositionViewer""", """controllers.HomeController.openPositionViewer()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.at(path:String = "/public", file:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """profile/""" + "$" + """profile<.+>""", """controllers.HomeController.openProfileView(profile:String)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -303,11 +305,29 @@ class Routes(
     )
   )
 
-  // @LINE:33
-  private[this] lazy val controllers_Assets_at13_route = Route("GET",
+  // @LINE:32
+  private[this] lazy val controllers_HomeController_openPositionViewer13_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("openPositionViewer")))
+  )
+  private[this] lazy val controllers_HomeController_openPositionViewer13_invoker = createInvoker(
+    HomeController_3.openPositionViewer(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "openPositionViewer",
+      Nil,
+      "GET",
+      this.prefix + """openPositionViewer""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:34
+  private[this] lazy val controllers_Assets_at14_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_at13_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_at14_invoker = createInvoker(
     Assets_2.at(fakeValue[String], fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -317,6 +337,24 @@ class Routes(
       "GET",
       this.prefix + """assets/""" + "$" + """file<.+>""",
       """ Map static resources from the /public folder to the /assets URL path""",
+      Seq()
+    )
+  )
+
+  // @LINE:36
+  private[this] lazy val controllers_HomeController_openProfileView15_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("profile/"), DynamicPart("profile", """.+""",false)))
+  )
+  private[this] lazy val controllers_HomeController_openProfileView15_invoker = createInvoker(
+    HomeController_3.openProfileView(fakeValue[String]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "openProfileView",
+      Seq(classOf[String]),
+      "GET",
+      this.prefix + """profile/""" + "$" + """profile<.+>""",
+      """""",
       Seq()
     )
   )
@@ -402,10 +440,22 @@ class Routes(
         controllers_TAResponseController_TAResponseHandler12_invoker.call(TAResponseController_1.TAResponseHandler())
       }
   
-    // @LINE:33
-    case controllers_Assets_at13_route(params@_) =>
+    // @LINE:32
+    case controllers_HomeController_openPositionViewer13_route(params@_) =>
+      call { 
+        controllers_HomeController_openPositionViewer13_invoker.call(HomeController_3.openPositionViewer())
+      }
+  
+    // @LINE:34
+    case controllers_Assets_at14_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
-        controllers_Assets_at13_invoker.call(Assets_2.at(path, file))
+        controllers_Assets_at14_invoker.call(Assets_2.at(path, file))
+      }
+  
+    // @LINE:36
+    case controllers_HomeController_openProfileView15_route(params@_) =>
+      call(params.fromPath[String]("profile", None)) { (profile) =>
+        controllers_HomeController_openProfileView15_invoker.call(HomeController_3.openProfileView(profile))
       }
   }
 }

@@ -29,7 +29,8 @@ GET        /TA_Application/:c           controllers.TAResponseController.openRes
 
 GET        /sendTAResponse              controllers.TAResponseController.TAResponseHandler()
 
+GET        /openPositionViewer          controllers.HomeController.openPositionViewer()
 # Map static resources from the /public folder to the /assets URL path
 GET        /assets/*file                controllers.Assets.at(path="/public", file)
 
-
+GET        /profile/*profile            controllers.HomeController.openProfileView(profile)

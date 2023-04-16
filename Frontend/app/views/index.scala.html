@@ -5,6 +5,7 @@
     <head>
         <title>@curr.get("status").textValue() TA Portal</title>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="../../public/stylesheets/index.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
             <!-- Compiled and minified JavaScript -->
         <script src=" https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -31,11 +32,11 @@
         <div class="row ">
             <div class="card col s6 offset-s3" style="padding: 3em">
                 <div class="row">
-                    <a href="@routes.ApplicationController.openApplicationForm()" class="btn" style="width: 100%;
+                    <a href="@routes.ApplicationController.openApplicationForm()" class="btn b-primary" style="width: 100%;
                         height: max-content;
-                        padding: 0.5em">
+                        padding: 0.5em;">
                         <div>
-                            <div class="col s2">
+                            <div class="col s4">
                                 <img src="https://static.thenounproject.com/png/2505633-200.png"
                                 style="height: 8em;
                                     margin-top: 1em">
@@ -52,11 +53,11 @@
                     </a>
                 </div>
                 <div class="row">
-                    <a href="" class="btn" style="width: 100%;
+                    <a href="@routes.HomeController.openPositionViewer()" class="btn" style="width: 100%;
                         height: max-content;
                         padding: 0.5em">
                         <div>
-                            <div class="col s2">
+                            <div class="col s4">
                                 <img src="https://static.thenounproject.com/png/3785157-200.png"
                                 style="height: 5em;
                                     margin-top: 3em">
@@ -95,7 +96,7 @@
                         </a>
                     </div>
                     <div class="col s6">
-                        <a href="" class="btn" style="width: 100%;
+                        <a href="@routes.HomeController.openProfileView(curr.get("email").textValue())" class="btn" style="width: 100%;
                             height: 18%;
                             padding: 0.5em">
                             <div>

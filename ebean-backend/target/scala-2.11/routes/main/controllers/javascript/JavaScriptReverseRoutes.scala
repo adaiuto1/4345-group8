@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/ebean-backend/conf/routes
-// @DATE:Wed Mar 08 15:43:52 CST 2023
+// @DATE:Sun Apr 16 13:23:34 CDT 2023
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -104,6 +104,16 @@ package controllers.javascript {
 
   
     // @LINE:32
+    def getAllClassrooms: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ClassroomController.getAllClassrooms",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "classes"})
+        }
+      """
+    )
+  
+    // @LINE:33
     def getClassById: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ClassroomController.getClassById",
       """
@@ -113,7 +123,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:33
+    // @LINE:34
     def getClassByEmail: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ClassroomController.getClassByEmail",
       """
@@ -123,7 +133,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:34
+    // @LINE:35
     def createNewClassroom: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ClassroomController.createNewClassroom",
       """

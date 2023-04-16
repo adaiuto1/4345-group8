@@ -1,0 +1,4 @@
+[error] C:\Users\brian\Documents\SMU\sem6\4345\portal\4345-group8\Frontend\app\views\index.scala.html:99: Invalid '@' symbol
+[error]                         <a href="@" class="btn" style="width: 100%;
+[error]                                  ^
+[error] (compile:twirlCompileTemplates) Twirl compilation failed

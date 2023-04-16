@@ -29,6 +29,7 @@ GET     /getProfileByEmail/:p       controllers.ProfileController.getProfileByEm
 POST    /sendTAResponse             controllers.TAResponseController.createNewTAResponse()
 
 #get classroom information
+GET     /classes                     controllers.ClassroomController.getAllClassrooms()
 GET     /classes/id/:c                  controllers.ClassroomController.getClassById(c)
 GET     /classes/teacher/:e          controllers.ClassroomController.getClassByEmail(e)
 POST    /classes/newClassroom        controllers.ClassroomController.createNewClassroom()

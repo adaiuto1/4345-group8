@@ -1,0 +1,64 @@
+@import controllers.Classroom
+@import java.util.List
+@(classroomList: List[Classroom])
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Open Application Form</title>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+            <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+
+    </head>
+    <body>
+        <div class="row">
+
+            <div class="col s8 offset-s2">
+                <div class="card col s8 offset-s2">
+                    <header>
+                        <strong><h1 style="font-size: 37px;
+                            color: #186aad;
+                            align-content: center;
+                            text-align: center">Open TA Positions</h1></strong>
+                    </header>
+
+                    <div class="col s10 offset-s1">
+                        <ul>
+                        @for(c <- classroomList) {
+                            <li>
+                                <div class="row" style="background-color: #444444;
+                                    color: #FFFFFF;
+                                    padding: 2em">
+                                    <div class="col s7">
+                                        <h5>@(c.classID + ": " + c.classTitle) </h5>
+                                    </div>
+                                    <div class="col s3">
+                                        <p>@("Positions Available: " + c.numOpenings)</p>
+                                    </div>
+                                    <div class="col s2">
+                                        <a href="@routes.TAResponseController.openResponseForm(c.classID)">
+                                            <button class="btn">
+                                                <h6>Apply</h6>
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </body>
+</html>

@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/ebean-backend/conf/routes
-// @DATE:Wed Mar 08 15:43:52 CST 2023
+// @DATE:Sun Apr 16 13:23:34 CDT 2023
 
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
 import play.core.routing.{ HandlerDef, ReverseRouteContext, queryString, dynamicString }
@@ -78,18 +78,24 @@ package controllers {
 
   
     // @LINE:32
+    def getAllClassrooms(): Call = {
+      import ReverseRouteContext.empty
+      Call("GET", _prefix + { _defaultPrefix } + "classes")
+    }
+  
+    // @LINE:33
     def getClassById(c:String): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "classes/id/" + implicitly[PathBindable[String]].unbind("c", dynamicString(c)))
     }
   
-    // @LINE:33
+    // @LINE:34
     def getClassByEmail(e:String): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "classes/teacher/" + implicitly[PathBindable[String]].unbind("e", dynamicString(e)))
     }
   
-    // @LINE:34
+    // @LINE:35
     def createNewClassroom(): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "classes/newClassroom")

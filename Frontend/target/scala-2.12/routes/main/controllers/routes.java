@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/conf/routes
-// @DATE:Wed Mar 08 15:47:37 CST 2023
+// @DATE:Sun Apr 16 13:14:27 CDT 2023
 
 package controllers;
 

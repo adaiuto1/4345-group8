@@ -10,7 +10,6 @@ import play.mvc.Result;
 
 public class ProfileController extends Controller{
 
-
     public Result registerNew(){
         System.out.println("In register");
         JsonNode req = request().body().asJson();
@@ -70,7 +69,6 @@ public class ProfileController extends Controller{
         Profile p = Profile.findByEmail(email);
         ObjectNode result = null;
         if (p != null) {
-            System.out.println("new profile");
             result = Json.newObject();
             result.put("firstname", p.firstname);
             result.put("lastname", p.lastname);
@@ -122,7 +120,6 @@ public class ProfileController extends Controller{
         Profile p = Profile.findByEmail(e);
         ObjectNode result = null;
         if(p != null){
-            System.out.println("new profile");
             result = Json.newObject();
             Profile profile = new Profile();
             profile.firstname = firstname;

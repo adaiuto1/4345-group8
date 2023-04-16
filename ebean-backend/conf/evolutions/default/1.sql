@@ -20,6 +20,11 @@ create table classroom (
   teacher_email                 varchar(255),
   location                      varchar(255),
   num_openings                  integer,
+  ta1                           varchar(255),
+  ta2                           varchar(255),
+  ta3                           varchar(255),
+  ta4                           varchar(255),
+  ta5                           varchar(255),
   constraint pk_classroom primary key (class_id)
 );
 

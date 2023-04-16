@@ -7,4 +7,9 @@ public class Classroom {
     public String location;
     public int numOpenings;
 
+    public String ta1;
+    public String ta2;
+    public String ta3;
+    public String ta4;
+    public String ta5;
 }
