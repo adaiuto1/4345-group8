@@ -33,3 +33,10 @@ GET     /classes                     controllers.ClassroomController.getAllClass
 GET     /classes/id/:c                  controllers.ClassroomController.getClassById(c)
 GET     /classes/teacher/:e          controllers.ClassroomController.getClassByEmail(e)
 POST    /classes/newClassroom        controllers.ClassroomController.createNewClassroom()
+POST    /classes/id/:id/:ta         controllers.ClassroomController.addTAToClassroom(id, ta)
+
+#listings
+GET     /listings                   controllers.ListingController.getAllListings()
+GET     /listings/qualified/:e         controllers.ListingController.filterQualified(e)
+POST    /listings                   controllers.ListingController.createNewListing()
+DELETE  /listings/:id               controllers.ListingController.deleteListing(id)

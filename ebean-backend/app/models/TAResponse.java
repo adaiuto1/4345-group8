@@ -17,7 +17,8 @@ public class TAResponse extends Model {
     public String coursework;
     @Constraints.Required
     public String applicantMessage;
-
+    @Constraints.Required
+    public boolean isOpen;
     public Set<TAResponse> findTAResponseByApplicantEmail(String applicantEmail){
         return TAResponse.find
                 .where()

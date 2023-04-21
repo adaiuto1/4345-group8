@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/conf/routes
-// @DATE:Sun Apr 16 13:14:27 CDT 2023
+// @DATE:Mon Apr 17 14:09:48 CDT 2023
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -10,6 +10,86 @@ import _root_.play.libs.F
 
 // @LINE:7
 package controllers.javascript {
+
+  // @LINE:38
+  class ReverseAssets(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:38
+    def at: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Assets.at",
+      """
+        function(file1) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "assets/" + (""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("file", file1)})
+        }
+      """
+    )
+  
+  }
+
+  // @LINE:28
+  class ReverseTAResponseController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:28
+    def openResponseForm: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.TAResponseController.openResponseForm",
+      """
+        function(c0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "TA_Application/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("c", c0))})
+        }
+      """
+    )
+  
+    // @LINE:30
+    def TAResponseHandler: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.TAResponseController.TAResponseHandler",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "sendTAResponse"})
+        }
+      """
+    )
+  
+  }
+
+  // @LINE:34
+  class ReverseListingController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:36
+    def createListing: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ListingController.createListing",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "sendListing"})
+        }
+      """
+    )
+  
+    // @LINE:34
+    def loadListingForm: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ListingController.loadListingForm",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "newListing"})
+        }
+      """
+    )
+  
+  }
 
   // @LINE:20
   class ReverseApplicationController(_prefix: => String) {
@@ -89,7 +169,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:36
+    // @LINE:40
     def openProfileView: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.openProfileView",
       """
@@ -155,56 +235,6 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + """"})
-        }
-      """
-    )
-  
-  }
-
-  // @LINE:34
-  class ReverseAssets(_prefix: => String) {
-
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:34
-    def at: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.Assets.at",
-      """
-        function(file1) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "assets/" + (""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("file", file1)})
-        }
-      """
-    )
-  
-  }
-
-  // @LINE:28
-  class ReverseTAResponseController(_prefix: => String) {
-
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:28
-    def openResponseForm: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.TAResponseController.openResponseForm",
-      """
-        function(c0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "TA_Application/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("c", c0))})
-        }
-      """
-    )
-  
-    // @LINE:30
-    def TAResponseHandler: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.TAResponseController.TAResponseHandler",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "sendTAResponse"})
         }
       """
     )

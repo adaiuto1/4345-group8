@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/ebean-backend/conf/routes
-// @DATE:Sun Apr 16 13:23:34 CDT 2023
+// @DATE:Fri Apr 21 11:21:00 CDT 2023
 
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
 import play.core.routing.{ HandlerDef, ReverseRouteContext, queryString, dynamicString }
@@ -39,6 +39,39 @@ package controllers {
     def resetPassword(): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "resetPassword")
+    }
+  
+  }
+
+  // @LINE:39
+  class ReverseListingController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:41
+    def createNewListing(): Call = {
+      import ReverseRouteContext.empty
+      Call("POST", _prefix + { _defaultPrefix } + "listings")
+    }
+  
+    // @LINE:42
+    def deleteListing(id:String): Call = {
+      import ReverseRouteContext.empty
+      Call("DELETE", _prefix + { _defaultPrefix } + "listings/" + implicitly[PathBindable[String]].unbind("id", dynamicString(id)))
+    }
+  
+    // @LINE:39
+    def getAllListings(): Call = {
+      import ReverseRouteContext.empty
+      Call("GET", _prefix + { _defaultPrefix } + "listings")
+    }
+  
+    // @LINE:40
+    def filterQualified(e:String): Call = {
+      import ReverseRouteContext.empty
+      Call("GET", _prefix + { _defaultPrefix } + "listings/qualified/" + implicitly[PathBindable[String]].unbind("e", dynamicString(e)))
     }
   
   }
@@ -83,22 +116,28 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "classes")
     }
   
+    // @LINE:35
+    def createNewClassroom(): Call = {
+      import ReverseRouteContext.empty
+      Call("POST", _prefix + { _defaultPrefix } + "classes/newClassroom")
+    }
+  
     // @LINE:33
     def getClassById(c:String): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "classes/id/" + implicitly[PathBindable[String]].unbind("c", dynamicString(c)))
     }
   
+    // @LINE:36
+    def addTAToClassroom(id:String, ta:String): Call = {
+      import ReverseRouteContext.empty
+      Call("POST", _prefix + { _defaultPrefix } + "classes/id/" + implicitly[PathBindable[String]].unbind("id", dynamicString(id)) + "/" + implicitly[PathBindable[String]].unbind("ta", dynamicString(ta)))
+    }
+  
     // @LINE:34
     def getClassByEmail(e:String): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "classes/teacher/" + implicitly[PathBindable[String]].unbind("e", dynamicString(e)))
-    }
-  
-    // @LINE:35
-    def createNewClassroom(): Call = {
-      import ReverseRouteContext.empty
-      Call("POST", _prefix + { _defaultPrefix } + "classes/newClassroom")
     }
   
   }

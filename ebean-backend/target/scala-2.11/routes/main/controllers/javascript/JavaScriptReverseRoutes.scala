@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/ebean-backend/conf/routes
-// @DATE:Sun Apr 16 13:23:34 CDT 2023
+// @DATE:Fri Apr 21 11:21:00 CDT 2023
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -49,6 +49,56 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "resetPassword"})
+        }
+      """
+    )
+  
+  }
+
+  // @LINE:39
+  class ReverseListingController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:41
+    def createNewListing: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ListingController.createNewListing",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "listings"})
+        }
+      """
+    )
+  
+    // @LINE:42
+    def deleteListing: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ListingController.deleteListing",
+      """
+        function(id0) {
+          return _wA({method:"DELETE", url:"""" + _prefix + { _defaultPrefix } + """" + "listings/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("id", encodeURIComponent(id0))})
+        }
+      """
+    )
+  
+    // @LINE:39
+    def getAllListings: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ListingController.getAllListings",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "listings"})
+        }
+      """
+    )
+  
+    // @LINE:40
+    def filterQualified: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ListingController.filterQualified",
+      """
+        function(e0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "listings/qualified/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("e", encodeURIComponent(e0))})
         }
       """
     )
@@ -113,6 +163,16 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:35
+    def createNewClassroom: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ClassroomController.createNewClassroom",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "classes/newClassroom"})
+        }
+      """
+    )
+  
     // @LINE:33
     def getClassById: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ClassroomController.getClassById",
@@ -123,22 +183,22 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:36
+    def addTAToClassroom: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.ClassroomController.addTAToClassroom",
+      """
+        function(id0,ta1) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "classes/id/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("id", encodeURIComponent(id0)) + "/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("ta", encodeURIComponent(ta1))})
+        }
+      """
+    )
+  
     // @LINE:34
     def getClassByEmail: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.ClassroomController.getClassByEmail",
       """
         function(e0) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "classes/teacher/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("e", encodeURIComponent(e0))})
-        }
-      """
-    )
-  
-    // @LINE:35
-    def createNewClassroom: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.ClassroomController.createNewClassroom",
-      """
-        function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "classes/newClassroom"})
         }
       """
     )

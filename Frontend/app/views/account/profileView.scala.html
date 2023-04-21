@@ -1,5 +1,5 @@
 @import com.fasterxml.jackson.databind.JsonNode
-@(currProfile: JsonNode)
+@(currProfile: JsonNode, currUser: String)
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -25,6 +25,14 @@
                                 <strong>@(currProfile.get("firstname").textValue() + " " + currProfile.get("lastname").textValue())</strong>
                             </h1>
                             <p>@currProfile.get("email").textValue()</p>
+                        </div>
+                        <div class="col s5"></div>
+                        <div class="col s2">
+                            <a href="@routes.HomeController.editProfile()">
+                            @if(currProfile.get("email").textValue() == currUser) {
+                                <button class="btn">Edit Profile</button>
+                            }
+                            </a>
                         </div>
                     </div>
                 </header>

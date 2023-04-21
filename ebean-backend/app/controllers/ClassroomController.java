@@ -10,6 +10,8 @@ import play.twirl.api.Content;
 import scala.collection.Seq;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 import static play.mvc.Results.ok;
@@ -66,10 +68,40 @@ public class ClassroomController extends Controller {
         return ok(result);
     }
     public Result getAllClassrooms(){
-        Set<Classroom> classList = Classroom.getAllClassrooms("");
-
-
+        Set<Classroom> classList = Classroom.getAllClassrooms();
         return ok(Json.toJson(classList.toArray()));
+    }
+    public Result addTAToClassroom(String id, String studentEmail) {
+        Classroom target = Classroom.find
+                .where()
+                .eq("classID", id)
+                .findUnique();
+        Map<String, String> currTas = new HashMap<>();
+        currTas.put("ta1", target.ta1);
+        currTas.put("ta2", target.ta2);
+        currTas.put("ta3", target.ta3);
+        currTas.put("ta4", target.ta4);
+        currTas.put("ta5", target.ta5);
+
+        assert target != null;
+        if (currTas.containsValue(studentEmail)) {
+            return badRequest("student already a TA");
+        } else {
+
+            if (target.ta1 == null) {
+                target.ta1 = studentEmail;
+            } else if (target.ta2 == null) {
+                target.ta2 = studentEmail;
+            } else if (target.ta3 == null) {
+                target.ta3 = studentEmail;
+            } else if (target.ta4 == null) {
+                target.ta4 = studentEmail;
+            } else if (target.ta5 == null) {
+                target.ta5 = studentEmail;
+            }
+            target.save();
+            return ok();
+        }
 
     }
 }

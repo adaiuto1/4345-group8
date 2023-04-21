@@ -8,7 +8,6 @@ import play.mvc.*;
 public class OpenApplicationController extends Controller{
 
     public Result sendOpenApplication(){
-
         Application newApp = new Application();
         JsonNode req = request().body().asJson();
         String studentEmail = req.get("studentEmail").asText();
@@ -17,7 +16,6 @@ public class OpenApplicationController extends Controller{
         String thirdChoice = req.get("thirdChoice").asText();
         boolean isAvailable = req.get("isAvailable").asBoolean();
         String avoid = req.get("avoid").asText();
-
         newApp.studentEmail = studentEmail;
         newApp.firstChoice = firstChoice;
         newApp.secondChoice = secondChoice;
@@ -31,5 +29,6 @@ public class OpenApplicationController extends Controller{
         result.put("studentEmail", studentEmail);
         return(ok(result));
     }
+
 
 }

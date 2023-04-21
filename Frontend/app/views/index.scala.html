@@ -31,28 +31,55 @@
         </header>
         <div class="row ">
             <div class="card col s6 offset-s3" style="padding: 3em">
-                <div class="row">
-                    <a href="@routes.ApplicationController.openApplicationForm()" class="btn b-primary" style="width: 100%;
-                        height: max-content;
-                        padding: 0.5em;">
-                        <div>
-                            <div class="col s4">
-                                <img src="https://static.thenounproject.com/png/2505633-200.png"
-                                style="height: 8em;
-                                    margin-top: 1em">
-                            </div>
-                            <div class="col s8">
-                                <div class="row" style="text-align: left">
-                                    <h1 style="font-size: 2em">Create Open TA Application</h1>
-                                    <p class="flow-text" style="font-size: 1em;
-                                        line-height: 1.2em">
-                                        Publish your skills and select courses you wish to TA for. Your candidacy will be reviewed by professors and you will hear back shortly!</p>
+                @if(curr.get("status").textValue() == "Student") {
+                    <div class="row">
+                        <a href="@routes.ApplicationController.openApplicationForm()" class="btn b-primary" style="width: 100%;
+                            height: max-content;
+                            padding: 0.5em;">
+                            <div>
+                                <div class="col s4">
+                                    <img src="https://static.thenounproject.com/png/2505633-200.png"
+                                    style="height: 8em;
+                                        margin-top: 1em">
+                                </div>
+                                <div class="col s8">
+                                    <div class="row" style="text-align: left">
+                                        <h1 style="font-size: 2em">Create Open TA Application</h1>
+                                        <p class="flow-text" style="font-size: 1em;
+                                            line-height: 1.2em">
+                                            Publish your skills and select courses you wish to TA for. Your candidacy will be reviewed by professors and you will hear back shortly!</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="row">
+                        </a>
+                    </div>
+                }
+                @if(curr.get("status").textValue() == "Faculty") {
+                    <div class="row">
+                        <a href="@routes.ListingController.loadListingForm()" class="btn b-primary" style="width: 100%;
+                            height: max-content;
+                            padding: 0.5em;">
+                            <div>
+                                <div class="col s4">
+                                    <img src="https://static.thenounproject.com/png/2505633-200.png"
+                                    style="height: 8em;
+                                        margin-top: 1em">
+                                </div>
+                                <div class="col s8">
+                                    <div class="row" style="text-align: left">
+                                        <h1 style="font-size: 2em">Create TA Listing</h1>
+                                        <p class="flow-text" style="font-size: 1em;
+                                            line-height: 1.2em">
+                                            Create a TA job listing for students
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+            <div class="row">
+                @if(curr.get("status").textValue() == "Student") {
                     <a href="@routes.HomeController.openPositionViewer()" class="btn" style="width: 100%;
                         height: max-content;
                         padding: 0.5em">
@@ -72,48 +99,73 @@
                             </div>
                         </div>
                     </a>
-                </div>
-                <div class="row">
-                    <div class="col s6">
-                        <a href="" class="btn" style="width: 100%;
-                            height: 18%;
-                            padding: 0.5em">
+                }
+                @if(curr.get("status").textValue() == "Faculty") {
+                    <div class="row">
+                        <a href="@routes.ApplicationController.openApplicationForm()" class="btn b-primary" style="width: 100%;
+                            height: max-content;
+                            padding: 0.5em;">
                             <div>
-                                <div class="col s2">
-                                    <img src="https://static.thenounproject.com/png/5633225-200.png"
-                                    style="height: 5em;
-                                        margin-top: 1.5em">
+                                <div class="col s4">
+                                    <img src="https://static.thenounproject.com/png/2505633-200.png"
+                                    style="height: 8em;
+                                        margin-top: 1em">
                                 </div>
-                                <div class="col s8 offset-s1">
+                                <div class="col s8">
                                     <div class="row" style="text-align: left">
-                                        <h1 style="font-size: 2em">Inbox</h1>
+                                        <h1 style="font-size: 2em">Review TA Applicants</h1>
                                         <p class="flow-text" style="font-size: 1em;
                                             line-height: 1.2em">
+                                            View and approve students who applied to your TA listings
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </a>
                     </div>
-                    <div class="col s6">
-                        <a href="@routes.HomeController.openProfileView(curr.get("email").textValue())" class="btn" style="width: 100%;
-                            height: 18%;
-                            padding: 0.5em">
-                            <div>
-                                <div class="col s2">
-                                    <img src="https://static.thenounproject.com/png/4584119-200.png"
-                                    style="height: 5em;
-                                        margin-top: 1.5em">
-                                </div>
-                                <div class="col s8 offset-s1">
-                                    <div class="row" style="text-align: left">
-                                        <h1 style="font-size: 2em">My Profile</h1>
-                                    </div>
+                }
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <a href="" class="btn" style="width: 100%;
+                        height: 18%;
+                        padding: 0.5em">
+                        <div>
+                            <div class="col s2">
+                                <img src="https://static.thenounproject.com/png/5633225-200.png"
+                                style="height: 5em;
+                                    margin-top: 1.5em">
+                            </div>
+                            <div class="col s8 offset-s1">
+                                <div class="row" style="text-align: left">
+                                    <h1 style="font-size: 2em">Inbox</h1>
+                                    <p class="flow-text" style="font-size: 1em;
+                                        line-height: 1.2em">
+                                        </p>
                                 </div>
                             </div>
-                        </a>
-                    </div>
+                        </div>
+                    </a>
                 </div>
+                <div class="col s6">
+                    <a href="@routes.HomeController.openProfileView(curr.get("email").textValue())" class="btn" style="width: 100%;
+                        height: 18%;
+                        padding: 0.5em">
+                        <div>
+                            <div class="col s2">
+                                <img src="https://static.thenounproject.com/png/4584119-200.png"
+                                style="height: 5em;
+                                    margin-top: 1.5em">
+                            </div>
+                            <div class="col s8 offset-s1">
+                                <div class="row" style="text-align: left">
+                                    <h1 style="font-size: 2em">My Profile</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
             </div>
         </div>
 

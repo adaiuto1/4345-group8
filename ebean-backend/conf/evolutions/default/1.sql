@@ -28,6 +28,15 @@ create table classroom (
   constraint pk_classroom primary key (class_id)
 );
 
+create table listing (
+  listing_id                    integer auto_increment not null,
+  teacher_email                 varchar(255),
+  class_id                      varchar(255),
+  message                       varchar(255),
+  prereqs                       varchar(255),
+  constraint pk_listing primary key (listing_id)
+);
+
 create table profile (
   id                            bigint auto_increment not null,
   email                         varchar(255),
@@ -57,7 +66,8 @@ create table taresponse (
   class_id                      varchar(255),
   teacher_email                 varchar(255),
   coursework                    varchar(255),
-  applicant_message             varchar(255)
+  applicant_message             varchar(255),
+  is_open                       tinyint(1) default 0
 );
 
 create table user (
@@ -78,6 +88,8 @@ create table user (
 drop table if exists application;
 
 drop table if exists classroom;
+
+drop table if exists listing;
 
 drop table if exists profile;
 

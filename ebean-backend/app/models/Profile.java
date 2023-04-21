@@ -33,8 +33,8 @@ public class Profile extends Model {
 
     public String zip;
 
-    public String status;
 
+    public String status;
     public String title;
 
     public String fax;

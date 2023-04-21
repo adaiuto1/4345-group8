@@ -28,7 +28,7 @@ public class Classroom extends Model {
     public String ta3;
     public String ta4;
     public String ta5;
-    public static Set<Classroom> getAllClassrooms(String x){
+    public static Set<Classroom> getAllClassrooms(){
         System.out.println("getting all");
         return Classroom.find
                 .findSet();

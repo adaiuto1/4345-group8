@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/brian/Documents/SMU/sem6/4345/portal/4345-group8/Frontend/conf/routes
-// @DATE:Sun Apr 16 13:14:27 CDT 2023
+// @DATE:Mon Apr 17 14:09:48 CDT 2023
 
 package router
 
@@ -15,32 +15,36 @@ import _root_.play.libs.F
 class Routes(
   override val errorHandler: play.api.http.HttpErrorHandler, 
   // @LINE:7
-  HomeController_3: controllers.HomeController,
+  HomeController_4: controllers.HomeController,
   // @LINE:20
-  ApplicationController_0: controllers.ApplicationController,
+  ApplicationController_1: controllers.ApplicationController,
   // @LINE:28
-  TAResponseController_1: controllers.TAResponseController,
+  TAResponseController_2: controllers.TAResponseController,
   // @LINE:34
-  Assets_2: controllers.Assets,
+  ListingController_0: controllers.ListingController,
+  // @LINE:38
+  Assets_3: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
 
    @javax.inject.Inject()
    def this(errorHandler: play.api.http.HttpErrorHandler,
     // @LINE:7
-    HomeController_3: controllers.HomeController,
+    HomeController_4: controllers.HomeController,
     // @LINE:20
-    ApplicationController_0: controllers.ApplicationController,
+    ApplicationController_1: controllers.ApplicationController,
     // @LINE:28
-    TAResponseController_1: controllers.TAResponseController,
+    TAResponseController_2: controllers.TAResponseController,
     // @LINE:34
-    Assets_2: controllers.Assets
-  ) = this(errorHandler, HomeController_3, ApplicationController_0, TAResponseController_1, Assets_2, "/")
+    ListingController_0: controllers.ListingController,
+    // @LINE:38
+    Assets_3: controllers.Assets
+  ) = this(errorHandler, HomeController_4, ApplicationController_1, TAResponseController_2, ListingController_0, Assets_3, "/")
 
   def withPrefix(addPrefix: String): Routes = {
     val prefix = play.api.routing.Router.concatPrefix(addPrefix, this.prefix)
     router.RoutesPrefix.setPrefix(prefix)
-    new Routes(errorHandler, HomeController_3, ApplicationController_0, TAResponseController_1, Assets_2, prefix)
+    new Routes(errorHandler, HomeController_4, ApplicationController_1, TAResponseController_2, ListingController_0, Assets_3, prefix)
   }
 
   private[this] val defaultPrefix: String = {
@@ -62,6 +66,8 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """TA_Application/""" + "$" + """c<[^/]+>""", """controllers.TAResponseController.openResponseForm(c:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """sendTAResponse""", """controllers.TAResponseController.TAResponseHandler()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """openPositionViewer""", """controllers.HomeController.openPositionViewer()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """newListing""", """controllers.ListingController.loadListingForm()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """sendListing""", """controllers.ListingController.createListing()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.at(path:String = "/public", file:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """profile/""" + "$" + """profile<.+>""", """controllers.HomeController.openProfileView(profile:String)"""),
     Nil
@@ -76,7 +82,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix)))
   )
   private[this] lazy val controllers_HomeController_index0_invoker = createInvoker(
-    HomeController_3.index(),
+    HomeController_4.index(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.HomeController",
@@ -94,7 +100,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("login")))
   )
   private[this] lazy val controllers_HomeController_loginHandler1_invoker = createInvoker(
-    HomeController_3.loginHandler(),
+    HomeController_4.loginHandler(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.HomeController",
@@ -112,7 +118,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("signup")))
   )
   private[this] lazy val controllers_HomeController_signup2_invoker = createInvoker(
-    HomeController_3.signup(),
+    HomeController_4.signup(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.HomeController",
@@ -130,7 +136,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("register")))
   )
   private[this] lazy val controllers_HomeController_signupHandler3_invoker = createInvoker(
-    HomeController_3.signupHandler(),
+    HomeController_4.signupHandler(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.HomeController",
@@ -148,7 +154,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("registerProfile")))
   )
   private[this] lazy val controllers_HomeController_profileHandler4_invoker = createInvoker(
-    HomeController_3.profileHandler(),
+    HomeController_4.profileHandler(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.HomeController",
@@ -166,7 +172,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("editProfile")))
   )
   private[this] lazy val controllers_HomeController_editProfile5_invoker = createInvoker(
-    HomeController_3.editProfile(),
+    HomeController_4.editProfile(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.HomeController",
@@ -184,7 +190,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("submitProfileChanges")))
   )
   private[this] lazy val controllers_HomeController_editProfileHandler6_invoker = createInvoker(
-    HomeController_3.editProfileHandler(),
+    HomeController_4.editProfileHandler(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.HomeController",
@@ -202,7 +208,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("openApplication")))
   )
   private[this] lazy val controllers_ApplicationController_openApplicationForm7_invoker = createInvoker(
-    ApplicationController_0.openApplicationForm(),
+    ApplicationController_1.openApplicationForm(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.ApplicationController",
@@ -220,7 +226,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("sendOpenApplication")))
   )
   private[this] lazy val controllers_ApplicationController_ApplicationHandler8_invoker = createInvoker(
-    ApplicationController_0.ApplicationHandler(),
+    ApplicationController_1.ApplicationHandler(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.ApplicationController",
@@ -238,7 +244,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("changePassword")))
   )
   private[this] lazy val controllers_HomeController_changePassword9_invoker = createInvoker(
-    HomeController_3.changePassword(),
+    HomeController_4.changePassword(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.HomeController",
@@ -256,7 +262,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("submitNewPassword")))
   )
   private[this] lazy val controllers_HomeController_passwordHandler10_invoker = createInvoker(
-    HomeController_3.passwordHandler(),
+    HomeController_4.passwordHandler(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.HomeController",
@@ -274,7 +280,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("TA_Application/"), DynamicPart("c", """[^/]+""",true)))
   )
   private[this] lazy val controllers_TAResponseController_openResponseForm11_invoker = createInvoker(
-    TAResponseController_1.openResponseForm(fakeValue[String]),
+    TAResponseController_2.openResponseForm(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.TAResponseController",
@@ -292,7 +298,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("sendTAResponse")))
   )
   private[this] lazy val controllers_TAResponseController_TAResponseHandler12_invoker = createInvoker(
-    TAResponseController_1.TAResponseHandler(),
+    TAResponseController_2.TAResponseHandler(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.TAResponseController",
@@ -310,7 +316,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("openPositionViewer")))
   )
   private[this] lazy val controllers_HomeController_openPositionViewer13_invoker = createInvoker(
-    HomeController_3.openPositionViewer(),
+    HomeController_4.openPositionViewer(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.HomeController",
@@ -324,11 +330,47 @@ class Routes(
   )
 
   // @LINE:34
-  private[this] lazy val controllers_Assets_at14_route = Route("GET",
+  private[this] lazy val controllers_ListingController_loadListingForm14_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("newListing")))
+  )
+  private[this] lazy val controllers_ListingController_loadListingForm14_invoker = createInvoker(
+    ListingController_0.loadListingForm(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.ListingController",
+      "loadListingForm",
+      Nil,
+      "GET",
+      this.prefix + """newListing""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:36
+  private[this] lazy val controllers_ListingController_createListing15_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("sendListing")))
+  )
+  private[this] lazy val controllers_ListingController_createListing15_invoker = createInvoker(
+    ListingController_0.createListing(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.ListingController",
+      "createListing",
+      Nil,
+      "GET",
+      this.prefix + """sendListing""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:38
+  private[this] lazy val controllers_Assets_at16_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_at14_invoker = createInvoker(
-    Assets_2.at(fakeValue[String], fakeValue[String]),
+  private[this] lazy val controllers_Assets_at16_invoker = createInvoker(
+    Assets_3.at(fakeValue[String], fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.Assets",
@@ -341,12 +383,12 @@ class Routes(
     )
   )
 
-  // @LINE:36
-  private[this] lazy val controllers_HomeController_openProfileView15_route = Route("GET",
+  // @LINE:40
+  private[this] lazy val controllers_HomeController_openProfileView17_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("profile/"), DynamicPart("profile", """.+""",false)))
   )
-  private[this] lazy val controllers_HomeController_openProfileView15_invoker = createInvoker(
-    HomeController_3.openProfileView(fakeValue[String]),
+  private[this] lazy val controllers_HomeController_openProfileView17_invoker = createInvoker(
+    HomeController_4.openProfileView(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.HomeController",
@@ -365,97 +407,109 @@ class Routes(
     // @LINE:7
     case controllers_HomeController_index0_route(params@_) =>
       call { 
-        controllers_HomeController_index0_invoker.call(HomeController_3.index())
+        controllers_HomeController_index0_invoker.call(HomeController_4.index())
       }
   
     // @LINE:8
     case controllers_HomeController_loginHandler1_route(params@_) =>
       call { 
-        controllers_HomeController_loginHandler1_invoker.call(HomeController_3.loginHandler())
+        controllers_HomeController_loginHandler1_invoker.call(HomeController_4.loginHandler())
       }
   
     // @LINE:10
     case controllers_HomeController_signup2_route(params@_) =>
       call { 
-        controllers_HomeController_signup2_invoker.call(HomeController_3.signup())
+        controllers_HomeController_signup2_invoker.call(HomeController_4.signup())
       }
   
     // @LINE:12
     case controllers_HomeController_signupHandler3_route(params@_) =>
       call { 
-        controllers_HomeController_signupHandler3_invoker.call(HomeController_3.signupHandler())
+        controllers_HomeController_signupHandler3_invoker.call(HomeController_4.signupHandler())
       }
   
     // @LINE:14
     case controllers_HomeController_profileHandler4_route(params@_) =>
       call { 
-        controllers_HomeController_profileHandler4_invoker.call(HomeController_3.profileHandler())
+        controllers_HomeController_profileHandler4_invoker.call(HomeController_4.profileHandler())
       }
   
     // @LINE:16
     case controllers_HomeController_editProfile5_route(params@_) =>
       call { 
-        controllers_HomeController_editProfile5_invoker.call(HomeController_3.editProfile())
+        controllers_HomeController_editProfile5_invoker.call(HomeController_4.editProfile())
       }
   
     // @LINE:18
     case controllers_HomeController_editProfileHandler6_route(params@_) =>
       call { 
-        controllers_HomeController_editProfileHandler6_invoker.call(HomeController_3.editProfileHandler())
+        controllers_HomeController_editProfileHandler6_invoker.call(HomeController_4.editProfileHandler())
       }
   
     // @LINE:20
     case controllers_ApplicationController_openApplicationForm7_route(params@_) =>
       call { 
-        controllers_ApplicationController_openApplicationForm7_invoker.call(ApplicationController_0.openApplicationForm())
+        controllers_ApplicationController_openApplicationForm7_invoker.call(ApplicationController_1.openApplicationForm())
       }
   
     // @LINE:22
     case controllers_ApplicationController_ApplicationHandler8_route(params@_) =>
       call { 
-        controllers_ApplicationController_ApplicationHandler8_invoker.call(ApplicationController_0.ApplicationHandler())
+        controllers_ApplicationController_ApplicationHandler8_invoker.call(ApplicationController_1.ApplicationHandler())
       }
   
     // @LINE:24
     case controllers_HomeController_changePassword9_route(params@_) =>
       call { 
-        controllers_HomeController_changePassword9_invoker.call(HomeController_3.changePassword())
+        controllers_HomeController_changePassword9_invoker.call(HomeController_4.changePassword())
       }
   
     // @LINE:26
     case controllers_HomeController_passwordHandler10_route(params@_) =>
       call { 
-        controllers_HomeController_passwordHandler10_invoker.call(HomeController_3.passwordHandler())
+        controllers_HomeController_passwordHandler10_invoker.call(HomeController_4.passwordHandler())
       }
   
     // @LINE:28
     case controllers_TAResponseController_openResponseForm11_route(params@_) =>
       call(params.fromPath[String]("c", None)) { (c) =>
-        controllers_TAResponseController_openResponseForm11_invoker.call(TAResponseController_1.openResponseForm(c))
+        controllers_TAResponseController_openResponseForm11_invoker.call(TAResponseController_2.openResponseForm(c))
       }
   
     // @LINE:30
     case controllers_TAResponseController_TAResponseHandler12_route(params@_) =>
       call { 
-        controllers_TAResponseController_TAResponseHandler12_invoker.call(TAResponseController_1.TAResponseHandler())
+        controllers_TAResponseController_TAResponseHandler12_invoker.call(TAResponseController_2.TAResponseHandler())
       }
   
     // @LINE:32
     case controllers_HomeController_openPositionViewer13_route(params@_) =>
       call { 
-        controllers_HomeController_openPositionViewer13_invoker.call(HomeController_3.openPositionViewer())
+        controllers_HomeController_openPositionViewer13_invoker.call(HomeController_4.openPositionViewer())
       }
   
     // @LINE:34
-    case controllers_Assets_at14_route(params@_) =>
-      call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
-        controllers_Assets_at14_invoker.call(Assets_2.at(path, file))
+    case controllers_ListingController_loadListingForm14_route(params@_) =>
+      call { 
+        controllers_ListingController_loadListingForm14_invoker.call(ListingController_0.loadListingForm())
       }
   
     // @LINE:36
-    case controllers_HomeController_openProfileView15_route(params@_) =>
+    case controllers_ListingController_createListing15_route(params@_) =>
+      call { 
+        controllers_ListingController_createListing15_invoker.call(ListingController_0.createListing())
+      }
+  
+    // @LINE:38
+    case controllers_Assets_at16_route(params@_) =>
+      call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
+        controllers_Assets_at16_invoker.call(Assets_3.at(path, file))
+      }
+  
+    // @LINE:40
+    case controllers_HomeController_openProfileView17_route(params@_) =>
       call(params.fromPath[String]("profile", None)) { (profile) =>
-        controllers_HomeController_openProfileView15_invoker.call(HomeController_3.openProfileView(profile))
+        controllers_HomeController_openProfileView17_invoker.call(HomeController_4.openProfileView(profile))
       }
   }
 }

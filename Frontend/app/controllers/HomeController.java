@@ -216,13 +216,13 @@ public class HomeController extends Controller {
         WSRequest request = ws.url("http://localhost:9005/getProfileByEmail/" + profile);
         return request.addHeader("Content-Type", "application/json")
                 .get().thenApplyAsync((WSResponse r) -> {
-                    return ok(views.html.account.profileView.render(r.asJson()));
+                    return ok(views.html.account.profileView.render(r.asJson(), session("email")));
                 }, ec.current());
     }
 
     public CompletionStage<Result> openPositionViewer() {
         WSClient ws = play.test.WSTestClient.newClient(9005);
-        WSRequest request = ws.url("http://localhost:9005/classes");
+        WSRequest request = ws.url("http://localhost:9005/listings");
         return request.addHeader("Content-Type", "application/json")
                 .get().thenApplyAsync((WSResponse r) -> {
                     String classString = r.asJson().toString();
